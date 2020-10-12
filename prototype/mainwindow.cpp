@@ -14,14 +14,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_details->hide();
     ui->layout_letter->hide();
     ui->layout_patners->hide();
-    ui->layout_enter->hide();
-
+    ui->layout_enter->hide(); 
+    QPalette Pal(palette());
+    QImage mainbackground(":/new/images/mainbckgnd.jpg");
+    Pal.setBrush(QPalette::Window, mainbackground);
+    this->setPalette(Pal);
 }
-/*void MainWindow::on_action_3_triggered()
+void MainWindow::on_action_3_triggered()
 {
     developer *esf = new developer();
     esf->show();
-}*/
+}
 
 void MainWindow::on_action_2_triggered()
 {
