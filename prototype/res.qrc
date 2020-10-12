@@ -10,5 +10,7 @@
         <file>images/f3e4b13c53590840e4fed95abb59075b.png</file>
         <file>images/info.png</file>
         <file>images/manual.png</file>
+        <file>images/bckgnd.jpg</file>
+        <file>images/mainbckgnd.jpg</file>
     </qresource>
 </RCC>
