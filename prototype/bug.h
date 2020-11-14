@@ -18,5 +18,5 @@ public:
 private:
     Ui::bug *ui;
 };
-
+//test
 #endif // BUG_H
