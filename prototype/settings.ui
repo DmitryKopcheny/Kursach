@@ -36,28 +36,28 @@
      <rect>
       <x>79</x>
       <y>22</y>
-      <width>156</width>
-      <height>22</height>
+      <width>195</width>
+      <height>30</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QRadioButton" name="radioButton">
-       <property name="text">
-        <string>Тёмная</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QPushButton" name="btnlight">
        <property name="text">
         <string>Светлая</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="btndark">
+       <property name="text">
+        <string>Тёмная</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>41</x>
