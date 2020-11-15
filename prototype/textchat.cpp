@@ -30,3 +30,15 @@ void TextChat::addNewMessage(bool isUsers, QString message)
   messages.push_back(message);
   time.push_back(QDateTime::currentDateTime());
 }
+bool TextChat::isEnd()
+{
+  if (iteratorMessage == messages.size()-1)
+    {
+      return true;
+    }
+  else
+    {
+      return false;
+    }
+}
+

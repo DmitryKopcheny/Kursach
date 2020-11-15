@@ -10,8 +10,7 @@ class ChatBot : public basic_user, public UniversityAM, public GeneralInfo
 public:
   ChatBot();
   ~ChatBot();
-  void send();
-  void addToLog();
+  //void addToLog();
   void setLang(QString);
   QString getLogName();
 

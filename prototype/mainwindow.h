@@ -2,18 +2,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
+class TextChat;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
-
+    void displayChat();
     ~MainWindow();
 
 private slots:
@@ -35,5 +34,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    TextChat *Chat;
 };
 #endif // MAINWINDOW_H

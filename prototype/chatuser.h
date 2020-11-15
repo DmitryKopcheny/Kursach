@@ -8,6 +8,9 @@ class ChatUser : public basic_user, public StudentAM
 public:
   ChatUser();
   ~ChatUser();
+  //void send();
+  //void addToLog();
+  void setLang(QString);
 };
 
 #endif // CHATUSER_H

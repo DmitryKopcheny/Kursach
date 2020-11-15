@@ -8,3 +8,8 @@ ChatUser::~ChatUser()
 {
 
 }
+
+void ChatUser::setLang(const QString langCode)
+{
+  lang = langCode;
+}
