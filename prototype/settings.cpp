@@ -12,3 +12,13 @@ settings::~settings()
 {
     delete ui;
 }
+
+void settings::on_btnlight_clicked()
+{
+
+}
+
+void settings::on_btndark_clicked()
+{
+
+}

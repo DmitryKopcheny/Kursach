@@ -1,6 +1,7 @@
 #ifndef BOT_H
 #define BOT_H
 #include <QDate>
+#include "basic_user.h"
 
 class bot : public basic_user
 {

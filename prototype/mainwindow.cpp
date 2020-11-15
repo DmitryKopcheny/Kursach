@@ -14,14 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_details->hide();
     ui->layout_letter->hide();
     ui->layout_patners->hide();
-    ui->layout_enter->hide();
+    ui->layout_enter->hide(); 
 
 }
-/*void MainWindow::on_action_3_triggered()
+void MainWindow::on_action_3_triggered()
 {
     developer *esf = new developer();
     esf->show();
-}*/
+}
 
 void MainWindow::on_action_2_triggered()
 {

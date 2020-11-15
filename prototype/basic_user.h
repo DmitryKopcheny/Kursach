@@ -4,15 +4,14 @@
 
 class basic_user
 {
-protected:
+public:
   QString userName;
   QString message;
   QString lang;
   QString logName;
   virtual void addToLog() = 0;
-public:
-  virtual basic_user() = 0;
-  virtual ~basic_user() = 0;
+  basic_user(){}
+  ~basic_user(){}
   virtual void send() = 0;
   virtual void setLang() = 0;
 
