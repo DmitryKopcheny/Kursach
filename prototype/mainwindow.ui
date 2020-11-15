@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1039</width>
-    <height>762</height>
+    <width>1144</width>
+    <height>856</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -35,8 +35,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>491</width>
-      <height>381</height>
+      <width>561</width>
+      <height>401</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -71,7 +71,11 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QTextBrowser" name="textBrowser"/>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -81,10 +85,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>540</y>
-      <width>491</width>
-      <height>104</height>
+      <x>570</x>
+      <y>470</y>
+      <width>581</width>
+      <height>181</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -92,15 +96,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QPushButton" name="btn1_1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Кому подойдёт</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/whom.png</normaloff>:/new/images/whom.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn1_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Язык</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/lang.png</normaloff>:/new/images/lang.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -110,15 +160,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
         <widget class="QPushButton" name="btn1_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Стоимость</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/Bitcoin.png</normaloff>:/new/images/Bitcoin.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn1_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>С чего начать</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/start.png</normaloff>:/new/images/start.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -126,8 +222,31 @@
      </item>
      <item>
       <widget class="QPushButton" name="btn1_back">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Назад</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res.qrc">
+         <normaloff>:/new/images/back.png</normaloff>:/new/images/back.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -136,24 +255,70 @@
    <widget class="QWidget" name="layout_letter" native="true">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>500</y>
-      <width>491</width>
-      <height>65</height>
+      <x>580</x>
+      <y>240</y>
+      <width>571</width>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QPushButton" name="btn1_4_1">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Мотивационное письмо</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res.qrc">
+         <normaloff>:/new/images/letter.png</normaloff>:/new/images/letter.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btn1_4_back">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Назад</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res.qrc">
+         <normaloff>:/new/images/back.png</normaloff>:/new/images/back.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -162,10 +327,10 @@
    <widget class="QWidget" name="layout_patners" native="true">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>180</y>
-      <width>491</width>
-      <height>141</height>
+      <x>580</x>
+      <y>10</y>
+      <width>571</width>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -173,15 +338,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_8">
        <item>
         <widget class="QPushButton" name="btn2_1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ1</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn2_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ2</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -191,15 +402,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
         <widget class="QPushButton" name="btn2_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ3</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn2_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ4</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -209,15 +466,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
         <widget class="QPushButton" name="btn2_5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ5</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn2_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Универ6</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ1.png</normaloff>:/new/images/univ1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -225,8 +528,31 @@
      </item>
      <item>
       <widget class="QPushButton" name="btn2_back">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Назад</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res.qrc">
+         <normaloff>:/new/images/back.png</normaloff>:/new/images/back.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -236,9 +562,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>390</y>
-      <width>511</width>
-      <height>111</height>
+      <y>410</y>
+      <width>581</width>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -246,19 +572,61 @@
       <layout class="QHBoxLayout" name="horizontalLayout_16">
        <item>
         <widget class="QPushButton" name="btn1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Что такое АМ</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
-           <normaloff>:/new/images/info.png</normaloff>:/new/images/info.png</iconset>
+           <normaloff>:/new/images/what.png</normaloff>:/new/images/what.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Университеты-партнёры</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/univ.png</normaloff>:/new/images/univ.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -268,6 +636,19 @@
       <layout class="QHBoxLayout" name="horizontalLayout_17">
        <item>
         <widget class="QPushButton" name="btn4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Контакты</string>
          </property>
@@ -277,16 +658,39 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>20</width>
-           <height>20</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Желаете присоедениться?</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/new/images/join.png</normaloff>:/new/images/join.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -300,10 +704,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>600</y>
-      <width>489</width>
-      <height>50</height>
+      <x>580</x>
+      <y>390</y>
+      <width>561</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -330,10 +734,36 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>39</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Enter</string>
        </property>
@@ -347,7 +777,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1039</width>
+     <width>1144</width>
      <height>26</height>
     </rect>
    </property>

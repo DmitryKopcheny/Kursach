@@ -15,5 +15,15 @@
         <file>darkstyle.css</file>
         <file>images/darkbckgnd.jpg</file>
         <file>images/contacts.png</file>
+        <file>images/univ.png</file>
+        <file>images/join.png</file>
+        <file>images/what.png</file>
+        <file>images/back.png</file>
+        <file>images/Bitcoin.png</file>
+        <file>images/lang.png</file>
+        <file>images/letter.png</file>
+        <file>images/start.png</file>
+        <file>images/univ1.png</file>
+        <file>images/whom.png</file>
     </qresource>
 </RCC>
