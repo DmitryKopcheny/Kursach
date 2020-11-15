@@ -3,7 +3,7 @@
 bot::bot()
 {
   userName = "BOT";
-  lang = "ru";
+  lang = "ua";
   logName = QDate::currentDate().toString();
   logName.append(".txt");//logs
 }
@@ -15,9 +15,9 @@ void bot::send()
 {
 
 }
-void bot::setLang()
+void bot::setLang(const QString langCode)
 {
-
+  lang = langCode;
 }
 void bot::addToLog()
 {

@@ -71,7 +71,7 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QTextBrowser" name="textBrowser">
+      <widget class="QTextEdit" name="textEdit">
        <property name="readOnly">
         <bool>false</bool>
        </property>
@@ -778,7 +778,7 @@
      <x>0</x>
      <y>0</y>
      <width>1144</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

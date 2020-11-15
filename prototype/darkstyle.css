@@ -10,7 +10,7 @@ QPushButton
     font-size:16px;
 }
 
-QTextBrowser
+QTextEdit
 {
     background-color: rgba(53, 53, 53, 0.67);
     border-style: outset;
