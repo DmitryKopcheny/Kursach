@@ -23,6 +23,7 @@ void settings::on_btnlight_clicked()
     qApp->setStyleSheet(cssStr);
 }
 
+
 void settings::on_btndark_clicked()
 {
     styleF.setFileName(":/new/darkstyle.css");
