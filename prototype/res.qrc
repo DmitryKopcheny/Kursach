@@ -26,6 +26,7 @@
         <file>images/univ1.png</file>
         <file>images/whom.png</file>
         <file>lightstyle.css</file>
+        <file>images/arrow.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
