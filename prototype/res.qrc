@@ -10,8 +10,6 @@
         <file>images/f3e4b13c53590840e4fed95abb59075b.png</file>
         <file>images/info.png</file>
         <file>images/manual.png</file>
-        <file>images/bckgnd.jpg</file>
-        <file>images/mainbckgnd.jpg</file>
         <file>darkstyle.css</file>
         <file>images/darkbckgnd.jpg</file>
         <file>images/contacts.png</file>
@@ -26,7 +24,7 @@
         <file>images/univ1.png</file>
         <file>images/whom.png</file>
         <file>lightstyle.css</file>
-        <file>images/arrow.png</file>
+        <file>images/lightbckgnd.jpg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
