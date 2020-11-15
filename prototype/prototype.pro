@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT += xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -12,21 +12,27 @@ SOURCES += \
     bot.cpp \
     bug.cpp \
     developer.cpp \
+    generalinfo.cpp \
     main.cpp \
     mainwindow.cpp \
     manual.cpp \
     rateapp.cpp \
-    settings.cpp
+    settings.cpp \
+    studentam.cpp \
+    universityam.cpp
 
 HEADERS += \
     basic_user.h \
     bot.h \
     bug.h \
     developer.h \
+    generalinfo.h \
     mainwindow.h \
     manual.h \
     rateapp.h \
-    settings.h
+    settings.h \
+    studentam.h \
+    universityam.h
 
 FORMS += \
     bug.ui \
