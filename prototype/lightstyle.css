@@ -1,0 +1,49 @@
+QPushButton
+{
+    /*background-color: rgb(53, 53, 53);*/
+    border-style: outset;
+    border-width: 1.5px;
+    border-radius: 8px;
+    border-color: black;
+    color:black;
+    font-size:16px;
+}
+
+QTextEdit
+{
+    /*background-color: rgba(53, 53, 53, 0.67);*/
+    background-image: url(:/new/images/bckgnd.jpg) ;
+    /*background-opacity: 0.8;*/
+    border-style: outset;
+    border-width: 1.5px;
+    border-radius: 8px;
+    border-color: black;
+    color:black;
+    font-size:16px;
+}
+QMenu
+{
+    /*background-color: rgb(74, 74, 74);*/
+    color:black;
+    border-style: outset;
+    border-width: 1px;
+    border-color: black;
+}
+QLabel
+{
+    color:black;
+}
+QComboBox
+{
+    /*background-color:rgb(74, 74, 74);*/
+    color:black;
+}
+QComboBox option
+{
+    /*background-color:rgb(74, 74, 74);*/
+}
+QMainWindow
+{
+    background-image: url(:/new/images/mainbckgnd.jpg);
+    background-position: center;
+}

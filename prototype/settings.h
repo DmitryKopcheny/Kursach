@@ -2,7 +2,7 @@
 #define SETTINGS_H
 
 #include <QMainWindow>
-
+#include <QFile>
 namespace Ui {
 class settings;
 }
@@ -14,6 +14,7 @@ class settings : public QMainWindow
 public:
     explicit settings(QWidget *parent = nullptr);
     ~settings();
+    QFile styleF;
 
 private slots:
     void on_btnlight_clicked();

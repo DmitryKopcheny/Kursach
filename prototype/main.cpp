@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     QFile styleF;
 
-    styleF.setFileName(":/new/darkstyle.css");
+    styleF.setFileName(":/new/lightstyle.css");
     styleF.open(QFile::ReadOnly);
     QString cssStr = styleF.readAll();
 

@@ -1,5 +1,6 @@
 #include "settings.h"
 #include "ui_settings.h"
+#include <QFile>
 
 settings::settings(QWidget *parent) :
     QMainWindow(parent),
@@ -15,10 +16,18 @@ settings::~settings()
 
 void settings::on_btnlight_clicked()
 {
+    styleF.setFileName(":/new/lightstyle.css");
+    styleF.open(QFile::ReadOnly);
+    QString cssStr = styleF.readAll();
 
+    qApp->setStyleSheet(cssStr);
 }
 
 void settings::on_btndark_clicked()
 {
+    styleF.setFileName(":/new/darkstyle.css");
+    styleF.open(QFile::ReadOnly);
+    QString cssStr = styleF.readAll();
 
+    qApp->setStyleSheet(cssStr);
 }
