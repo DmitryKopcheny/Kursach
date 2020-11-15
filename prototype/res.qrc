@@ -12,5 +12,8 @@
         <file>images/manual.png</file>
         <file>images/bckgnd.jpg</file>
         <file>images/mainbckgnd.jpg</file>
+        <file>darkstyle.css</file>
+        <file>images/darkbckgnd.jpg</file>
+        <file>images/contacts.png</file>
     </qresource>
 </RCC>
