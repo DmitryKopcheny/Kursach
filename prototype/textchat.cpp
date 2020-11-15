@@ -13,12 +13,12 @@ void TextChat::resetIterators()
 QString TextChat::getNextMessage()
 {
   iteratorMessage++;
-  return messages[iteratorMessage];
+  return messages[iteratorMessage-1];
 }
 QString TextChat::getNextTime()
 {
   iteratorTime++;
-  return time[iteratorTime].toString();
+  return time[iteratorTime-1].time().toString();
 }
 bool TextChat::getIsUsersMessage()
 {
@@ -32,13 +32,13 @@ void TextChat::addNewMessage(bool isUsers, QString message)
 }
 bool TextChat::isEnd()
 {
-  if (iteratorMessage == messages.size()-1)
+  if (iteratorMessage < messages.size())
     {
-      return true;
+      return false;
     }
   else
     {
-      return false;
+      return true;
     }
 }
 

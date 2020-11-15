@@ -121,16 +121,20 @@ void MainWindow::displayChat()
     {
       if (Chat->getIsUsersMessage())
         {
-          ui->textEdit->append("BOT:");
+          QString nameAndDate;
+          nameAndDate.append(Chat->getNextTime()).append(" BOT:");
+          ui->textEdit->append(nameAndDate);
         }
       else
         {
-          ui->textEdit->append("USER:");
+          QString nameAndDate;
+          nameAndDate.append(Chat->getNextTime()).append(" USER:");
+          ui->textEdit->append(nameAndDate);
         }
-      ui->textEdit->append(Chat->getNextTime());
-      ui->textEdit->append("\n");
-      ui->textEdit->append(Chat->getNextMessage());
-      ui->textEdit->append("\n");
+      //ui->textEdit->append(Chat->getNextTime());
+      //ui->textEdit->append("\n");
+      ui->textEdit->append(Chat->getNextMessage()+="\n");
+      //ui->textEdit->append("\n");
     }
 
 }
