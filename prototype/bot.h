@@ -11,7 +11,7 @@ public:
   bot();
   ~bot();
   void send();
-  void setLang();
+  void setLang(QString);
   QString getLogName();
 
 };
