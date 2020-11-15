@@ -14,7 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_details->hide();
     ui->layout_letter->hide();
     ui->layout_patners->hide();
-    ui->layout_enter->hide(); 
+    ui->layout_enter->hide();
+
+    ui->layout_details->move(0,400);
+    ui->layout_letter->move(0,400);
+    ui->layout_patners->move(0,400);
 
 }
 void MainWindow::on_action_3_triggered()
@@ -57,16 +61,18 @@ void MainWindow::on_btn1_clicked()
 {
  ui->layout_details->show();
  ui->layout_main->hide();
+ ui->layout_enter->hide();
 }
 void MainWindow::on_btn2_clicked()
 {
  ui->layout_patners->show();
  ui->layout_main->hide();
+ ui->layout_enter->hide();
 }
 void MainWindow::on_btn3_clicked()
 {
  ui->layout_enter->show();
- //ui->layout_main->hide();
+
 }
 void MainWindow::on_btn1_4_clicked()
 {

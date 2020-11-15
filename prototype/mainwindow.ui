@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1144</width>
-    <height>856</height>
+    <width>581</width>
+    <height>668</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -22,6 +22,12 @@
     <height>16777215</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Comic Sans MS</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Чат-бот</string>
   </property>
@@ -30,6 +36,12 @@
     <normaloff>:/new/images/33.png</normaloff>:/new/images/33.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>Comic Sans MS</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
    <widget class="QWidget" name="layout_chat_2" native="true">
     <property name="geometry">
      <rect>
@@ -72,6 +84,12 @@
      </property>
      <item>
       <widget class="QTextEdit" name="textEdit">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="readOnly">
         <bool>false</bool>
        </property>
@@ -85,8 +103,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>470</y>
+      <x>580</x>
+      <y>380</y>
       <width>581</width>
       <height>181</height>
      </rect>
@@ -104,7 +122,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -134,7 +153,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -168,7 +188,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -198,7 +219,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -230,7 +252,8 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -261,6 +284,12 @@
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QPushButton" name="btn1_4_1">
@@ -272,7 +301,8 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -302,7 +332,8 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -346,7 +377,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -376,7 +408,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -410,7 +443,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -440,7 +474,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -474,7 +509,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -504,7 +540,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -536,7 +573,8 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -562,7 +600,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>410</y>
+      <y>400</y>
       <width>581</width>
       <height>141</height>
      </rect>
@@ -580,7 +618,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -610,9 +649,11 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="text">
@@ -644,7 +685,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -674,7 +716,8 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Comic Sans MS</family>
+           <pointsize>11</pointsize>
            <weight>50</weight>
            <bold>false</bold>
           </font>
@@ -704,8 +747,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>390</y>
+      <x>10</x>
+      <y>510</y>
       <width>561</width>
       <height>81</height>
      </rect>
@@ -742,7 +785,8 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -753,13 +797,14 @@
       <widget class="QPushButton" name="pushButton">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>93</width>
          <height>39</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -777,8 +822,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1144</width>
-     <height>21</height>
+     <width>581</width>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
