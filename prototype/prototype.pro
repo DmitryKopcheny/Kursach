@@ -9,8 +9,9 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    bot.cpp \
     bug.cpp \
+    chatbot.cpp \
+    chatuser.cpp \
     developer.cpp \
     generalinfo.cpp \
     main.cpp \
@@ -19,12 +20,14 @@ SOURCES += \
     rateapp.cpp \
     settings.cpp \
     studentam.cpp \
+    textchat.cpp \
     universityam.cpp
 
 HEADERS += \
     basic_user.h \
-    bot.h \
     bug.h \
+    chatbot.h \
+    chatuser.h \
     developer.h \
     generalinfo.h \
     mainwindow.h \
@@ -32,6 +35,7 @@ HEADERS += \
     rateapp.h \
     settings.h \
     studentam.h \
+    textchat.h \
     universityam.h
 
 FORMS += \

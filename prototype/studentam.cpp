@@ -4,7 +4,10 @@ StudentAM::StudentAM()
 {
 
 }
+StudentAM::~StudentAM()
+{
 
+}
 void StudentAM::addStudent(const Student& student)
 {
     studentList.append(student);
