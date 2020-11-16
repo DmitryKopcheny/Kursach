@@ -124,6 +124,7 @@ void MainWindow::displayChat()
         {
           QString nameAndDate;
           ui->textBrowser->setAlignment(Qt::AlignLeft);
+          //ui->textBrowser->setSource(QImage(":/new/images/bot.png"));
           nameAndDate.append(Chat->getNextTime()).append(" BOT:");
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");

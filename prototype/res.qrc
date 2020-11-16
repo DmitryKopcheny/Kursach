@@ -25,6 +25,8 @@
         <file>images/whom.png</file>
         <file>lightstyle.css</file>
         <file>images/lightbckgnd.jpg</file>
+        <file>images/bot.png</file>
+        <file>images/user.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
