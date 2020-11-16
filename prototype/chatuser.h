@@ -1,15 +1,13 @@
 #ifndef CHATUSER_H
 #define CHATUSER_H
-#include "basic_user.h"
+#include "basic_bot.h"
 #include "studentam.h"
 
-class ChatUser : public basic_user, public StudentAM
+class ChatUser : public basic_user
 {
 public:
   ChatUser();
   ~ChatUser();
-  //void send();
-  //void addToLog();
   void setLang(QString);
 };
 
