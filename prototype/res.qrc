@@ -5,7 +5,6 @@
         <file>images/dema.jpg</file>
         <file>images/misha.PNG</file>
         <file>images/oleg.jpg</file>
-        <file>images/vlad.PNG</file>
         <file>images/bug.png</file>
         <file>images/f3e4b13c53590840e4fed95abb59075b.png</file>
         <file>images/info.png</file>
@@ -27,6 +26,13 @@
         <file>images/lightbckgnd.jpg</file>
         <file>images/bot.png</file>
         <file>images/user.png</file>
+        <file>images/rate2.png</file>
+        <file>images/rate3.png</file>
+        <file>images/rate4.png</file>
+        <file>images/rate5.png</file>
+        <file>images/rate1.png</file>
+        <file>images/vlad.jpg</file>
+        <file>images/choose.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

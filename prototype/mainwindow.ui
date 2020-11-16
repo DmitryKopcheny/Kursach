@@ -148,7 +148,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Кому подойдёт</string>
+          <string>Для кого це?</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -179,7 +179,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Язык</string>
+          <string>Мова</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -214,7 +214,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Стоимость</string>
+          <string>Коштовність</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -245,7 +245,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>С чего начать</string>
+          <string>С чого почати?</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -327,7 +327,7 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="text">
-        <string>Мотивационное письмо</string>
+        <string>Мотиваційний лист</string>
        </property>
        <property name="icon">
         <iconset resource="res.qrc">
@@ -644,7 +644,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Что такое АМ</string>
+          <string>Що таке АМ?</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -676,7 +676,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Университеты-партнёры</string>
+          <string>Університети-партнери</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -711,7 +711,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Контакты</string>
+          <string>Контакти</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -742,7 +742,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>Желаете присоедениться?</string>
+          <string>Бажаєте долучитися?</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -842,7 +842,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>581</width>
-     <height>30</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

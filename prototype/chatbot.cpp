@@ -3,7 +3,7 @@
 ChatBot::ChatBot()
 {
   userName = "BOT";
-  lang = "ua";
+  lang = UKRAINIAN;
   logName = QDate::currentDate().toString();
   logName.append(".txt");//logs
 }
@@ -12,12 +12,7 @@ ChatBot::~ChatBot()
 
 }
 
-void ChatBot::setLang(const QString langCode)
+void ChatBot::setLang(int langCode)
 {
   lang = langCode;
-}
-
-QString ChatBot::getLogName()
-{
-  return logName;
 }

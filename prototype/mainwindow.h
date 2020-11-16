@@ -32,6 +32,28 @@ private slots:
     void on_btn1_4_back_clicked();
 
 
+    void on_btn1_1_clicked();
+
+    void on_btn1_2_clicked();
+
+    void on_btn1_3_clicked();
+
+    void on_btn1_4_1_clicked();
+
+    void on_btn2_1_clicked();
+
+    void on_btn2_2_clicked();
+
+    void on_btn2_3_clicked();
+
+    void on_btn2_4_clicked();
+
+    void on_btn2_5_clicked();
+
+    void on_btn2_6_clicked();
+
+    void on_btn4_clicked();
+  void on_LanguageChanged(int);
 private:
     Ui::MainWindow *ui;
     TextChat *Chat;

@@ -40,6 +40,7 @@ void MainWindow::on_action_4_triggered()
 {
     settings *esf = new settings();
     esf->show();
+    connect(esf, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
 }
 
 void MainWindow::on_action_triggered()
@@ -65,22 +66,33 @@ void MainWindow::on_btn1_clicked()
  ui->layout_details->show();
  ui->layout_main->hide();
  ui->layout_enter->hide();
+ Chat->addNewMessage(true, ui->btn1->text());
+ Chat->addNewMessage(false, "Файл Відсутній");
+ displayChat();
 }
 void MainWindow::on_btn2_clicked()
 {
  ui->layout_patners->show();
  ui->layout_main->hide();
  ui->layout_enter->hide();
+ Chat->addNewMessage(true, ui->btn2->text());
+ Chat->addNewMessage(false, "Файл Відсутній");
+ displayChat();
 }
 void MainWindow::on_btn3_clicked()
 {
  ui->layout_enter->show();
-displayChat();
+ Chat->addNewMessage(true, ui->btn3->text());
+ Chat->addNewMessage(false, "Файл Відсутній");
+ displayChat();
 }
 void MainWindow::on_btn1_4_clicked()
 {
  ui->layout_letter->show();
  ui->layout_details->hide();
+ Chat->addNewMessage(true, ui->btn4->text());
+ Chat->addNewMessage(false, "Файл Відсутній");
+ displayChat();
 }
 
 void MainWindow::on_btn1_back_clicked()
@@ -99,6 +111,87 @@ void MainWindow::on_btn1_4_back_clicked()
  ui->layout_details->show();
  ui->layout_letter->hide();
 }
+
+void MainWindow::on_btn1_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_2_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_2->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_3_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_3->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_4_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_4_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_2_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_2->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_3_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_3->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_4_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_4->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_5_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_5->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_6_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_6->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn4_clicked()
+{
+  Chat->addNewMessage(true, ui->btn4->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+void  MainWindow::on_LanguageChanged(int index)
+{
+  Chat->setLang(index);
+}
 void MainWindow::displayChat()
 {
   /*
@@ -111,16 +204,20 @@ void MainWindow::displayChat()
   /*QList<QDateTime> time;
   QList<QString> messages;
   QList<bool> isUsersMessage;*/
-  Chat->addNewMessage(true, "Cyyyyka blyaaat nahui daaa");
-  Chat->addNewMessage(false, "Cyyyyka blyaaat nahui daaa");
-  Chat->addNewMessage(true, "Cyyyyka blyaaat nahui daaa");
-  Chat->addNewMessage(false, "Cyyyyka blyaaat nahui daaa");
-  Chat->addNewMessage(true, "Cyyyyka blyaaat nahui daaa");
+  ui->textBrowser->clear();
   Chat->resetIterators();
   while (!Chat->isEnd())
     {
 
       if (Chat->getIsUsersMessage())
+        {
+          QString nameAndDate;
+          ui->textBrowser->setAlignment(Qt::AlignRight);
+          nameAndDate.append(Chat->getNextTime()).append(" USER:");
+          ui->textBrowser->append(nameAndDate);
+          ui->textBrowser->append(Chat->getNextMessage()+="\n");
+        }
+      else
         {
           QString nameAndDate;
           ui->textBrowser->setAlignment(Qt::AlignLeft);
@@ -129,18 +226,6 @@ void MainWindow::displayChat()
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");
         }
-      else
-        {
-          QString nameAndDate;
-          ui->textBrowser->setAlignment(Qt::AlignRight);
-          nameAndDate.append(Chat->getNextTime()).append(" USER:");
-          ui->textBrowser->append(nameAndDate);
-          ui->textBrowser->append(Chat->getNextMessage()+="\n");
-        }
-      //ui->textEdit->append(Chat->getNextTime());
-      //ui->textEdit->append("\n");
-        //ui->textBrowser->append(Chat->getNextMessage()+="\n");
-      //ui->textEdit->append("\n");
     }
 
 }

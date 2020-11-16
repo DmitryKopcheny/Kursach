@@ -32,3 +32,8 @@ void settings::on_btndark_clicked()
 
     qApp->setStyleSheet(cssStr);
 }
+
+void settings::on_comboBox_currentIndexChanged(int index)
+{
+    emit LanguageChanged(index);
+}

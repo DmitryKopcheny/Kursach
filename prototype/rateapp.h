@@ -15,6 +15,17 @@ public:
     explicit rateApp(QWidget *parent = nullptr);
     ~rateApp();
 
+private slots:
+    void on_rate1_clicked();
+
+    void on_rate2_clicked();
+
+    void on_rate3_clicked();
+
+    void on_rate4_clicked();
+
+    void on_rate5_clicked();
+
 private:
     Ui::rateApp *ui;
 };

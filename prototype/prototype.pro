@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     bug.cpp \
     chatbot.cpp \
-    chatuser.cpp \
     developer.cpp \
     generalinfo.cpp \
     main.cpp \
@@ -24,10 +23,9 @@ SOURCES += \
     universityam.cpp
 
 HEADERS += \
-    basic_user.h \
+    basic_bot.h \
     bug.h \
     chatbot.h \
-    chatuser.h \
     developer.h \
     generalinfo.h \
     mainwindow.h \
