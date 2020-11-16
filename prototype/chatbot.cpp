@@ -12,12 +12,7 @@ ChatBot::~ChatBot()
 
 }
 
-void ChatBot::setLang(const QString langCode)
+void ChatBot::setLang(QString langCode)
 {
   lang = langCode;
-}
-
-QString ChatBot::getLogName()
-{
-  return logName;
 }

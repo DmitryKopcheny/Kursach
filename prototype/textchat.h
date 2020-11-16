@@ -4,10 +4,8 @@
 #include <QList>
 #include <QString>
 #include "chatbot.h"
-#include "chatuser.h"
-/*class ChatBot;
-class ChatUser;*/
-class TextChat : public ChatBot, public ChatUser
+
+class TextChat : public ChatBot
 {
   QList<QDateTime> time;
   QList<QString> messages;
@@ -15,7 +13,6 @@ class TextChat : public ChatBot, public ChatUser
   int iteratorTime;
   int iteratorMessage;
   ChatBot Bot;
-  ChatUser User;
 public:
   TextChat();
   void addNewMessage(bool isUsers, QString message);

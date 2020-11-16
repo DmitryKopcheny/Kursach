@@ -1,8 +1,8 @@
-#ifndef BASIC_USER_H
-#define BASIC_USER_H
+#ifndef BASIC_BOT_H
+#define BASIC_BOT_H
 #include <QString>
 
-class basic_user
+class basic_bot
 {
 public:
   QString userName;
@@ -10,12 +10,12 @@ public:
   QString lang;
   QString logName;
   //virtual void addToLog() = 0;
-  basic_user(){}
-  ~basic_user(){}
+  //basic_bot(){}
+  //~basic_bot(){}
   //virtual void send() = 0;
-  //virtual void setLang() = 0;
+  virtual void setLang(QString)=0;
 
 
 };
 
-#endif // BASIC_USER_H
+#endif // BASIC_BOT_H
