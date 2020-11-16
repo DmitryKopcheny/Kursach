@@ -33,6 +33,11 @@
         <file>images/rate1.png</file>
         <file>images/vlad.jpg</file>
         <file>images/choose.png</file>
+        <file>images/rate11.png</file>
+        <file>images/rate22.png</file>
+        <file>images/rate33.png</file>
+        <file>images/rate44.png</file>
+        <file>images/rate55.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

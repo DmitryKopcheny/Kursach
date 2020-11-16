@@ -245,7 +245,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>С чого почати?</string>
+          <string>З чого почати?</string>
          </property>
          <property name="icon">
           <iconset resource="res.qrc">
@@ -842,7 +842,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>581</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

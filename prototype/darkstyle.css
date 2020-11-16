@@ -16,22 +16,27 @@ QPushButton
 QPushButton#rate1
 {
     border-radius: 20px;
+    border-width: 0px;
 }
 QPushButton#rate2
 {
     border-radius: 20px;
+    border-width: 0px;
 }
 QPushButton#rate3
 {
     border-radius: 20px;
+    border-width: 0px;
 }
 QPushButton#rate4
 {
     border-radius: 20px;
+    border-width: 0px;
 }
 QPushButton#rate5
 {
     border-radius: 20px;
+    border-width: 0px;
 }
 
 QFrame#frameManual
@@ -109,4 +114,10 @@ QMainWindow
 QRadioButton
 {
     color:white;
+}
+
+QPushButton:hover
+{
+    font-size:17px;
+    border-color:white;
 }
