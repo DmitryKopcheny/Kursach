@@ -27,11 +27,7 @@ QTextEdit
     border-radius: 12px;
     color: #212121;
 }
-QTextEdit, QListView
-{
-    border-radius: 5px;
-    background-color: red;
-}
+
 QMenu
 {
     background-color: rgb(252, 252, 252);
