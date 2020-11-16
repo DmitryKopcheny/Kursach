@@ -14,7 +14,7 @@ QPushButton
     vertical-align:middle;
 }
 
-QTextEdit
+QTextBrowser
 {
     background-color: rgba(53, 53, 53, 0.67);
     border-style: outset;

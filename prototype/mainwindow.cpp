@@ -119,21 +119,26 @@ void MainWindow::displayChat()
   Chat->resetIterators();
   while (!Chat->isEnd())
     {
+
       if (Chat->getIsUsersMessage())
         {
           QString nameAndDate;
+          ui->textBrowser->setStyleSheet("QTextBrowser{text-align:left}");
           nameAndDate.append(Chat->getNextTime()).append(" BOT:");
-          ui->textEdit->append(nameAndDate);
+          ui->textBrowser->append(nameAndDate);
+          ui->textBrowser->append(Chat->getNextMessage()+="\n");
         }
       else
         {
           QString nameAndDate;
+          ui->textBrowser->setStyleSheet("p align=right");
           nameAndDate.append(Chat->getNextTime()).append(" USER:");
-          ui->textEdit->append(nameAndDate);
+          ui->textBrowser->append(nameAndDate);
+          ui->textBrowser->append(Chat->getNextMessage()+="\n");
         }
       //ui->textEdit->append(Chat->getNextTime());
       //ui->textEdit->append("\n");
-      ui->textEdit->append(Chat->getNextMessage()+="\n");
+        //ui->textBrowser->append(Chat->getNextMessage()+="\n");
       //ui->textEdit->append("\n");
     }
 
