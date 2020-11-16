@@ -156,3 +156,80 @@ void MainWindow::displayChat()
     }
 
 }
+
+void MainWindow::on_btn1_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_2_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_2->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_3_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_3->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn1_4_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn1_4_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_1_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_1->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_2_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_2->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_3_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_3->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_4_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_4->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_5_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_5->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn2_6_clicked()
+{
+  Chat->addNewMessage(true, ui->btn2_6->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
+
+void MainWindow::on_btn4_clicked()
+{
+  Chat->addNewMessage(true, ui->btn4->text());
+  Chat->addNewMessage(false, "Файл Відсутній");
+  displayChat();
+}
