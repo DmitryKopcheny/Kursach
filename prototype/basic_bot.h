@@ -1,7 +1,7 @@
 #ifndef BASIC_BOT_H
 #define BASIC_BOT_H
 #include <QString>
-
+enum langeages{UKRAINIAN, ENGLISH, DEUTSCH, RUSSIAN, ARAB};
 class basic_bot
 {
 public:
@@ -13,7 +13,7 @@ public:
   //basic_bot(){}
   //~basic_bot(){}
   //virtual void send() = 0;
-  virtual void setLang(QString)=0;
+  virtual void setLang(int)=0;
 
 
 };

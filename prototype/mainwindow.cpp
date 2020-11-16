@@ -40,6 +40,7 @@ void MainWindow::on_action_4_triggered()
 {
     settings *esf = new settings();
     esf->show();
+    connect(esf, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
 }
 
 void MainWindow::on_action_triggered()
@@ -186,6 +187,10 @@ void MainWindow::on_btn4_clicked()
   Chat->addNewMessage(true, ui->btn4->text());
   Chat->addNewMessage(false, "Файл Відсутній");
   displayChat();
+}
+void  MainWindow::on_LanguageChanged(int index)
+{
+  Chat->setLang(index);
 }
 void MainWindow::displayChat()
 {

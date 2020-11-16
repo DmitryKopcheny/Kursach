@@ -11,7 +11,7 @@ class ChatBot : public basic_bot, public UniversityAM, public GeneralInfo, publi
 public:
   ChatBot();
   ~ChatBot();
-  void setLang(QString);
+  void setLang(int);
 };
 
 #endif // CHATBOT_H
