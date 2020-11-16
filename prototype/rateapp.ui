@@ -57,7 +57,7 @@
     </property>
     <property name="icon">
      <iconset resource="res.qrc">
-      <normaloff>:/new/images/rate1.png</normaloff>:/new/images/rate1.png</iconset>
+      <normaloff>:/new/images/rate11.png</normaloff>:/new/images/rate11.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -80,7 +80,7 @@
     </property>
     <property name="icon">
      <iconset resource="res.qrc">
-      <normaloff>:/new/images/rate2.png</normaloff>:/new/images/rate2.png</iconset>
+      <normaloff>:/new/images/rate22.png</normaloff>:/new/images/rate22.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -103,7 +103,7 @@
     </property>
     <property name="icon">
      <iconset resource="res.qrc">
-      <normaloff>:/new/images/rate3.png</normaloff>:/new/images/rate3.png</iconset>
+      <normaloff>:/new/images/rate33.png</normaloff>:/new/images/rate33.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -126,7 +126,7 @@
     </property>
     <property name="icon">
      <iconset resource="res.qrc">
-      <normaloff>:/new/images/rate4.png</normaloff>:/new/images/rate4.png</iconset>
+      <normaloff>:/new/images/rate44.png</normaloff>:/new/images/rate44.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -149,7 +149,7 @@
     </property>
     <property name="icon">
      <iconset resource="res.qrc">
-      <normaloff>:/new/images/rate5.png</normaloff>:/new/images/rate5.png</iconset>
+      <normaloff>:/new/images/rate55.png</normaloff>:/new/images/rate55.png</iconset>
     </property>
     <property name="iconSize">
      <size>
