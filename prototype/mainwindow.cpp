@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_patners->move(0,400);
 
     Chat = new TextChat;
-
+    Chat->readFromXml(Chat->getLang());
 }
 void MainWindow::on_action_3_triggered()
 {
@@ -149,43 +149,67 @@ void MainWindow::on_btn1_4_1_clicked()
 
 void MainWindow::on_btn2_1_clicked()
 {
+  QString university;
+  university += Chat->getUnName(0);
+  university += "\n";
+  university += Chat->getMainInfo(0);
   Chat->addNewMessage(true, ui->btn2_1->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
 void MainWindow::on_btn2_2_clicked()
 {
+  QString university;
+  university += Chat->getUnName(1);
+  university += "\n";
+  university += Chat->getMainInfo(1);
   Chat->addNewMessage(true, ui->btn2_2->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
 void MainWindow::on_btn2_3_clicked()
 {
+  QString university;
+  university += Chat->getUnName(2);
+  university += "\n";
+  university += Chat->getMainInfo(2);
   Chat->addNewMessage(true, ui->btn2_3->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
 void MainWindow::on_btn2_4_clicked()
 {
+  QString university;
+  university += Chat->getUnName(3);
+  university += "\n";
+  university += Chat->getMainInfo(3);
   Chat->addNewMessage(true, ui->btn2_4->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
 void MainWindow::on_btn2_5_clicked()
 {
+  QString university;
+  university += Chat->getUnName(4);
+  university += "\n";
+  university += Chat->getMainInfo(4);
   Chat->addNewMessage(true, ui->btn2_5->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
 void MainWindow::on_btn2_6_clicked()
 {
+  QString university;
+  university += Chat->getUnName(5);
+  university += "\n";
+  university += Chat->getMainInfo(5);
   Chat->addNewMessage(true, ui->btn2_6->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, university);
   displayChat();
 }
 
@@ -198,6 +222,7 @@ void MainWindow::on_btn4_clicked()
 void  MainWindow::on_LanguageChanged(int index)
 {
   Chat->setLang(index);
+  Chat->readFromXml(Chat->getLang());
 ///////////////////////////////////////////////////////////////////больше изменение языка интерфейса
 }
 void MainWindow::displayChat()
