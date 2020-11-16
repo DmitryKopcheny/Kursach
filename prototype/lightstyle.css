@@ -26,9 +26,14 @@ QTextBrowser
     border: 1px solid rgb(181, 181, 181);
     border-radius: 12px;
     color: #212121;
-    text-align:right;
 }
-
+QTextEdit
+{
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 12px;
+    color: #212121;
+}
 QMenu
 {
     background-color: rgb(252, 252, 252);

@@ -24,7 +24,16 @@ QTextBrowser
     color:white;
     font-size:16px;
 }
-
+QTextEdit
+{
+    background-color: rgba(53, 53, 53, 0.67);
+    border-style: outset;
+    border-width: 1.5px;
+    border-radius: 12px;
+    border-color: beige;
+    color:white;
+    font-size:16px;
+}
 QLineEdit
 {
     background-color: rgba(53, 53, 53, 0.67);
