@@ -123,7 +123,7 @@ void MainWindow::displayChat()
       if (Chat->getIsUsersMessage())
         {
           QString nameAndDate;
-          ui->textBrowser->setStyleSheet("QTextBrowser{text-align:left}");
+          ui->textBrowser->setAlignment(Qt::AlignLeft);
           nameAndDate.append(Chat->getNextTime()).append(" BOT:");
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");
@@ -131,7 +131,7 @@ void MainWindow::displayChat()
       else
         {
           QString nameAndDate;
-          ui->textBrowser->setStyleSheet("p align=right");
+          ui->textBrowser->setAlignment(Qt::AlignRight);
           nameAndDate.append(Chat->getNextTime()).append(" USER:");
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");
