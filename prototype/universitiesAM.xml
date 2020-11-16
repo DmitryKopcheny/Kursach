@@ -1,0 +1,71 @@
+<!DOCTYPE universitiesAM>
+<universitiesAM>
+<language lang="ukrainian">
+<university>
+	<Name>Універ1</Name>
+	<Info>якась інфа1</Info>
+</university>
+<university>
+	<Name>Універ2</Name>
+	<Info>якась інфа2</Info>
+</university>
+<university>
+	<Name>Універ3</Name>
+	<Info>якась інфа3</Info>
+</university>
+<university>
+	<Name>Універ4</Name>
+	<Info>якась інфа4</Info>
+</university>
+<university>
+	<Name>Універ5</Name>
+	<Info>якась інфа5</Info>
+</university>
+<university>
+	<Name>Універ6</Name>
+	<Info>якась інфа6</Info>
+</university>
+<university>
+	<Name>Універ7</Name>
+	<Info>якась інфа7</Info>
+</university>
+<university>
+	<Name>Універ8</Name>
+	<Info>якась інфа8</Info>
+</university>
+</language>
+<language lang="english">
+<university>
+	<Name>Univ1</Name>
+	<Info>Info1</Info>
+</university>
+<university>
+	<Name>Univ2</Name>
+	<Info>Info2</Info>
+</university>
+<university>
+	<Name>Univ3</Name>
+	<Info>Info3</Info>
+</university>
+<university>
+	<Name>Univ4</Name>
+	<Info>Info4</Info>
+</university>
+<university>
+	<Name>Univ5</Name>
+	<Info>Info5</Info>
+</university>
+<university>
+	<Name>Univ6</Name>
+	<Info>Info6</Info>
+</university>
+<university>
+	<Name>Univ7</Name>
+	<Info>Info7</Info>
+</university>
+<university>
+	<Name>Univ8</Name>
+	<Info>Info8</Info>
+</university>
+</language>
+</universitiesAM>

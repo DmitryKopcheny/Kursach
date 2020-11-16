@@ -22,7 +22,7 @@ public:
     QString getMainInfo(int index) const;
     int getSize() const;
 
-    void readFromXml();
+    void readFromXml(QString language);
 
 private:
     QList<University> universityList;

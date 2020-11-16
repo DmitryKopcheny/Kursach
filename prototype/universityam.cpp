@@ -25,7 +25,7 @@ int UniversityAM::getSize() const
     return universityList.size();
 }
 
-void UniversityAM::readFromXml()
+void UniversityAM::readFromXml(QString language)
 {
     QDomDocument domDoc;
     QFile file("universitiesAM.xml");
@@ -35,12 +35,23 @@ void UniversityAM::readFromXml()
         if(domDoc.setContent(&file))
         {
             QDomElement root = domDoc.documentElement();
-            QDomNode univXml = root.firstChild();
-            while(!univXml.isNull())
+            QDomNode langNode = root.firstChild();
+
+            while(!langNode.isNull())
             {
-                universityList.append(formUnivFromXml(univXml));
-                univXml = univXml.nextSibling();
+                if(langNode.toElement().attribute("lang","") == language)//настройка языка
+                {
+                    QDomNode univXml = langNode.firstChild();
+                    while(!univXml.isNull())
+                    {
+                        universityList.append(formUnivFromXml(univXml));
+                        univXml = univXml.nextSibling();
+                    }
+                    break;
+                }
+                langNode = langNode.nextSibling();
             }
+
         }
         file.close();
     }
