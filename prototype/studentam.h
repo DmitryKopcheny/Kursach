@@ -24,7 +24,7 @@ public:
     QString getGroup(int index) const;
     QString getphoneNumber(int index) const;
     const Student& getStudent(int index) const;
-    int getSize() const;
+    int getSizeOfStud() const;
 
     void writeToXml();
 private:

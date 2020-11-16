@@ -20,7 +20,7 @@ public:
     const University& getUniversity(int index);
     QString getUnName(int index) const;
     QString getMainInfo(int index) const;
-    int getSize() const;
+    int getSizeOfUniv() const;
 
     void readFromXml(QString language);
 

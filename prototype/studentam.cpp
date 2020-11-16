@@ -38,7 +38,7 @@ const Student &StudentAM::getStudent(int index) const
     return studentList.at(index);
 }
 
-int StudentAM::getSize() const
+int StudentAM::getSizeOfStud() const
 {
     return studentList.size();
 }

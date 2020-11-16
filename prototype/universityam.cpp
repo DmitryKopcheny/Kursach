@@ -20,7 +20,7 @@ QString UniversityAM::getMainInfo(int index) const
     return universityList.at(index).mainInfo;
 }
 
-int UniversityAM::getSize() const
+int UniversityAM::getSizeOfUniv() const
 {
     return universityList.size();
 }

@@ -12,6 +12,7 @@ public:
   ChatBot();
   ~ChatBot();
   void setLang(int);
+  QString getLang();
 };
 
 #endif // CHATBOT_H

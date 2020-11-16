@@ -75,8 +75,15 @@ void MainWindow::on_btn2_clicked()
  ui->layout_patners->show();
  ui->layout_main->hide();
  ui->layout_enter->hide();
+ Chat->readFromXml(Chat->getLang());
+ QString partners;
+ for (int i = 0; i<Chat->getSizeOfUniv(); i++)
+   {
+     partners += Chat->getUnName(i);
+     partners += "\n";
+   }
  Chat->addNewMessage(true, ui->btn2->text());
- Chat->addNewMessage(false, "Файл Відсутній");
+ Chat->addNewMessage(false, partners);
  displayChat();
 }
 void MainWindow::on_btn3_clicked()
@@ -191,6 +198,7 @@ void MainWindow::on_btn4_clicked()
 void  MainWindow::on_LanguageChanged(int index)
 {
   Chat->setLang(index);
+///////////////////////////////////////////////////////////////////больше изменение языка интерфейса
 }
 void MainWindow::displayChat()
 {
