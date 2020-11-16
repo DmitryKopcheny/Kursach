@@ -52,6 +52,8 @@ private slots:
 
     void on_btn2_6_clicked();
 
+    void on_btn4_clicked();
+
 private:
     Ui::MainWindow *ui;
     TextChat *Chat;

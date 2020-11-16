@@ -2,8 +2,7 @@
 
 TextChat::TextChat()
 {
-  iteratorTime = 0;
-  iteratorMessage = 0;
+  resetIterators();
 }
 void TextChat::resetIterators()
 {
@@ -12,12 +11,12 @@ void TextChat::resetIterators()
 }
 QString TextChat::getNextMessage()
 {
-  iteratorMessage++;
+  ++iteratorMessage;
   return messages[iteratorMessage-1];
 }
 QString TextChat::getNextTime()
 {
-  iteratorTime++;
+  ++iteratorTime;
   return time[iteratorTime-1].time().toString();
 }
 bool TextChat::getIsUsersMessage()
