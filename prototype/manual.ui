@@ -12,14 +12,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>473</width>
-    <height>451</height>
+    <width>681</width>
+    <height>647</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>16777215</width>
-    <height>16777215</height>
+    <width>681</width>
+    <height>647</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -79,7 +79,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="frameManual">
     <property name="geometry">
      <rect>
       <x>9</x>
@@ -98,6 +98,9 @@
      <number>1</number>
     </property>
    </widget>
+   <zorder>frameManual</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

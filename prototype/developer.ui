@@ -275,7 +275,7 @@
             <enum>Qt::PlainText</enum>
            </property>
            <property name="pixmap">
-            <pixmap resource="res.qrc">:/new/images/vlad.PNG</pixmap>
+            <pixmap resource="res.qrc">:/new/images/vlad.jpg</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -387,6 +387,24 @@
      </item>
     </layout>
    </widget>
+   <widget class="QFrame" name="frameManual">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>981</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <zorder>frameManual</zorder>
+   <zorder>layoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
