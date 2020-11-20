@@ -22,7 +22,7 @@ public:
     QString getMainInfo(int index) const;
     int getSizeOfUniv() const;
 
-    void readFromXml(QString language);
+    void readFromXml(const QString language);
 
 private:
     QList<University> universityList;

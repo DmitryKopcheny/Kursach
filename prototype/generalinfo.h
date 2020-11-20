@@ -2,15 +2,28 @@
 #define GENERALINFO_H
 
 #include <QString>
+#include <QStringList>
+#include <QFile>
+
 class GeneralInfo
 {
 public:
     GeneralInfo();
-private:
-    QString a;
-    QString b;
-    QString c;
+    QString getAboutAM();
+    QString getForWhom();
+    QString getPayments();
+    QString getRequiredLang();
+    QString getWhereToStart();
+    QString getContacts();
 
+    void readFromCsv(const QString language);
+private:
+    QString aboutAM;
+    QString forWhom;
+    QString Payments;
+    QString requiredLanguage;
+    QString whereToStart;
+    QString Contacts;
 
 };
 

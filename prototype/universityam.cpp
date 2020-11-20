@@ -25,14 +25,15 @@ int UniversityAM::getSizeOfUniv() const
     return universityList.size();
 }
 
-void UniversityAM::readFromXml(QString language)
+void UniversityAM::readFromXml(const QString language)
 {
-  universityList.clear();
+    universityList.clear();
     QDomDocument domDoc;
     QFile file("universitiesAM.xml");
     //file.isOpen except situation
-    file.open(QIODevice::ReadOnly);
-    if(file.exists());
+    // file.open(QIODevice::ReadOnly); //если не работает, это расскоментить
+    //file.exists(); // а эту заменить в if ниже
+    if(file.open(QIODevice::ReadOnly))
     {
         if(domDoc.setContent(&file))
         {
