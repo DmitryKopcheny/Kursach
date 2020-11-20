@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_patners->move(0,400);
 
     Chat = new TextChat;
-    Chat->readFromXml(Chat->getLang());
+
 }
 void MainWindow::on_action_3_triggered()
 {
@@ -61,93 +61,88 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_btn1_clicked()
+void MainWindow::on_btn1_clicked()//що таке АМ
 {
- ui->layout_details->show();
- ui->layout_main->hide();
- ui->layout_enter->hide();
- Chat->addNewMessage(true, ui->btn1->text());
- Chat->addNewMessage(false, "Файл Відсутній");
- displayChat();
+  ui->layout_details->show();
+  ui->layout_main->hide();
+  ui->layout_enter->hide();
+
+  Chat->addNewMessage(true, ui->btn1->text());
+  Chat->addNewMessage(false, Chat->getAboutAM());
+  displayChat();
 }
-void MainWindow::on_btn2_clicked()
+void MainWindow::on_btn2_clicked()//університети
 {
- ui->layout_patners->show();
- ui->layout_main->hide();
- ui->layout_enter->hide();
- Chat->readFromXml(Chat->getLang());
- QString partners;
- for (int i = 0; i<Chat->getSizeOfUniv(); i++)
-   {
-     partners += Chat->getUnName(i);
-     partners += "\n";
-   }
- Chat->addNewMessage(true, ui->btn2->text());
- Chat->addNewMessage(false, partners);
- displayChat();
+  ui->layout_patners->show();
+  ui->layout_main->hide();
+  ui->layout_enter->hide();
+
+  QString partners;
+  for (int i = 0; i<Chat->getSizeOfUniv(); i++)
+    {
+      partners += Chat->getUnName(i);
+      partners += "\n";
+    }
+  Chat->addNewMessage(true, ui->btn2->text());
+  Chat->addNewMessage(false, partners);
+  displayChat();
 }
-void MainWindow::on_btn3_clicked()
+void MainWindow::on_btn3_clicked()//реєстація
 {
- ui->layout_enter->show();
- Chat->addNewMessage(true, ui->btn3->text());
- Chat->addNewMessage(false, "Файл Відсутній");
- displayChat();
-}
-void MainWindow::on_btn1_4_clicked()
-{
- ui->layout_letter->show();
- ui->layout_details->hide();
- Chat->addNewMessage(true, ui->btn4->text());
- Chat->addNewMessage(false, "Файл Відсутній");
- displayChat();
+  ui->layout_enter->show();
+  ui->layout_main->hide();
+  Chat->addNewMessage(true, ui->btn3->text());
+  Chat->addNewMessage(false, Chat->getContacts());
+  displayChat();
 }
 
-void MainWindow::on_btn1_back_clicked()
+void MainWindow::on_btn4_clicked()//контакти
 {
- ui->layout_main->show();
- ui->layout_details->hide();
-}
-void MainWindow::on_btn2_back_clicked()
-{
- ui->layout_main->show();
- ui->layout_patners->hide();
+  Chat->addNewMessage(true, ui->btn4->text());
+  Chat->addNewMessage(false, "Файл Відсутній");               //метод відсутній
+  displayChat();
 }
 
-void MainWindow::on_btn1_4_back_clicked()
-{
- ui->layout_details->show();
- ui->layout_letter->hide();
-}
 
-void MainWindow::on_btn1_1_clicked()
+void MainWindow::on_btn1_1_clicked()//для кого це
 {
   Chat->addNewMessage(true, ui->btn1_1->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, Chat->getForWhom());
   displayChat();
 }
 
-void MainWindow::on_btn1_2_clicked()
+void MainWindow::on_btn1_2_clicked()//мова
 {
   Chat->addNewMessage(true, ui->btn1_2->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, Chat->getRequiredLang());
   displayChat();
 }
 
-void MainWindow::on_btn1_3_clicked()
+void MainWindow::on_btn1_3_clicked()//коштoвність
 {
   Chat->addNewMessage(true, ui->btn1_3->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, Chat->getPayments());
   displayChat();
 }
 
-void MainWindow::on_btn1_4_1_clicked()
+void MainWindow::on_btn1_4_clicked()//з чого почати
+{
+  ui->layout_letter->show();
+  ui->layout_details->hide();
+
+  Chat->addNewMessage(true, ui->btn4->text());
+  Chat->addNewMessage(false, Chat->getWhereToStart());
+  displayChat();
+}
+
+void MainWindow::on_btn1_4_1_clicked()//приклад мотиваційного листа
 {
   Chat->addNewMessage(true, ui->btn1_4_1->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
+  Chat->addNewMessage(false, "Файл Відсутній");             //метод відсутній
   displayChat();
 }
 
-void MainWindow::on_btn2_1_clicked()
+void MainWindow::on_btn2_1_clicked()//унівеситет 1
 {
   QString university;
   university += Chat->getUnName(0);
@@ -158,7 +153,7 @@ void MainWindow::on_btn2_1_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn2_2_clicked()
+void MainWindow::on_btn2_2_clicked()//унівеситет 2
 {
   QString university;
   university += Chat->getUnName(1);
@@ -169,7 +164,7 @@ void MainWindow::on_btn2_2_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn2_3_clicked()
+void MainWindow::on_btn2_3_clicked()//унівеситет 3
 {
   QString university;
   university += Chat->getUnName(2);
@@ -180,7 +175,7 @@ void MainWindow::on_btn2_3_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn2_4_clicked()
+void MainWindow::on_btn2_4_clicked()//унівеситет 4
 {
   QString university;
   university += Chat->getUnName(3);
@@ -191,7 +186,7 @@ void MainWindow::on_btn2_4_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn2_5_clicked()
+void MainWindow::on_btn2_5_clicked()//унівеситет 5
 {
   QString university;
   university += Chat->getUnName(4);
@@ -202,7 +197,7 @@ void MainWindow::on_btn2_5_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn2_6_clicked()
+void MainWindow::on_btn2_6_clicked()//унівеситет 6
 {
   QString university;
   university += Chat->getUnName(5);
@@ -213,17 +208,27 @@ void MainWindow::on_btn2_6_clicked()
   displayChat();
 }
 
-void MainWindow::on_btn4_clicked()
+void MainWindow::on_btn1_back_clicked()//назад
 {
-  Chat->addNewMessage(true, ui->btn4->text());
-  Chat->addNewMessage(false, "Файл Відсутній");
-  displayChat();
+  ui->layout_main->show();
+  ui->layout_details->hide();
 }
-void  MainWindow::on_LanguageChanged(int index)
+void MainWindow::on_btn2_back_clicked()//назад
+{
+  ui->layout_main->show();
+  ui->layout_patners->hide();
+}
+
+void MainWindow::on_btn1_4_back_clicked()//назад
+{
+  ui->layout_details->show();
+  ui->layout_letter->hide();
+}
+void  MainWindow::on_LanguageChanged(int index) //больше изменение языка интерфейса
 {
   Chat->setLang(index);
   Chat->readFromXml(Chat->getLang());
-///////////////////////////////////////////////////////////////////больше изменение языка интерфейса
+  Chat->readFromCsv(Chat->getLang());
 }
 void MainWindow::displayChat()
 {
@@ -254,7 +259,6 @@ void MainWindow::displayChat()
         {
           QString nameAndDate;
           ui->textBrowser->setAlignment(Qt::AlignLeft);
-          //ui->textBrowser->setSource(QImage(":/new/images/bot.png"));
           nameAndDate.append(Chat->getNextTime()).append(" BOT:");
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");

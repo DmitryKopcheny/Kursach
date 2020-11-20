@@ -13,7 +13,7 @@ ChatBot::~ChatBot()
 
 void ChatBot::setLang(int langCode)
 {
-  if (langCode == 0)
+  if (langCode == UKRAINIAN)
     {
       language = "ukrainian";
     }

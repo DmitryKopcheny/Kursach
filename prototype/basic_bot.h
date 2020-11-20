@@ -1,7 +1,7 @@
 #ifndef BASIC_BOT_H
 #define BASIC_BOT_H
 #include <QString>
-enum langeages{UKRAINIAN, ENGLISH, DEUTSCH, RUSSIAN, ARAB};
+enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN, ARAB};
 class basic_bot
 {
 public:
@@ -9,7 +9,7 @@ public:
   //QString message;
   QString language;
   QString logName;
-  //virtual void addToLog() = 0;
+  //virtual void saveLog() = 0;
   //basic_bot(){}
   //~basic_bot(){}
   //virtual void send() = 0;

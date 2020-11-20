@@ -3,6 +3,8 @@
 TextChat::TextChat()
 {
   resetIterators();
+  readFromXml(getLang());
+  readFromCsv(getLang());
 }
 void TextChat::resetIterators()
 {
