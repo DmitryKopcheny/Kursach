@@ -1,4 +1,5 @@
 #include "generalinfo.h"
+#include "exception.h"
 
 GeneralInfo::GeneralInfo()
 {
@@ -38,7 +39,24 @@ QString GeneralInfo::getContacts()
 void GeneralInfo::readFromCsv(const QString language)
 {
     QFile file("buttonsCSV.csv");
+<<<<<<< Updated upstream
     file.open(QIODevice::ReadOnly); //для Влада
+=======
+    try {
+            file.open(QIODevice::ReadOnly);
+            if(!file.isOpen())
+                {
+                    throw FileException("buttonsCSV.csv");
+                }
+        }
+
+    catch(FileException& ex)
+        {
+            ex.what();
+        }
+
+    //file.open(QIODevice::ReadOnly);
+>>>>>>> Stashed changes
 
     QStringList wordList;
     while(!file.atEnd())

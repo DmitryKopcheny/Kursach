@@ -13,6 +13,7 @@ SOURCES += \
     bug.cpp \
     chatbot.cpp \
     developer.cpp \
+    exception.cpp \
     generalinfo.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     bug.h \
     chatbot.h \
     developer.h \
+    exception.h \
     generalinfo.h \
     mainwindow.h \
     manual.h \

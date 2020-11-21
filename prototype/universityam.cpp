@@ -1,4 +1,5 @@
 #include "universityam.h"
+#include "exception.h"
 
 UniversityAM::UniversityAM()
 {
@@ -30,10 +31,27 @@ void UniversityAM::readFromXml(const QString language)
     universityList.clear();
     QDomDocument domDoc;
     QFile file("universitiesAM.xml");
+<<<<<<< Updated upstream
     //file.isOpen except situation
     // file.open(QIODevice::ReadOnly); //если не работает, это расскоментить
     //file.exists(); // а эту заменить в if ниже
     if(file.open(QIODevice::ReadOnly))
+=======
+    try {
+            file.open(QIODevice::ReadOnly);
+            if(!file.isOpen())
+                {
+                    throw FileException("universitiesAM.xml");
+                }
+        }
+
+    catch(FileException& ex)
+        {
+            ex.what();
+        }
+
+    if(file.exists())
+>>>>>>> Stashed changes
     {
         if(domDoc.setContent(&file))
         {
@@ -65,28 +83,31 @@ University &UniversityAM::formUnivFromXml(const QDomNode& univXml)
     University *temp = new University;
     QDomElement univElement = univXml.toElement();
     QDomNode traverseNode = univXml.firstChild();
-    if(univElement.tagName() == "university")
-    {
-        QDomElement univName = traverseNode.toElement();
-        temp->univName = univName.text();
+        if(univElement.tagName() == "university")
+        {
 
-        traverseNode = traverseNode.nextSibling();
+                QDomElement univName = traverseNode.toElement();
 
-        QDomElement univMainInfo = traverseNode.toElement();
-        temp->mainInfo = univMainInfo.text();
+                temp->univName = univName.text();
 
-        //-----------------------------------------------------
-        return *temp;
-    }
-    //------------------except situation
+                traverseNode = traverseNode.nextSibling();
+
+                QDomElement univMainInfo = traverseNode.toElement();
+
+                temp->mainInfo = univMainInfo.text();
+
+        }
+
+            return *temp;
 }
 
+
 QString University::getName()
-{
-    return univName;
+{  
+        return univName;
 }
 
 QString University::getMainInfo()
 {
-    return mainInfo;
+        return mainInfo;
 }

@@ -6,6 +6,7 @@
 #include "manual.h"
 #include "settings.h"
 #include "textchat.h"
+#include "studentam.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -73,6 +74,10 @@ void MainWindow::on_btn1_clicked()//що таке АМ
 }
 void MainWindow::on_btn2_clicked()//університети
 {
+<<<<<<< Updated upstream
+=======
+  if (Chat->getSizeOfUniv()!=0){
+>>>>>>> Stashed changes
   ui->layout_patners->show();
   ui->layout_main->hide();
   ui->layout_enter->hide();
@@ -84,7 +89,13 @@ void MainWindow::on_btn2_clicked()//університети
       partners += "\n";
     }
   Chat->addNewMessage(true, ui->btn2->text());
+<<<<<<< Updated upstream
   Chat->addNewMessage(false, partners);
+=======
+  }
+  else {
+  Chat->addNewMessage(false, "Файл відсутній");}
+>>>>>>> Stashed changes
   displayChat();
 }
 void MainWindow::on_btn3_clicked()//реєстація
@@ -178,9 +189,11 @@ void MainWindow::on_btn1_4_1_clicked()//приклад мотиваційног�
 void MainWindow::on_btn2_1_clicked()//унівеситет 1
 {
   QString university;
-  university += Chat->getUnName(0);
-  university += "\n";
-  university += Chat->getMainInfo(0);
+
+      university += Chat->getUnName(0);
+      university += "\n";
+      university += Chat->getMainInfo(0);
+
   Chat->addNewMessage(true, ui->btn2_1->text());
   Chat->addNewMessage(false, university);
   displayChat();
@@ -189,9 +202,11 @@ void MainWindow::on_btn2_1_clicked()//унівеситет 1
 void MainWindow::on_btn2_2_clicked()//унівеситет 2
 {
   QString university;
-  university += Chat->getUnName(1);
-  university += "\n";
-  university += Chat->getMainInfo(1);
+
+      university += Chat->getUnName(1);
+      university += "\n";
+      university += Chat->getMainInfo(1);
+
   Chat->addNewMessage(true, ui->btn2_2->text());
   Chat->addNewMessage(false, university);
   displayChat();
