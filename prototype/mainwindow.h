@@ -40,8 +40,11 @@ private slots:
     void on_btn2_6_clicked();
     void on_btn4_clicked();
     void on_LanguageChanged(int);
+    void on_btn_enter_clicked();
+
 private:
     Ui::MainWindow *ui;
+    Student *studInfo;
     TextChat *Chat;
 };
 #endif // MAINWINDOW_H

@@ -10,6 +10,7 @@ struct Student
     QString group;
     int course;
     QString phoneNumber;
+    Student();
 };
 
 class StudentAM

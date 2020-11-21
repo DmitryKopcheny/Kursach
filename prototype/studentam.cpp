@@ -1,13 +1,20 @@
 #include "studentam.h"
+Student::Student()
+{
+  course = 0;
+}
+
 
 StudentAM::StudentAM()
 {
 
 }
+
 StudentAM::~StudentAM()
 {
 
 }
+
 void StudentAM::addStudent(const Student& student)
 {
     studentList.append(student);

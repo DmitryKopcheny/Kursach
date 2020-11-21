@@ -17,9 +17,21 @@ void ChatBot::setLang(int langCode)
     {
       language = "ukrainian";
     }
-  if (langCode == 1)
+  if (langCode == ENGLISH)
     {
       language = "english";
+    }
+  if (langCode == GERMAN)
+    {
+      language = "german";
+    }
+  if (langCode == RUSSIAN)
+    {
+      language = "russian";
+    }
+  if (langCode == ARAB)
+    {
+      language = "arab";
     }
 }
 QString ChatBot::getLang()

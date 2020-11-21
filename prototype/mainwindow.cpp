@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_details->move(0,400);
     ui->layout_letter->move(0,400);
     ui->layout_patners->move(0,400);
-
+    ui->layout_enter->move(10,400);
     Chat = new TextChat;
 
 }
@@ -92,14 +92,47 @@ void MainWindow::on_btn3_clicked()//реєстація
   ui->layout_enter->show();
   ui->layout_main->hide();
   Chat->addNewMessage(true, ui->btn3->text());
-  Chat->addNewMessage(false, Chat->getContacts());
+  //Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній //введите fullName
   displayChat();
+}
+
+void MainWindow::on_btn_enter_clicked()
+{
+  if (studInfo == 0)
+    {
+      studInfo = new Student;
+    }
+  if (studInfo->fullName.isEmpty())
+    {
+      Chat->addNewMessage(true, ui->lineEdit->text());
+      studInfo->fullName = ui->lineEdit->text();
+      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
+
+    }
+  if (studInfo->group.isEmpty())
+    {
+      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
+
+    }
+  if (studInfo->phoneNumber.isEmpty())
+    {
+      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
+
+    }
+  if (studInfo->phoneNumber.isEmpty())
+    {
+      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
+
+    }
+
+  ui->layout_main->show();
+  ui->layout_enter->hide();
 }
 
 void MainWindow::on_btn4_clicked()//контакти
 {
   Chat->addNewMessage(true, ui->btn4->text());
-  Chat->addNewMessage(false, "Файл Відсутній");               //метод відсутній
+  Chat->addNewMessage(false, Chat->getContacts());
   displayChat();
 }
 
@@ -266,3 +299,5 @@ void MainWindow::displayChat()
     }
 
 }
+
+
