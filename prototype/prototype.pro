@@ -15,6 +15,7 @@ SOURCES += \
     developer.cpp \
     exception.cpp \
     generalinfo.cpp \
+    localization.cpp \
     main.cpp \
     mainwindow.cpp \
     manual.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     developer.h \
     exception.h \
     generalinfo.h \
+    localization.h \
     mainwindow.h \
     manual.h \
     rateapp.h \

@@ -36,6 +36,11 @@ QString GeneralInfo::getContacts()
     return this->Contacts;
 }
 
+QString GeneralInfo::getStatementOfPurpose()
+{
+    return this->SOP;
+}
+
 void GeneralInfo::readFromCsv(const QString language)
 {
     QFile file("buttonsCSV.csv");
@@ -59,13 +64,17 @@ void GeneralInfo::readFromCsv(const QString language)
         QByteArray langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
+                langLine.resize(langLine.size() - 2);
                 this->aboutAM = langLine.split(';').at(1);
                 this->forWhom = langLine.split(';').at(2);
                 this->Payments = langLine.split(';').at(3);
                 this->requiredLanguage= langLine.split(';').at(4);
                 this->whereToStart = langLine.split(';').at(5);
                 this->Contacts = langLine.split(';').at(6);
+                this->SOP = langLine.split(';').at(7);
+
                 break;
         }
     }
+    file.close();
 }

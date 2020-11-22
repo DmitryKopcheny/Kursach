@@ -15,6 +15,7 @@ public:
     QString getRequiredLang();
     QString getWhereToStart();
     QString getContacts();
+    QString getStatementOfPurpose();
 
     void readFromCsv(const QString language);
 private:
@@ -24,6 +25,7 @@ private:
     QString requiredLanguage;
     QString whereToStart;
     QString Contacts;
+    QString SOP; //мотивац лист
 
 };
 
