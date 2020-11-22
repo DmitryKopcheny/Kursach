@@ -31,12 +31,10 @@ void UniversityAM::readFromXml(const QString language)
     universityList.clear();
     QDomDocument domDoc;
     QFile file("universitiesAM.xml");
-<<<<<<< Updated upstream
     //file.isOpen except situation
     // file.open(QIODevice::ReadOnly); //если не работает, это расскоментить
     //file.exists(); // а эту заменить в if ниже
-    if(file.open(QIODevice::ReadOnly))
-=======
+    //if(file.open(QIODevice::ReadOnly))
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
@@ -51,7 +49,6 @@ void UniversityAM::readFromXml(const QString language)
         }
 
     if(file.exists())
->>>>>>> Stashed changes
     {
         if(domDoc.setContent(&file))
         {
