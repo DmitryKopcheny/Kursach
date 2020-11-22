@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "developer.h"
+
+#include "developer.h"  //графоний
 #include "rateapp.h"
 #include "bug.h"
 #include "manual.h"
 #include "settings.h"
-#include "textchat.h"
-#include "studentam.h"
+
+#include "textchat.h"   //алгоритмы + данные
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_letter->move(0,400);
     ui->layout_patners->move(0,400);
     ui->layout_enter->move(10,400);
+
+    studInfo = nullptr;
     Chat = new TextChat;
 
 }
@@ -75,22 +78,25 @@ void MainWindow::on_btn1_clicked()//що таке АМ
 void MainWindow::on_btn2_clicked()//університети
 {
 
-  if (Chat->getSizeOfUniv()!=0){
-  ui->layout_patners->show();
-  ui->layout_main->hide();
-  ui->layout_enter->hide();
-
-  QString partners;
-  for (int i = 0; i<Chat->getSizeOfUniv(); i++)
+  if (Chat->getSizeOfUniv()!=0)
     {
-      partners += Chat->getUnName(i);
-      partners += "\n";
+      ui->layout_patners->show();
+      ui->layout_main->hide();
+      ui->layout_enter->hide();
+
+      QString partners;
+      for (int i = 0; i<Chat->getSizeOfUniv(); i++)
+        {
+          partners += Chat->getUnName(i);
+          partners += "\n";
+        }
+      Chat->addNewMessage(true, ui->btn2->text());
+      Chat->addNewMessage(false, partners);
     }
-  Chat->addNewMessage(true, ui->btn2->text());
-  Chat->addNewMessage(false, partners);
-  }
-  else {
-  Chat->addNewMessage(false, "Файл відсутній");}
+  else
+    {
+      Chat->addNewMessage(false, "Файл відсутній");
+    }
   displayChat();
 }
 void MainWindow::on_btn3_clicked()//реєстація
@@ -98,41 +104,50 @@ void MainWindow::on_btn3_clicked()//реєстація
   ui->layout_enter->show();
   ui->layout_main->hide();
   Chat->addNewMessage(true, ui->btn3->text());
-  //Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній //введите fullName
+  Chat->addNewMessage(false, "Введіть прізвище, ім'я, побатькові"); //миииша, локализация
+  studInfo = new Student;
   displayChat();
 }
 
-void MainWindow::on_btn_enter_clicked()
+void MainWindow::on_btn_enter_clicked() //кнопка enter
 {
-  if (studInfo == 0)
-    {
-      studInfo = new Student;
-    }
+  QString usersInput;
+  QString message;
+  usersInput = ui->lineEdit->text();
   if (studInfo->fullName.isEmpty())
     {
-      Chat->addNewMessage(true, ui->lineEdit->text());
-      studInfo->fullName = ui->lineEdit->text();
-      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
-
+      studInfo->fullName = usersInput;
+      message = "Введіть групу";                  //миииша, локализация
     }
-  if (studInfo->group.isEmpty())
+  else if (studInfo->group.isEmpty())
     {
-      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
-
+      studInfo->group = usersInput;
+      message = "Введіть курс";                   //миииша, локализация
     }
-  if (studInfo->phoneNumber.isEmpty())
+  else if (studInfo->course == 0)
     {
-      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
-
+      studInfo->course = usersInput.toInt();
+      message = "Введіть номер телефону";         //миииша, локализация
     }
-  if (studInfo->phoneNumber.isEmpty())
+  else if (studInfo->phoneNumber.isEmpty())
     {
-      Chat->addNewMessage(false, "Файл відсутній");         //метод відсутній
-
+      studInfo->phoneNumber = usersInput;
+      message = "Дякую, реєстрація завершена";    //миииша, локализация
     }
+  if (studInfo->isComplete())
+    {
+      Chat->addStudent(*studInfo);
+      delete studInfo;
+      studInfo = nullptr;
+      ui->layout_main->show();
+      ui->layout_enter->hide();
+      Chat->writeToXml();
+    }
+  Chat->addNewMessage(true, usersInput);
+  Chat->addNewMessage(false, message);
+  displayChat();
+  ui->lineEdit->clear();
 
-  ui->layout_main->show();
-  ui->layout_enter->hide();
 }
 
 void MainWindow::on_btn4_clicked()//контакти

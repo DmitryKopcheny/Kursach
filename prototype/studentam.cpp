@@ -4,6 +4,27 @@ Student::Student()
   course = 0;
 }
 
+bool Student::isComplete()
+{
+  bool Complete = true;
+  if (fullName.isEmpty())
+    {
+      Complete = false;
+    }
+  if (group.isEmpty())
+    {
+      Complete = false;
+    }
+  if (course == 0)
+    {
+      Complete = false;
+    }
+  if (phoneNumber.isEmpty())
+    {
+      Complete = false;
+    }
+  return Complete;
+}
 
 StudentAM::StudentAM()
 {
