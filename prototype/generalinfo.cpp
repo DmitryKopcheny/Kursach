@@ -39,9 +39,7 @@ QString GeneralInfo::getContacts()
 void GeneralInfo::readFromCsv(const QString language)
 {
     QFile file("buttonsCSV.csv");
-<<<<<<< Updated upstream
-    file.open(QIODevice::ReadOnly); //для Влада
-=======
+    file.open(QIODevice::ReadOnly);
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
@@ -54,9 +52,6 @@ void GeneralInfo::readFromCsv(const QString language)
         {
             ex.what();
         }
-
-    //file.open(QIODevice::ReadOnly);
->>>>>>> Stashed changes
 
     QStringList wordList;
     while(!file.atEnd())
