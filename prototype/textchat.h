@@ -3,25 +3,30 @@
 #include <QDateTime>
 #include <QList>
 #include <QString>
-#include "chatbot.h"
+#include "universityam.h"
+#include "generalinfo.h"
+#include "studentam.h"
 
-class TextChat : public ChatBot
+enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN, ARAB};
+
+class TextChat : public UniversityAM, public GeneralInfo, public StudentAM
 {
   QList<QDateTime> time;
   QList<QString> messages;
   QList<bool> isUsersMessage;
   int iteratorTime;
   int iteratorMessage;
-  ChatBot Bot;
+  QString language;
 public:
   TextChat();
   void addNewMessage(bool isUsers, QString message);
-  //void sendMessage(QString code);
   void resetIterators();
   QString getNextMessage();
   QString getNextTime();
   bool getIsUsersMessage();
   bool isEnd();
+  void setLang(int);
+  QString getLang();
 };
 
 #endif // TEXTCHAT_H

@@ -2,6 +2,7 @@
 
 TextChat::TextChat()
 {
+  language = "ukrainian";
   resetIterators();
   readFromXml(getLang());
   readFromCsv(getLang());
@@ -43,3 +44,30 @@ bool TextChat::isEnd()
     }
 }
 
+void TextChat::setLang(int langCode)
+{
+  if (langCode == UKRAINIAN)
+    {
+      language = "ukrainian";
+    }
+  if (langCode == ENGLISH)
+    {
+      language = "english";
+    }
+  if (langCode == GERMAN)
+    {
+      language = "german";
+    }
+  if (langCode == RUSSIAN)
+    {
+      language = "russian";
+    }
+  if (langCode == ARAB)
+    {
+      language = "arab";
+    }
+}
+QString TextChat::getLang()
+{
+  return language;
+}

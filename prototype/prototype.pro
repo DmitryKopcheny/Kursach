@@ -26,9 +26,7 @@ SOURCES += \
     universityam.cpp
 
 HEADERS += \
-    basic_bot.h \
     bug.h \
-    chatbot.h \
     developer.h \
     exception.h \
     generalinfo.h \
