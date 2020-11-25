@@ -27,6 +27,7 @@ public:
     QString getphoneNumber(int index) const;
     const Student& getStudent(int index) const;
     int getSizeOfStud() const;
+     
 
     void writeToXml();
 private:

@@ -119,3 +119,7 @@ QDomElement StudentAM::formDomElementNode(QDomDocument &domDoc, const Student& s
 
     return studentNode;
 }
+void StudentAM::clearStudentAM()
+{
+  studentList.clear();
+}

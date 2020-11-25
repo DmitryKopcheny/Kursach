@@ -132,16 +132,20 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
   else if (studInfo->phoneNumber.isEmpty())
     {
       studInfo->phoneNumber = usersInput;
-      message = "Дякую, реєстрація завершена";    //миииша, локализация
     }
   if (studInfo->isComplete())
     {
-      Chat->addStudent(*studInfo);
+      message = "Сталася помилка, ви вже зареєстровані";
+      if (!Chat->searchForTheSame(*studInfo))
+        {
+          Chat->addStudent(*studInfo);
+          Chat->writeToXml();
+          message = "Дякую, реєстрація завершена";    //миииша, локализация
+        }
       delete studInfo;
       studInfo = nullptr;
       ui->layout_main->show();
       ui->layout_enter->hide();
-      Chat->writeToXml();
     }
   Chat->addNewMessage(true, usersInput);
   Chat->addNewMessage(false, message);
@@ -290,16 +294,6 @@ void  MainWindow::on_LanguageChanged(int index) //больше изменени�
 }
 void MainWindow::displayChat()
 {
-  /*
-  void addNewMessage(bool isUsers, QString message);
-  //void sendMessage(QString code);
-  void resetIterators();
-  QString getNextMessage();
-  QString getNextTime();
-  bool getIsUsersMessage();*/
-  /*QList<QDateTime> time;
-  QList<QString> messages;
-  QList<bool> isUsersMessage;*/
   ui->textBrowser->clear();
   Chat->resetIterators();
   while (!Chat->isEnd())
