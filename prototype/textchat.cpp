@@ -89,44 +89,84 @@ bool TextChat::searchForTheSame(const Student &info)
     }
   return false;
 }
-QVector<Student>* TextChat::sortByFullName(QVector <Student>* studVector)
+/*QVector<Student>**/void TextChat::sortByFullName(QVector <Student>* studVector)
 {
 
 }
 QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
 {
-
+  QVector <Student>* sameGroupVector = new QVector<Student>;
+  if (studVector->size() == 0)
+    {
+      return sameGroupVector;
+    }
+  sameGroupVector->push_back(studVector->takeAt(0));
+  for (int i = 0; i<studVector->size(); i++)
+    {
+      if ((*sameGroupVector)[0].group == (*studVector)[i].group)
+        {
+          sameGroupVector->push_back(studVector->takeAt(i));
+        }
+    }
+  return sameGroupVector;
 }
 int TextChat::findMinCourse(QVector <Student>* studVector)
 {
-  if (studVector->size == 0)
+  if (studVector->size() == 0)
     {
       return -1;
     }
   int minCourse = (*studVector)[0].course;
   for (int i = 0; i < studVector->size(); i++)
     {
-      if (minCourse < (*studVector))
+      if (minCourse > (*studVector)[i].course)
+        {
+          minCourse =(*studVector)[i].course;
+        }
     }
+  return minCourse;
 }
 QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
 {
-  QVector <Student>* minCourse = new QVector<Student>;
-  if (studVector->size == 0)
+  QVector <Student>* minCourseVector = new QVector<Student>;
+  int minCourse = findMinCourse(studVector);
+  if (minCourse == -1)
     {
-      return minCourse;
+      return minCourseVector;
     }
+  for (int i = 0; i<studVector->size(); i++)
+    {
+      if ((*studVector)[i].course == minCourse)
+        {
+          minCourseVector->push_back(studVector->takeAt(i));
+        }
+    }
+  return minCourseVector;
 
 
 }
 void TextChat::sortStudents()
 {
-  /*const Student& getStudent(int index) const;
-    int getSizeOfStud() const;*/
   QVector <Student> studVector;
   for (int i = 0; i < getSizeOfStud(); i++)
     {
-      \studVector.push_back(getStudent(i));
+      studVector.push_back(getStudent(i));
     }
+  clearStudentAM();
+  QVector<Student>* minCourse;
+  QVector<Student>* sameGroup;
+  while (studVector.size() != 0)
+    {
+      minCourse = sellectMinCourse(&studVector);
+      while (minCourse->size() != 0)
+        {
 
+          sameGroup = sellectSameGroup(minCourse);
+          sortByFullName(sameGroup);
+          for (int i = 0; i<sameGroup->size(); i++)
+            {
+              addStudent((*sameGroup)[i]);
+            }
+        }
+    }
 }

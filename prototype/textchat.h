@@ -32,9 +32,10 @@ public:
 
   bool searchForTheSame(const Student &info);
 
-  QVector<Student>* TextChat::sortByFullName(QVector <Student>* studVector);
-  QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector);
-  QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector);
+  int findMinCourse(QVector <Student>* studVector);
+  /*QVector<Student>**/ void sortByFullName(QVector <Student>* studVector);
+  QVector<Student>*  sellectSameGroup(QVector <Student>* studVector);
+  QVector<Student>* sellectMinCourse(QVector <Student>* studVector);
   void sortStudents();
 };
 
