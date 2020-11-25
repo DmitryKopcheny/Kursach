@@ -103,7 +103,7 @@ int TextChat::findMinCourse(QVector <Student>* studVector)
     {
       return -1;
     }
-  int minCourse = (*studVector)[0].getCourse();
+  int minCourse = (*studVector)[0].course;
   for (int i = 0; i < studVector->size(); i++)
     {
       if (minCourse < (*studVector))
@@ -116,6 +116,7 @@ QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
     {
       return minCourse;
     }
+
 
 }
 void TextChat::sortStudents()
