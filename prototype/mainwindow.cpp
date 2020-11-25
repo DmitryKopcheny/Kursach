@@ -116,12 +116,12 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
   usersInput = ui->lineEdit->text();
   if (studInfo->fullName.isEmpty())
     {
-      studInfo->fullName = usersInput;
+      studInfo->fullName = usersInput.toUpper();  //toUpper для того чтобы легче было сортировать
       message = "Введіть групу";                  //миииша, локализация
     }
   else if (studInfo->group.isEmpty())
     {
-      studInfo->group = usersInput;
+      studInfo->group = usersInput.toUpper();     //toUpper для того чтобы легче было сортировать
       message = "Введіть курс";                   //миииша, локализация
     }
   else if (studInfo->course == 0)

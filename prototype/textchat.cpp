@@ -89,10 +89,48 @@ bool TextChat::searchForTheSame(const Student &info)
     }
   return false;
 }
-/*QVector<Student>**/void TextChat::sortByFullName(QVector <Student>* studVector)
+
+void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, int left, int right)
 {
+  if (studVector->size() <= 1)
+    {
+      return;
+    }
+  int middle = (left + right)/2;
+  int leftBorder = left;
+  int rightBorder = right;
+  while (leftBorder < rightBorder)
+    {
+      if ((*values)[leftBorder]<(*values)[middle])
+        {
+          leftBorder++;
+          continue;
+        }
+      if ((*values)[rightBorder]>(*values)[middle])
+        {
+          leftBorder--;
+          continue;
+        }
+      int iTmp = (*values)[leftBorder];
+      (*values)[leftBorder] = (*values)[rightBorder];
+      (*values)[rightBorder] = iTmp;
+
+      Student studTmp = (*studVector)[leftBorder];
+      (*studVector)[leftBorder] = (*studVector)[rightBorder];
+      (*studVector)[rightBorder] = studTmp;
+    }
+  quickSort(studVector, values, left, rightBorder);
+  quickSort(studVector, values, leftBorder, right);
+}
+void TextChat::sortByFullName(QVector <Student>* studVector)
+{
+  if (studVector->size()==0)
+    {
+      return;
+    }
 
 }
+
 QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
 {
   QVector <Student>* sameGroupVector = new QVector<Student>;
@@ -110,6 +148,7 @@ QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
     }
   return sameGroupVector;
 }
+
 int TextChat::findMinCourse(QVector <Student>* studVector)
 {
   if (studVector->size() == 0)
@@ -126,6 +165,7 @@ int TextChat::findMinCourse(QVector <Student>* studVector)
     }
   return minCourse;
 }
+
 QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
 {
   QVector <Student>* minCourseVector = new QVector<Student>;
@@ -145,6 +185,7 @@ QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
 
 
 }
+
 void TextChat::sortStudents()
 {
   QVector <Student> studVector;
