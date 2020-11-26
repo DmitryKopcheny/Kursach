@@ -44,7 +44,6 @@ QString GeneralInfo::getStatementOfPurpose()
 void GeneralInfo::readFromCsv(const QString language)
 {
     QFile file("generalInfo.csv");
-    file.open(QIODevice::ReadOnly);
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
@@ -68,7 +67,7 @@ void GeneralInfo::readFromCsv(const QString language)
                 this->aboutAM = langLine.split(';').at(1);
                 this->forWhom = langLine.split(';').at(2);
                 this->Payments = langLine.split(';').at(3);
-                this->requiredLanguage= langLine.split(';').at(4);//VOT ETA VOT
+                this->requiredLanguage= langLine.split(';').at(4);
                 this->whereToStart = langLine.split(';').at(5);
                 this->Contacts = langLine.split(';').at(6);
                 this->SOP = langLine.split(';').at(7);
