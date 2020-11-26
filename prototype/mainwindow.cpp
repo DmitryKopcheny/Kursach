@@ -42,7 +42,7 @@ void MainWindow::on_action_2_triggered()
 
 void MainWindow::on_action_4_triggered()
 {
-    settings *esf = new settings();
+    settings *esf = new settings(Chat->getLangCode());
     esf->show();
     connect(esf, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
 }

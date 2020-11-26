@@ -12,7 +12,7 @@ class settings : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit settings(QWidget *parent = nullptr);
+    explicit settings(int langCode, QWidget *parent = nullptr);
     ~settings();
     QFile styleF;
 signals:

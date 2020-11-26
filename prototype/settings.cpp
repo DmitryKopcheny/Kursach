@@ -2,11 +2,12 @@
 #include "ui_settings.h"
 #include <QFile>
 
-settings::settings(QWidget *parent) :
+settings::settings(int LangCode, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::settings)
 {
     ui->setupUi(this);
+    ui->comboBox->setCurrentIndex(LangCode);
 }
 
 settings::~settings()

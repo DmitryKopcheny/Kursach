@@ -72,6 +72,31 @@ QString TextChat::getLang()
   return language;
 }
 
+int TextChat::getLangCode()
+{
+  if (language == "ukrainian")
+    {
+      return UKRAINIAN;
+    }
+  if (language == "english")
+    {
+      return ENGLISH;
+    }
+  if (language == "german")
+    {
+      return GERMAN;
+    }
+  if (language == "russian")
+    {
+      return RUSSIAN;
+    }
+  if (language == "arab")
+    {
+      return ARAB;
+    }
+  return UKRAINIAN;
+}
+
 bool TextChat::searchForTheSame(const Student &info)
 {
   for (int i = 0; i<getSizeOfStud(); i++)
@@ -99,25 +124,62 @@ void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, in
   int middle = (left + right)/2;
   int leftBorder = left;
   int rightBorder = right;
+  int middleUnicode;
+  int leftUnicode;
+  int rightUnicode;
+  int leftUnicodeLevel = 0;
+  int rightUnicodeLevel = 0;
+  int maxUnicodeLevel;
   while (leftBorder < rightBorder)
     {
-      if ((*values)[leftBorder]<(*values)[middle])
+      if ((*studVector)[leftBorder].fullName.size()<(*studVector)[rightBorder].fullName.size())
+        {
+          maxUnicodeLevel = (*studVector)[leftBorder].fullName.size();
+        }
+      else
+        {
+          maxUnicodeLevel = (*studVector)[rightBorder].fullName.size();
+        }
+      if (maxUnicodeLevel > (*studVector)[middle].fullName.size())
+        {
+          maxUnicodeLevel = (*studVector)[middle].fullName.size();
+        }
+      middleUnicode = (int)(*studVector)[middle].fullName[leftUnicodeLevel].unicode();
+      leftUnicode = (int)(*studVector)[leftBorder].fullName[leftUnicodeLevel].unicode();
+      if (leftUnicode == middleUnicode && leftUnicode < maxUnicodeLevel)
+        {
+          leftUnicode++;
+          continue;
+        }
+      rightUnicode  = (int)(*studVector)[rightBorder].fullName[rightUnicodeLevel].unicode();
+      middleUnicode = (int)(*studVector)[middle].fullName[rightUnicodeLevel].unicode();
+      if (rightUnicode == middleUnicode && rightUnicode < maxUnicodeLevel)
+        {
+          rightUnicode++;
+          continue;
+        }
+
+      if (leftUnicode < middleUnicode)
         {
           leftBorder++;
           continue;
         }
-      if ((*values)[rightBorder]>(*values)[middle])
+
+      if (rightUnicode > middleUnicode)
         {
           leftBorder--;
           continue;
         }
-      int iTmp = (*values)[leftBorder];
+      /*int iTmp = (*values)[leftBorder];
       (*values)[leftBorder] = (*values)[rightBorder];
-      (*values)[rightBorder] = iTmp;
+      (*values)[rightBorder] = iTmp;*/
 
       Student studTmp = (*studVector)[leftBorder];
       (*studVector)[leftBorder] = (*studVector)[rightBorder];
       (*studVector)[rightBorder] = studTmp;
+
+      leftUnicodeLevel = 0;
+      rightUnicodeLevel = 0;
     }
   quickSort(studVector, values, left, rightBorder);
   quickSort(studVector, values, leftBorder, right);

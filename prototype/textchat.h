@@ -29,6 +29,7 @@ public:
 
   void setLang(const int langCode);
   QString getLang();
+  int getLangCode();
 
   bool searchForTheSame(const Student &info);
 
