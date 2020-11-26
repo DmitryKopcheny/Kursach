@@ -30,7 +30,6 @@ public:
     QString getLclFindbug();
     QString getLclMoredetails();
     QString getLclDlyakogo();
-    QString getLclMova();
     QString getLclKoshtovnist();
     QString getLclDepochaty();
 
@@ -38,11 +37,11 @@ public:
 private:
     QString chatBotlcl,
     settingslcl, helplcl, aboutProgramlcl,
-    whatIsAMlcl, univPartnerslcl, partn1lcl, partn2lcl, partn3lcl,
-    partn4lcl, partn5lcl, partn6lcl, nazadlcl, contactslcl,
-    wantToJoinlcl, themelcl, themeDarklcl, themeLightlcl,
-    langlcl, howToUselcl, rateApplcl, findBuglcl,
-    moreDetailslcl, dlyaKogolcl, movalcl, koshtovnistlcl,
+    whatIsAMlcl, univPartnerslcl, partn1lcl, partn2lcl,
+    partn3lcl, partn4lcl, partn5lcl, partn6lcl, nazadlcl,
+    contactslcl, wantToJoinlcl, themelcl, themeDlcl,
+    themeLlcl, langlcl, howToUselcl, rateApplcl,
+    findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
     dePochatylcl;
 
 };

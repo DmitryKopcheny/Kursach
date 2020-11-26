@@ -25,24 +25,23 @@ void Localization::fillTheLclValue(const QString language)
                 this->helplcl = langLine.split(';').at(7);
                 this->howToUselcl= langLine.split(';').at(8);
                 this->koshtovnistlcl = langLine.split(';').at(9);
-                this->langlcl = langLine.split(';').at(10);//*************
-                this->moreDetailslcl = langLine.split(';').at(11);
-                this->movalcl = langLine.split(';').at(12);//*************
-                this->nazadlcl = langLine.split(';').at(13);
-                this->partn1lcl = langLine.split(';').at(14);
-                this->partn2lcl = langLine.split(';').at(15);
-                this->partn3lcl = langLine.split(';').at(16);
-                this->partn4lcl = langLine.split(';').at(17);
-                this->partn5lcl = langLine.split(';').at(18);
-                this->partn6lcl = langLine.split(';').at(19);
-                this->rateApplcl = langLine.split(';').at(20);
-                this->settingslcl = langLine.split(';').at(21);
-                this->themeDarklcl = langLine.split(';').at(22);
-                this->themeLightlcl = langLine.split(';').at(23);
-                this->themelcl= langLine.split(';').at(24);
-                this->univPartnerslcl = langLine.split(';').at(25);
-                this->wantToJoinlcl = langLine.split(';').at(26);
-                this->whatIsAMlcl = langLine.split(';').at(27);
+                this->langlcl = langLine.split(';').at(10);
+                this->moreInfolcl = langLine.split(';').at(11);
+                this->nazadlcl = langLine.split(';').at(12);
+                this->partn1lcl = langLine.split(';').at(13);
+                this->partn2lcl = langLine.split(';').at(14);
+                this->partn3lcl = langLine.split(';').at(15);
+                this->partn4lcl = langLine.split(';').at(16);
+                this->partn5lcl = langLine.split(';').at(17);
+                this->partn6lcl = langLine.split(';').at(18);
+                this->rateApplcl = langLine.split(';').at(19);
+                this->settingslcl = langLine.split(';').at(20);
+                this->themeDlcl = langLine.split(';').at(21);
+                this->themeLlcl = langLine.split(';').at(22);
+                this->themelcl= langLine.split(';').at(23);
+                this->univPartnerslcl = langLine.split(';').at(24);
+                this->wantToJoinlcl = langLine.split(';').at(25);
+                this->whatIsAMlcl = langLine.split(';').at(26);
 
                 break;
         }
@@ -92,11 +91,7 @@ QString Localization::getLclLanguage()
 }
 QString Localization::getLclMoredetails()
 {
-    return this->moreDetailslcl;
-}
-QString Localization::getLclMova()
-{
-    return this->movalcl;
+    return this->moreInfolcl;
 }
 QString Localization::getLclNazad()
 {
@@ -140,11 +135,11 @@ QString Localization::getLclTheme()
 }
 QString Localization::getLclThemedark()
 {
-    return this->themeDarklcl;
+    return this->themeDlcl;
 }
 QString Localization::getLclThemelight()
 {
-    return this->themeLightlcl;
+    return this->themeLlcl;
 }
 QString Localization::getLclUnivpartn()
 {
@@ -159,5 +154,3 @@ QString Localization::getLclWhatisAM()
 {
     return this->whatIsAMlcl;
 }
-
-

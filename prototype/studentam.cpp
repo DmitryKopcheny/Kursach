@@ -56,7 +56,7 @@ QString StudentAM::getGroup(int index) const
     return studentList.at(index).group;
 }
 
-QString StudentAM::getphoneNumber(int index) const
+QString StudentAM::getPhoneNumber(int index) const
 {
     return studentList.at(index).phoneNumber;
 }

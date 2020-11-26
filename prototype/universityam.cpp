@@ -31,10 +31,6 @@ void UniversityAM::readFromXml(const QString language)
     universityList.clear();
     QDomDocument domDoc;
     QFile file("universitiesAM.xml");
-    //file.isOpen except situation
-    // file.open(QIODevice::ReadOnly); //если не работает, это расскоментить
-    //file.exists(); // а эту заменить в if ниже
-    //if(file.open(QIODevice::ReadOnly))
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())

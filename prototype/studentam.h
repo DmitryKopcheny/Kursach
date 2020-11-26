@@ -1,4 +1,4 @@
-#ifndef STUDENTAM_H
+#ifndef STUDENPTAM_H
 #define STUDENTAM_H
 
 #include <QtXml/QtXml>
@@ -24,7 +24,7 @@ public:
     QString getFullName(int index) const;
     int getCourse(int index) const;
     QString getGroup(int index) const;
-    QString getphoneNumber(int index) const;
+    QString getPhoneNumber(int index) const;
     const Student& getStudent(int index) const;
     int getSizeOfStud() const;
     void clearStudentAM();
