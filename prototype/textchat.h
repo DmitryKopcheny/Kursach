@@ -18,6 +18,7 @@ class TextChat : public UniversityAM, public GeneralInfo, public StudentAM
   int iteratorTime;
   int iteratorMessage;
   QString language;
+  int langCode;
 public:
   TextChat();
   void addNewMessage(const bool isUsers, const QString message);
@@ -33,9 +34,9 @@ public:
 
   bool searchForTheSame(const Student &info);
 
-  void quickSort(QVector <Student>* studVector, QVector<int>* values, int left, int right);
+  void quickSort(QVector <Student>* studVector, int left, int right);
   int findMinCourse(QVector <Student>* studVector);
-  void sortByFullName(QVector <Student>* studVector);
+  //void sortByFullName(QVector <Student>* studVector);
   QVector<Student>*  sellectSameGroup(QVector <Student>* studVector);
   QVector<Student>* sellectMinCourse(QVector <Student>* studVector);
   void sortStudents();

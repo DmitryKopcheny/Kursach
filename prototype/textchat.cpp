@@ -2,6 +2,7 @@
 
 TextChat::TextChat()
 {
+  langCode = UKRAINIAN;
   language = "ukrainian";
   resetIterators();
   readFromXml(getLang());
@@ -46,6 +47,7 @@ bool TextChat::isEnd()
 
 void TextChat::setLang(const int langCode)
 {
+  this->langCode = langCode;
   if (langCode == UKRAINIAN)
     {
       language = "ukrainian";
@@ -66,6 +68,11 @@ void TextChat::setLang(const int langCode)
     {
       language = "arab";
     }
+  else
+    {
+      this->langCode = UKRAINIAN;
+      language = "ukrainian";
+    }
 }
 QString TextChat::getLang()
 {
@@ -74,27 +81,7 @@ QString TextChat::getLang()
 
 int TextChat::getLangCode()
 {
-  if (language == "ukrainian")
-    {
-      return UKRAINIAN;
-    }
-  if (language == "english")
-    {
-      return ENGLISH;
-    }
-  if (language == "german")
-    {
-      return GERMAN;
-    }
-  if (language == "russian")
-    {
-      return RUSSIAN;
-    }
-  if (language == "arab")
-    {
-      return ARAB;
-    }
-  return UKRAINIAN;
+  return langCode;
 }
 
 bool TextChat::searchForTheSame(const Student &info)
@@ -115,9 +102,9 @@ bool TextChat::searchForTheSame(const Student &info)
   return false;
 }
 
-void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, int left, int right)
+void TextChat::quickSort(QVector <Student>* studVector, int left, int right)
 {
-  if (studVector->size() <= 1)
+  if (right - left == 0)
     {
       return;
     }
@@ -130,8 +117,20 @@ void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, in
   int leftUnicodeLevel = 0;
   int rightUnicodeLevel = 0;
   int maxUnicodeLevel;
+  bool skipRight = false;
+  bool skipLeft = false;
   while (leftBorder < rightBorder)
     {
+      skipRight = false;
+      skipLeft = false;
+      if (rightBorder == middle)
+        {
+          skipRight = true;
+        }
+      if (leftBorder == middle)
+        {
+          skipLeft = true;
+        }
       if ((*studVector)[leftBorder].fullName.size()<(*studVector)[rightBorder].fullName.size())
         {
           maxUnicodeLevel = (*studVector)[leftBorder].fullName.size();
@@ -146,33 +145,33 @@ void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, in
         }
       middleUnicode = (int)(*studVector)[middle].fullName[leftUnicodeLevel].unicode();
       leftUnicode = (int)(*studVector)[leftBorder].fullName[leftUnicodeLevel].unicode();
-      if (leftUnicode == middleUnicode && leftUnicode < maxUnicodeLevel)
+      if (leftUnicode == middleUnicode && leftUnicodeLevel < maxUnicodeLevel && !skipLeft)
         {
-          leftUnicode++;
+          leftUnicodeLevel++;
           continue;
         }
       rightUnicode  = (int)(*studVector)[rightBorder].fullName[rightUnicodeLevel].unicode();
       middleUnicode = (int)(*studVector)[middle].fullName[rightUnicodeLevel].unicode();
-      if (rightUnicode == middleUnicode && rightUnicode < maxUnicodeLevel)
+      if (rightUnicode == middleUnicode && rightUnicodeLevel < maxUnicodeLevel && !skipRight)
         {
-          rightUnicode++;
+          rightUnicodeLevel++;
           continue;
         }
 
       if (leftUnicode < middleUnicode)
         {
           leftBorder++;
+          leftUnicodeLevel = 0;
           continue;
         }
 
       if (rightUnicode > middleUnicode)
         {
-          leftBorder--;
+          rightBorder--;
+          rightUnicodeLevel = 0;
           continue;
         }
-      /*int iTmp = (*values)[leftBorder];
-      (*values)[leftBorder] = (*values)[rightBorder];
-      (*values)[rightBorder] = iTmp;*/
+
 
       Student studTmp = (*studVector)[leftBorder];
       (*studVector)[leftBorder] = (*studVector)[rightBorder];
@@ -181,16 +180,8 @@ void TextChat::quickSort(QVector <Student>* studVector, QVector<int>* values, in
       leftUnicodeLevel = 0;
       rightUnicodeLevel = 0;
     }
-  quickSort(studVector, values, left, rightBorder);
-  quickSort(studVector, values, leftBorder, right);
-}
-void TextChat::sortByFullName(QVector <Student>* studVector)
-{
-  if (studVector->size()==0)
-    {
-      return;
-    }
-
+  quickSort(studVector, left, middle);
+  quickSort(studVector, middle+1, right);
 }
 
 QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
@@ -206,6 +197,7 @@ QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
       if ((*sameGroupVector)[0].group == (*studVector)[i].group)
         {
           sameGroupVector->push_back(studVector->takeAt(i));
+          i--;
         }
     }
   return sameGroupVector;
@@ -241,31 +233,31 @@ QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
       if ((*studVector)[i].course == minCourse)
         {
           minCourseVector->push_back(studVector->takeAt(i));
+          i--;
         }
     }
   return minCourseVector;
-
-
 }
 
 void TextChat::sortStudents()
 {
-  QVector <Student> studVector;
+  QVector <Student> *studVector = new QVector <Student> ;
   for (int i = 0; i < getSizeOfStud(); i++)
     {
-      studVector.push_back(getStudent(i));
+      studVector->push_back(getStudent(i));
     }
   clearStudentAM();
-  QVector<Student>* minCourse;
-  QVector<Student>* sameGroup;
-  while (studVector.size() != 0)
+  quickSort(studVector, 0, studVector->size()-1);
+  QVector<Student>* minCourse = new QVector<Student>;
+  QVector<Student>* sameGroup = new QVector<Student>;
+  while (studVector->size() != 0)
     {
-      minCourse = sellectMinCourse(&studVector);
+      minCourse = sellectMinCourse(studVector);
       while (minCourse->size() != 0)
         {
 
           sameGroup = sellectSameGroup(minCourse);
-          sortByFullName(sameGroup);
+          //quickSort(sameGroup, 0, sameGroup->size()-1);
           for (int i = 0; i<sameGroup->size(); i++)
             {
               addStudent((*sameGroup)[i]);

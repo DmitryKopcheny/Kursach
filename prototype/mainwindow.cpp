@@ -78,6 +78,13 @@ void MainWindow::on_action_5_triggered()
     bugForm->show();
 }
 
+void MainWindow::on_action_7_triggered()
+{
+  Chat->sortStudents();
+  Chat->writeToXml();
+}
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -158,7 +165,6 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
       if (!Chat->searchForTheSame(*studInfo))
         {
           Chat->addStudent(*studInfo);
-          Chat->writeToXml();
           message = "Дякую, реєстрація завершена";    //миииша, локализация
         }
       delete studInfo;

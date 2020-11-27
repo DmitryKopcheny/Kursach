@@ -11,7 +11,6 @@ CONFIG += \
 
 SOURCES += \
     bug.cpp \
-    chatbot.cpp \
     developer.cpp \
     exception.cpp \
     generalinfo.cpp \
