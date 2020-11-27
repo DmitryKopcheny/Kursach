@@ -8,6 +8,11 @@ QT_END_NAMESPACE
 
 struct Student;
 class TextChat;
+class bug;
+class developer;
+class manual;
+class rateApp;
+class settings;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -49,5 +54,10 @@ private:
     Ui::MainWindow *ui;
     Student *studInfo;
     TextChat *Chat;
+    bug* bugForm;
+    developer* developerForm;
+    manual* manualForm;
+    rateApp* rateAppForm;
+    settings* settingsForm;
 };
 #endif // MAINWINDOW_H

@@ -26,37 +26,56 @@ MainWindow::MainWindow(QWidget *parent)
 
     studInfo = nullptr;
     Chat = new TextChat;
-
+    bugForm = nullptr;
+    developerForm = nullptr;
+    manualForm = nullptr;
+    rateAppForm = nullptr;
+    settingsForm = nullptr;
 }
 void MainWindow::on_action_3_triggered()
 {
-    developer *esf = new developer();
-    esf->show();
+  if (developerForm == nullptr)
+    {
+      developerForm = new developer();
+    }
+    developerForm->show();
 }
 
 void MainWindow::on_action_2_triggered()
 {
-    rateApp *esf = new rateApp();
-    esf->show();
+  if (rateAppForm == nullptr)
+    {
+      rateAppForm = new rateApp();
+    }
+    rateAppForm->show();
 }
 
 void MainWindow::on_action_4_triggered()
 {
-    settings *esf = new settings(Chat->getLangCode());
-    esf->show();
-    connect(esf, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
+  if (settingsForm == nullptr)
+    {
+      settingsForm = new settings(Chat->getLangCode());
+    }
+    settingsForm->show();
+    connect(settingsForm, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
 }
 
 void MainWindow::on_action_triggered()
 {
-    manual *esf = new manual();
-    esf->show();
+  if (manualForm == nullptr)
+    {
+      manualForm = new manual();
+    }
+    manualForm->show();
 }
 
 void MainWindow::on_action_5_triggered()
 {
-    bug *esf = new bug();
-    esf->show();
+  if (bugForm == nullptr)
+    {
+      bugForm = new bug();
+    }
+    bugForm->show();
 }
 
 MainWindow::~MainWindow()
