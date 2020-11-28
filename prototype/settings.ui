@@ -29,7 +29,7 @@
    <iconset resource="res.qrc">
     <normaloff>:/new/images/f3e4b13c53590840e4fed95abb59075b.png</normaloff>:/new/images/f3e4b13c53590840e4fed95abb59075b.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
+<widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
