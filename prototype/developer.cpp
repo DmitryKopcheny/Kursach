@@ -1,8 +1,8 @@
 #include "developer.h"
 #include "ui_developer.h"
+#include "localization.h" //локализация
 
-
-developer::developer(QWidget *parent) :
+developer::developer(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::developer)
 {

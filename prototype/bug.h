@@ -6,13 +6,13 @@
 namespace Ui {
 class bug;
 }
-
+class Localization;
 class bug : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit bug(QWidget *parent = nullptr);
+    explicit bug(Localization *Locale, QWidget *parent = nullptr);
     ~bug();
 
 private:

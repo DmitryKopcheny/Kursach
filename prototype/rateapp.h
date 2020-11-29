@@ -6,13 +6,13 @@
 namespace Ui {
 class rateApp;
 }
-
+class Localization;
 class rateApp : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit rateApp(QWidget *parent = nullptr);
+    explicit rateApp(Localization *Locale, QWidget *parent = nullptr);
     ~rateApp();
 
 private slots:

@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_enter->move(10,400);
 
     Chat = new TextChat;
-   Locale = new Localization(Chat->getLang());
+    Locale = new Localization(Chat->getLang());
 
     studInfo = nullptr;
     bugForm = nullptr;
@@ -39,7 +39,7 @@ void MainWindow::on_action_3_triggered()
 {
   if (developerForm == nullptr)
     {
-      developerForm = new developer();
+      developerForm = new developer(Locale);
     }
     developerForm->show();
 }
@@ -48,7 +48,7 @@ void MainWindow::on_action_2_triggered()
 {
   if (rateAppForm == nullptr)
     {
-      rateAppForm = new rateApp();
+      rateAppForm = new rateApp(Locale);
     }
     rateAppForm->show();
 }
@@ -57,7 +57,7 @@ void MainWindow::on_action_4_triggered()
 {
   if (settingsForm == nullptr)
     {
-      settingsForm = new settings(Chat->getLangCode());
+      settingsForm = new settings(Locale, Chat->getLangCode());
     }
     settingsForm->show();
     connect(settingsForm, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
@@ -67,7 +67,7 @@ void MainWindow::on_action_triggered()
 {
   if (manualForm == nullptr)
     {
-      manualForm = new manual();
+      manualForm = new manual(Locale);
     }
     manualForm->show();
 }
@@ -76,7 +76,7 @@ void MainWindow::on_action_5_triggered()
 {
   if (bugForm == nullptr)
     {
-      bugForm = new bug();
+      bugForm = new bug(Locale);
     }
     bugForm->show();
 }

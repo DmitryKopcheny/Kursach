@@ -61,11 +61,11 @@ QString Localization::getLclContacts() // чатбот -> контакты
 {
     return this->contactslcl;
 }
-QString Localization::getLclDepochaty() // чатбот -> контакты
+QString Localization::getLclDepochaty() // чатбот -> з чого почати
 {
     return this->dePochatylcl;
 }
-QString Localization::getLclDlyakogo()  // чатбот -> контакты
+QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
     return this->dlyaKogolcl;
 }
@@ -81,15 +81,15 @@ QString Localization::getLclHowtouse()
 {
     return this->howToUselcl;
 }
-QString Localization::getLclKoshtovnist() // чатбот -> контакты
+QString Localization::getLclKoshtovnist() // чатбот -> коштовныстть
 {
     return this->koshtovnistlcl;
 }
-QString Localization::getLclLanguage()  // чатбот -> контакты
+QString Localization::getLclLanguage()  // чатбот -> мова
 {
     return this->langlcl;
 }
-QString Localization::getLclMoredetails() // чатбот -> контакты
+QString Localization::getLclMoredetails() // чатбот -> для кого это
 {
     return this->moreInfolcl;
 }

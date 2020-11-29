@@ -1,8 +1,8 @@
 #include "settings.h"
 #include "ui_settings.h"
 #include <QFile>
-
-settings::settings(int LangCode, QWidget *parent) :
+#include "localization.h" //локализация
+settings::settings(Localization *Locale, int LangCode, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::settings)
 {

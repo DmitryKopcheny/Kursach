@@ -1,7 +1,7 @@
 #include "rateapp.h"
 #include "ui_rateapp.h"
-
-rateApp::rateApp(QWidget *parent) :
+#include "localization.h" //локализация
+rateApp::rateApp(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::rateApp)
 {

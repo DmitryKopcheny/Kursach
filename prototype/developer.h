@@ -6,13 +6,13 @@
 namespace Ui {
 class developer;
 }
-
+class Localization;
 class developer : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit developer(QWidget *parent = nullptr);
+    explicit developer(Localization *Locale, QWidget *parent = nullptr);
     ~developer();
 
 private slots:

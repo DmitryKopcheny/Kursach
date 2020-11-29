@@ -6,13 +6,13 @@
 namespace Ui {
 class settings;
 }
-
+class Localization;
 class settings : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit settings(int langCode, QWidget *parent = nullptr);
+    explicit settings(Localization *Locale, int langCode, QWidget *parent = nullptr);
     ~settings();
     QFile styleF;
 signals:
