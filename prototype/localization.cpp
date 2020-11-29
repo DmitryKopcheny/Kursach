@@ -9,13 +9,19 @@ void Localization::fillTheLclValue(const QString language)
     QFile file("localization.csv");
     file.open(QIODevice::ReadOnly); //для Влада
 
-    QStringList wordList;
     while(!file.atEnd())
     {
+
         QByteArray langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
                 langLine.resize(langLine.size() - 2);
+                QStringList strList;
+//                for(int i = 1; i< 27; i++)
+//                {
+//                    strList.append(langLine.split(';').at(i));
+//                }
+
                 this->aboutProgramlcl = langLine.split(';').at(1);
                 this->chatBotlcl = langLine.split(';').at(2);
                 this->contactslcl = langLine.split(';').at(3);
@@ -48,12 +54,12 @@ void Localization::fillTheLclValue(const QString language)
     }
     file.close();
 }
-QString Localization::getLclChatbot()
+QString Localization::getLclChatbot() // верхняя строка, надпись Чат-бот
 {
     return this->chatBotlcl;
 }
 
-QString Localization::getLclAboutprog()
+QString Localization::getLclAboutprog() //Про программу
 {
     return this->aboutProgramlcl;
 }
@@ -69,15 +75,15 @@ QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
     return this->dlyaKogolcl;
 }
-QString Localization::getLclFindbug()
+QString Localization::getLclFindbug() //Нашли баг?
 {
     return this->findBuglcl;
 }
-QString Localization::getLclHelp()
+QString Localization::getLclHelp() // Помощь
 {
     return this->helplcl;
 }
-QString Localization::getLclHowtouse()
+QString Localization::getLclHowtouse() // Как пользоваться
 {
     return this->howToUselcl;
 }
@@ -121,23 +127,23 @@ QString Localization::getLclPartn6()  // чатбот -> универ6
 {
     return this->partn6lcl;
 }
-QString Localization::getLclRateapp()
+QString Localization::getLclRateapp() //Оцените приложение
 {
     return this->rateApplcl;
 }
-QString Localization::getLclSettings()
+QString Localization::getLclSettings() //Настройки
 {
     return this->settingslcl;
 }
-QString Localization::getLclTheme()
+QString Localization::getLclTheme() //настройки -> Тема
 {
     return this->themelcl;
 }
-QString Localization::getLclThemedark()
+QString Localization::getLclThemedark() //настройки -> Темная
 {
     return this->themeDlcl;
 }
-QString Localization::getLclThemelight()
+QString Localization::getLclThemelight()//настройки -> Светлая
 {
     return this->themeLlcl;
 }

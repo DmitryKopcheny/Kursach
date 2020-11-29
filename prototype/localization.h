@@ -2,6 +2,7 @@
 #define LOCALIZATION_H
 
 #include <QString>
+//#include <QFile>
 class Localization
 {
 public:
@@ -35,6 +36,7 @@ public:
 
     void fillTheLclValue(const QString language);
 private:
+//    QStringList strList;
     QString chatBotlcl,
     settingslcl, helplcl, aboutProgramlcl,
     whatIsAMlcl, univPartnerslcl, partn1lcl, partn2lcl,
