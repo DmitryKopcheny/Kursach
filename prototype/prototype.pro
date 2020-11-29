@@ -21,7 +21,6 @@ SOURCES += \
     rateapp.cpp \
     settings.cpp \
     studentam.cpp \
-    testwin.cpp \
     textchat.cpp \
     universityam.cpp
 
@@ -36,7 +35,6 @@ HEADERS += \
     rateapp.h \
     settings.h \
     studentam.h \
-    testwin.h \
     textchat.h \
     universityam.h
 
@@ -46,8 +44,7 @@ FORMS += \
     mainwindow.ui \
     manual.ui \
     rateapp.ui \
-    settings.ui \
-    testwin.ui
+    settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

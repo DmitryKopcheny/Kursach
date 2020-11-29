@@ -36,7 +36,6 @@ public:
 
   void quickSort(QVector <Student>* studVector, int left, int right);
   int findMinCourse(QVector <Student>* studVector);
-  //void sortByFullName(QVector <Student>* studVector);
   QVector<Student>*  sellectSameGroup(QVector <Student>* studVector);
   QVector<Student>* sellectMinCourse(QVector <Student>* studVector);
   void sortStudents();
