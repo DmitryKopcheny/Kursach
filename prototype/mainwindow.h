@@ -13,6 +13,7 @@ class developer;
 class manual;
 class rateApp;
 class settings;
+class Localization;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -60,5 +61,6 @@ private:
     manual* manualForm;
     rateApp* rateAppForm;
     settings* settingsForm;
+    Localization *Locale;
 };
 #endif // MAINWINDOW_H

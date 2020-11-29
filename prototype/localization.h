@@ -5,7 +5,7 @@
 class Localization
 {
 public:
-    Localization();
+    Localization(const QString language);
     QString getLclChatbot();
     QString getLclSettings();
     QString getLclHelp();

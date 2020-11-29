@@ -8,6 +8,7 @@
 #include "settings.h"
 
 #include "textchat.h"   //алгоритмы + данные
+#include "localization.h" //локализация
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,8 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_patners->move(0,400);
     ui->layout_enter->move(10,400);
 
-    studInfo = nullptr;
     Chat = new TextChat;
+   Locale = new Localization(Chat->getLang());
+
+    studInfo = nullptr;
     bugForm = nullptr;
     developerForm = nullptr;
     manualForm = nullptr;
@@ -101,6 +104,7 @@ void MainWindow::on_btn1_clicked()//що таке АМ
   Chat->addNewMessage(false, Chat->getAboutAM());
   displayChat();
 }
+
 void MainWindow::on_btn2_clicked()//університети
 {
 
@@ -125,6 +129,7 @@ void MainWindow::on_btn2_clicked()//університети
     }
   displayChat();
 }
+
 void MainWindow::on_btn3_clicked()//реєстація
 {
   ui->layout_enter->show();
@@ -300,6 +305,7 @@ void MainWindow::on_btn1_back_clicked()//назад
   ui->layout_main->show();
   ui->layout_details->hide();
 }
+
 void MainWindow::on_btn2_back_clicked()//назад
 {
   ui->layout_main->show();
@@ -311,12 +317,15 @@ void MainWindow::on_btn1_4_back_clicked()//назад
   ui->layout_details->show();
   ui->layout_letter->hide();
 }
+
 void  MainWindow::on_LanguageChanged(int index) //больше изменение языка интерфейса
 {
   Chat->setLang(index);
   Chat->readFromXml(Chat->getLang());
   Chat->readFromCsv(Chat->getLang());
+  Locale->fillTheLclValue(Chat->getLang());
 }
+
 void MainWindow::displayChat()
 {
   ui->textBrowser->clear();

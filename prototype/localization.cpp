@@ -1,8 +1,8 @@
 #include "localization.h"
 #include <QFile>
-Localization::Localization()
+Localization::Localization(const QString language)
 {
-
+  fillTheLclValue(language);
 }
 void Localization::fillTheLclValue(const QString language)
 {
@@ -57,15 +57,15 @@ QString Localization::getLclAboutprog()
 {
     return this->aboutProgramlcl;
 }
-QString Localization::getLclContacts()
+QString Localization::getLclContacts() // чатбот -> контакты
 {
     return this->contactslcl;
 }
-QString Localization::getLclDepochaty()
+QString Localization::getLclDepochaty() // чатбот -> контакты
 {
     return this->dePochatylcl;
 }
-QString Localization::getLclDlyakogo()
+QString Localization::getLclDlyakogo()  // чатбот -> контакты
 {
     return this->dlyaKogolcl;
 }
@@ -81,43 +81,43 @@ QString Localization::getLclHowtouse()
 {
     return this->howToUselcl;
 }
-QString Localization::getLclKoshtovnist()
+QString Localization::getLclKoshtovnist() // чатбот -> контакты
 {
     return this->koshtovnistlcl;
 }
-QString Localization::getLclLanguage()
+QString Localization::getLclLanguage()  // чатбот -> контакты
 {
     return this->langlcl;
 }
-QString Localization::getLclMoredetails()
+QString Localization::getLclMoredetails() // чатбот -> контакты
 {
     return this->moreInfolcl;
 }
-QString Localization::getLclNazad()
+QString Localization::getLclNazad() // чатбот -> назад
 {
     return this->nazadlcl;
 }
-QString Localization::getLclPartn1()
+QString Localization::getLclPartn1()  // чатбот -> универ1
 {
     return this->partn1lcl;
 }
-QString Localization::getLclPartn2()
+QString Localization::getLclPartn2()  // чатбот -> универ2
 {
     return this->partn2lcl;
 }
-QString Localization::getLclPartn3()
+QString Localization::getLclPartn3()  // чатбот -> универ3
 {
     return this->partn3lcl;
 }
-QString Localization::getLclPartn4()
+QString Localization::getLclPartn4()  // чатбот -> универ4
 {
     return this->partn4lcl;
 }
-QString Localization::getLclPartn5()
+QString Localization::getLclPartn5()  // чатбот -> универ5
 {
     return this->partn5lcl;
 }
-QString Localization::getLclPartn6()
+QString Localization::getLclPartn6()  // чатбот -> универ6
 {
     return this->partn6lcl;
 }
@@ -141,16 +141,16 @@ QString Localization::getLclThemelight()
 {
     return this->themeLlcl;
 }
-QString Localization::getLclUnivpartn()
+QString Localization::getLclUnivpartn() // чатбот -> университети
 {
     return this->univPartnerslcl;
 }
-QString Localization::getLclWantjoin()
+QString Localization::getLclWantjoin()  // чатбот -> бажаете приэднатися
 {
     return this->wantToJoinlcl;
 }
 
-QString Localization::getLclWhatisAM()
+QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
 {
     return this->whatIsAMlcl;
 }
