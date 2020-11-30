@@ -52,29 +52,7 @@ void Localization::fillTheLclValue()
         QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
-<<<<<<< Updated upstream
-                this->aboutProgramlcl = langLine.split(',').at(1);
-                this->chatBotlcl = langLine.split(',').at(2);
-                this->contactslcl = langLine.split(',').at(3);
-                this->dePochatylcl = langLine.split(',').at(4);
-                this->dlyaKogolcl = langLine.split(',').at(5);
-                this->findBuglcl = langLine.split(',').at(6);
-                this->helplcl = langLine.split(',').at(7);
-                this->howToUselcl= langLine.split(',').at(8);
-                this->koshtovnistlcl = langLine.split(',').at(9);
-                this->langlcl = langLine.split(',').at(10);
-                this->moreInfolcl = langLine.split(',').at(11);
-                this->nazadlcl = langLine.split(',').at(12);
-                this->rateApplcl = langLine.split(',').at(13);
-                this->settingslcl = langLine.split(',').at(14);
-                this->themeDlcl = langLine.split(',').at(15);
-                this->themeLlcl = langLine.split(',').at(16);
-                this->themelcl= langLine.split(',').at(17);
-                this->univPartnerslcl = langLine.split(',').at(18);
-                this->wantToJoinlcl = langLine.split(',').at(19);
-                this->whatIsAMlcl = langLine.split(',').at(20);
-                this->sendlcl = langLine.split(',').at(21);
-=======
+
 
                 //langLine.resize(langLine.size() - 2);// !ЕСЛИ В КОНЦЕ КАКОГО-ЛИБО СЛОВА БУДУТ ЗНАКИ ПЕРЕНОСА СТРОКИ - раскоментить
 
@@ -83,6 +61,7 @@ void Localization::fillTheLclValue()
                     {
                         wordList.append(langLine.split(';').at(i));
                     }
+                    break;
 
 //                this->aboutProgramlcl = langLine.split(';').at(1);
 //                this->chatBotlcl = langLine.split(';').at(2);
@@ -114,11 +93,6 @@ void Localization::fillTheLclValue()
 //                this->errorOcurelcl = langLine.split(';').at(28);
 //                this->succesReglcl = langLine.split(';').at(29);
 
-
-
->>>>>>> Stashed changes
-
-                break;
         }
     }
     file.close();
@@ -249,8 +223,4 @@ QString Localization::getLclWantjoin()  // чатбот -> бажаете при
 QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
 {
     return wordList.at(19);
-}
-QString Localization::getLclSend()
-{
-    return this->sendlcl;
 }

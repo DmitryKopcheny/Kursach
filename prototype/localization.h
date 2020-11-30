@@ -30,9 +30,7 @@ public:
     QString getLclDlyakogo();
     QString getLclKoshtovnist();
     QString getLclDepochaty();
-<<<<<<< Updated upstream
     QString getLclSend();
-=======
     QString getLclSampleSOP(); //Приклад мотивацыйного листа
     QString getLclbtnSend(); //Кнопка отправить
     QString getLclbtnSave(); //кнопка Зберегти
@@ -43,7 +41,7 @@ public:
     QString getLclErrorOcure(); //возникла ошибка при рег, вы уже зарег
     QString getLclSuccesReg(); //спасибо, регистр завершена
 
->>>>>>> Stashed changes
+
 
     void fillTheLclValue();
     void setLang(const int langCode);
@@ -52,26 +50,8 @@ public:
 private:
     QString language;
     int langCode;
-<<<<<<< Updated upstream
-    QString chatBotlcl,
-    settingslcl, helplcl, aboutProgramlcl,
-    whatIsAMlcl, univPartnerslcl, nazadlcl,
-    contactslcl, wantToJoinlcl, themelcl, themeDlcl,
-    themeLlcl, langlcl, howToUselcl, rateApplcl,
-    findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
-    dePochatylcl, sendlcl;
-=======
 
     QStringList wordList;
-
-//    QString chatBotlcl,
-//    settingslcl, helplcl, aboutProgramlcl,
-//    whatIsAMlcl, univPartnerslcl, nazadlcl,
-//    contactslcl, wantToJoinlcl, themelcl, themeDlcl,
-//    themeLlcl, langlcl, howToUselcl, rateApplcl,
-//    findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
-//    dePochatylcl, sampleOfSoplcl, btnSendlcl, btnSavelcl, inputFiolcl, inputCourselcl, inputGrouplcl, inputPhnNumlcl, errorOcurelcl, succesReglcl;
->>>>>>> Stashed changes
 
 };
 
