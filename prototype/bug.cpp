@@ -22,5 +22,5 @@ void bug::on_btn_Send_clicked()
 void bug::on_localizateWindows()
 {
   this->setWindowTitle(Locale->getLclFindbug());
-  ui->btn_Send->setText(Locale->getLclSend());
+  ui->btn_Send->setText(Locale->getLclbtnSend());
 }
