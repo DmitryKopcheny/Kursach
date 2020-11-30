@@ -98,6 +98,7 @@ void  MainWindow::on_LanguageChanged() //больше изменение язы�
   ui->btn2_4->setText(Chat->getUnName(3));
   ui->btn2_5->setText(Chat->getUnName(4));
   ui->btn2_6->setText(Chat->getUnName(5));
+  emit localizateWindows();
 }
 /*
     QString getLclChatbot();
@@ -126,6 +127,8 @@ void MainWindow::on_action_3_triggered()
   if (developerForm == nullptr)
     {
       developerForm = new developer(Locale);
+      connect(this, SIGNAL(localizateWindows()),developerForm, SLOT(on_localizateWindows()));
+      emit localizateWindows();
     }
     developerForm->show();
 }
@@ -135,6 +138,8 @@ void MainWindow::on_action_2_triggered()
   if (rateAppForm == nullptr)
     {
       rateAppForm = new rateApp(Locale);
+      connect(this, SIGNAL(localizateWindows()),rateAppForm, SLOT(on_localizateWindows()));
+      emit localizateWindows();
     }
     rateAppForm->show();
 }
@@ -144,9 +149,11 @@ void MainWindow::on_action_4_triggered()
   if (settingsForm == nullptr)
     {
       settingsForm = new settings(Locale);
+      connect(this, SIGNAL(localizateWindows()),settingsForm, SLOT(on_localizateWindows()));
+      connect(settingsForm, SIGNAL(LanguageChanged()),this, SLOT(on_LanguageChanged()));
+      emit localizateWindows();
     }
     settingsForm->show();
-    connect(settingsForm, SIGNAL(LanguageChanged()),this, SLOT(on_LanguageChanged()));
 }
 
 void MainWindow::on_action_triggered()
@@ -154,6 +161,8 @@ void MainWindow::on_action_triggered()
   if (manualForm == nullptr)
     {
       manualForm = new manual(Locale);
+      connect(this, SIGNAL(localizateWindows()),manualForm, SLOT(on_localizateWindows()));
+      emit localizateWindows();
     }
     manualForm->show();
 }
@@ -163,6 +172,8 @@ void MainWindow::on_action_5_triggered()
   if (bugForm == nullptr)
     {
       bugForm = new bug(Locale);
+      connect(this, SIGNAL(localizateWindows()),bugForm, SLOT(on_localizateWindows()));
+      emit localizateWindows();
     }
     bugForm->show();
 }

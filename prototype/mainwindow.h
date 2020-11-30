@@ -23,7 +23,8 @@ public:
     void displayChat();
 
     ~MainWindow();
-
+signals:
+    void localizateWindows();
 private slots:
     void on_action_triggered();
     void on_action_2_triggered();

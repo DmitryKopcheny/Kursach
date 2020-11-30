@@ -25,9 +25,10 @@ private slots:
     void on_rate4_clicked();
 
     void on_rate5_clicked();
-
+  void on_localizateWindows();
 private:
     Ui::rateApp *ui;
+    Localization *Locale;
 };
 
 #endif // RATEAPP_H

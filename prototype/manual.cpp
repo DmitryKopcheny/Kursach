@@ -6,9 +6,15 @@ manual::manual(Localization *Locale, QWidget *parent) :
     ui(new Ui::manual)
 {
     ui->setupUi(this);
+    this->Locale = Locale;
 }
 
 manual::~manual()
 {
     delete ui;
+}
+
+void manual::on_localizateWindows()
+{
+  this->setWindowTitle(Locale->getLclHowtouse());
 }

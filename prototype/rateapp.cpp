@@ -7,6 +7,7 @@ rateApp::rateApp(Localization *Locale, QWidget *parent) :
 {
     ui->setupUi(this);
     ui->label_2->hide();
+    this->Locale = Locale;
 }
 
 rateApp::~rateApp()
@@ -43,4 +44,10 @@ void rateApp::on_rate5_clicked()
 {
     ui->label_2->move(335,150);
     ui->label_2->show();
+}
+
+void rateApp::on_localizateWindows()
+{
+  this->setWindowTitle(Locale->getLclRateapp());
+  ui->label->setText(Locale->getLclRateapp());
 }

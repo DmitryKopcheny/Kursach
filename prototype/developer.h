@@ -16,10 +16,11 @@ public:
     ~developer();
 
 private slots:
-
+  void on_localizateWindows();
 
 private:
     Ui::developer *ui;
+    Localization *Locale;
 };
 
 #endif // DEVELOPER_H

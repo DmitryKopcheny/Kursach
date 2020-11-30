@@ -40,3 +40,12 @@ void settings::on_comboBox_currentIndexChanged(int index)
   Locale->setLang(index);
     emit LanguageChanged();
 }
+
+void settings::on_localizateWindows()
+{
+  this->setWindowTitle(Locale->getLclSettings());
+  ui->label_2->setText(Locale->getLclTheme());
+  ui->label->setText(Locale->getLclLanguage());
+  ui->btndark->setText(Locale->getLclThemedark());
+  ui->btnlight->setText(Locale->getLclThemelight());
+}

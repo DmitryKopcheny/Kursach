@@ -51,9 +51,6 @@ void Localization::fillTheLclValue()
         QString langLine = in.readLine();
         if(language == langLine.split(',').at(0)) //проверка первого елем, отделенного ',' на соот языку
         {
-                //langLine.resize(langLine.size() - 2);
-
-
                 this->aboutProgramlcl = langLine.split(',').at(1);
                 this->chatBotlcl = langLine.split(',').at(2);
                 this->contactslcl = langLine.split(',').at(3);
@@ -74,6 +71,7 @@ void Localization::fillTheLclValue()
                 this->univPartnerslcl = langLine.split(',').at(18);
                 this->wantToJoinlcl = langLine.split(',').at(19);
                 this->whatIsAMlcl = langLine.split(',').at(20);
+                this->sendlcl = langLine.split(',').at(21);
 
                 break;
         }
@@ -161,4 +159,8 @@ QString Localization::getLclWantjoin()  // чатбот -> бажаете при
 QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
 {
     return this->whatIsAMlcl;
+}
+QString Localization::getLclSend()
+{
+    return this->sendlcl;
 }

@@ -22,6 +22,7 @@ private slots:
     void on_btndark_clicked();
 
     void on_comboBox_currentIndexChanged(int index);
+    void on_localizateWindows();
 
 private:
     Ui::settings *ui;

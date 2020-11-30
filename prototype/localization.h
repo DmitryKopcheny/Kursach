@@ -30,6 +30,7 @@ public:
     QString getLclDlyakogo();
     QString getLclKoshtovnist();
     QString getLclDepochaty();
+    QString getLclSend();
 
     void fillTheLclValue();
     void setLang(const int langCode);
@@ -44,7 +45,7 @@ private:
     contactslcl, wantToJoinlcl, themelcl, themeDlcl,
     themeLlcl, langlcl, howToUselcl, rateApplcl,
     findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
-    dePochatylcl;
+    dePochatylcl, sendlcl;
 
 };
 
