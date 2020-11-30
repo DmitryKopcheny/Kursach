@@ -65,6 +65,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn2_6->setText(Chat->getUnName(5));
 }
 
+MainWindow::~MainWindow()
+{
+  delete Locale;
+  delete Chat;
+  delete ui;
+}
+
 void  MainWindow::on_LanguageChanged() //больше изменение языка интерфейса
 {
   Chat->readFromXml(Locale->getLang());
@@ -100,28 +107,6 @@ void  MainWindow::on_LanguageChanged() //больше изменение язы�
   ui->btn2_6->setText(Chat->getUnName(5));
   emit localizateWindows();
 }
-/*
-    QString getLclChatbot();
-    QString getLclSettings();
-    QString getLclHelp();
-    QString getLclAboutprog();
-    QString getLclWhatisAM();
-    QString getLclUnivpartn();
-    QString getLclNazad();
-    QString getLclContacts();
-    QString getLclWantjoin();
-    QString getLclTheme();
-    QString getLclThemedark();
-    QString getLclThemelight();
-    QString getLclLanguage();
-    QString getLclHowtouse();
-    QString getLclRateapp();
-    QString getLclFindbug();
-    QString getLclMoredetails();
-    QString getLclDlyakogo();
-    QString getLclKoshtovnist();
-    QString getLclDepochaty();
-*/
 void MainWindow::on_action_3_triggered()
 {
   if (developerForm == nullptr)
@@ -188,13 +173,6 @@ void MainWindow::on_action_7_triggered()
   Chat->sortStudents();
   Chat->writeToXml();
 }
-
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
 
 void MainWindow::on_btn1_clicked()//що таке АМ
 {
