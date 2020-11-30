@@ -3,10 +3,13 @@
 
 #include <QString>
 //#include <QFile>
+
+enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN, ARAB};
+
 class Localization
 {
 public:
-    Localization(const QString language);
+    Localization();
     QString getLclChatbot();
     QString getLclSettings();
     QString getLclHelp();
@@ -34,8 +37,13 @@ public:
     QString getLclKoshtovnist();
     QString getLclDepochaty();
 
-    void fillTheLclValue(const QString language);
+    void fillTheLclValue();
+    void setLang(const int langCode);
+    QString getLang();
+    int getLangCode();
 private:
+    QString language;
+    int langCode;
 //    QStringList strList;
     QString chatBotlcl,
     settingslcl, helplcl, aboutProgramlcl,

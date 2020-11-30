@@ -12,11 +12,11 @@ class settings : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit settings(Localization *Locale, int langCode, QWidget *parent = nullptr);
+    explicit settings(Localization *Locale, QWidget *parent = nullptr);
     ~settings();
     QFile styleF;
 signals:
-    void LanguageChanged(int);
+    void LanguageChanged();
 private slots:
     void on_btnlight_clicked();
     void on_btndark_clicked();
@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::settings *ui;
+    Localization *Locale;
 };
 
 #endif // SETTINGS_H

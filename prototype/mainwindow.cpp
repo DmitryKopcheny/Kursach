@@ -25,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout_patners->move(0,400);
     ui->layout_enter->move(10,400);
 
-    Chat = new TextChat;
-    Locale = new Localization(Chat->getLang());
+    Locale = new Localization;
+    Chat = new TextChat(Locale->getLang());
 
     studInfo = nullptr;
     bugForm = nullptr;
@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     manualForm = nullptr;
     rateAppForm = nullptr;
     settingsForm = nullptr;
+
+    this->setWindowTitle(Locale->getLclChatbot());
 }
 void MainWindow::on_action_3_triggered()
 {
@@ -57,10 +59,10 @@ void MainWindow::on_action_4_triggered()
 {
   if (settingsForm == nullptr)
     {
-      settingsForm = new settings(Locale, Chat->getLangCode());
+      settingsForm = new settings(Locale);
     }
     settingsForm->show();
-    connect(settingsForm, SIGNAL(LanguageChanged(int)),this, SLOT(on_LanguageChanged(int)));
+    connect(settingsForm, SIGNAL(LanguageChanged()),this, SLOT(on_LanguageChanged()));
 }
 
 void MainWindow::on_action_triggered()
@@ -318,12 +320,11 @@ void MainWindow::on_btn1_4_back_clicked()//назад
   ui->layout_letter->hide();
 }
 
-void  MainWindow::on_LanguageChanged(int index) //больше изменение языка интерфейса
+void  MainWindow::on_LanguageChanged() //больше изменение языка интерфейса
 {
-  Chat->setLang(index);
-  Chat->readFromXml(Chat->getLang());
-  Chat->readFromCsv(Chat->getLang());
-  Locale->fillTheLclValue(Chat->getLang());
+  Chat->readFromXml(Locale->getLang());
+  Chat->readFromCsv(Locale->getLang());
+  Locale->fillTheLclValue();
 }
 
 void MainWindow::displayChat()

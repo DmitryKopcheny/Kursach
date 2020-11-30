@@ -1,12 +1,10 @@
 #include "textchat.h"
 
-TextChat::TextChat()
+TextChat::TextChat(const QString language)
 {
-  langCode = UKRAINIAN;
-  language = "ukrainian";
   resetIterators();
-  readFromXml(getLang());
-  readFromCsv(getLang());
+  readFromXml(language);
+  readFromCsv(language);
 }
 void TextChat::resetIterators()
 {
@@ -45,44 +43,7 @@ bool TextChat::isEnd()
     }
 }
 
-void TextChat::setLang(const int langCode)
-{
-  this->langCode = langCode;
-  if (langCode == UKRAINIAN)
-    {
-      language = "ukrainian";
-    }
-  if (langCode == ENGLISH)
-    {
-      language = "english";
-    }
-  if (langCode == GERMAN)
-    {
-      language = "german";
-    }
-  if (langCode == RUSSIAN)
-    {
-      language = "russian";
-    }
-  if (langCode == ARAB)
-    {
-      language = "arab";
-    }
-  else
-    {
-      this->langCode = UKRAINIAN;
-      language = "ukrainian";
-    }
-}
-QString TextChat::getLang()
-{
-  return language;
-}
 
-int TextChat::getLangCode()
-{
-  return langCode;
-}
 
 bool TextChat::searchForTheSame(const Student &info)
 {

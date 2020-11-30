@@ -2,12 +2,13 @@
 #include "ui_settings.h"
 #include <QFile>
 #include "localization.h" //локализация
-settings::settings(Localization *Locale, int LangCode, QWidget *parent) :
+settings::settings(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::settings)
 {
     ui->setupUi(this);
-    ui->comboBox->setCurrentIndex(LangCode);
+    this->Locale = Locale;
+    ui->comboBox->setCurrentIndex(Locale->getLangCode());
 }
 
 settings::~settings()
@@ -36,5 +37,6 @@ void settings::on_btndark_clicked()
 
 void settings::on_comboBox_currentIndexChanged(int index)
 {
-    emit LanguageChanged(index);
+  Locale->setLang(index);
+    emit LanguageChanged();
 }

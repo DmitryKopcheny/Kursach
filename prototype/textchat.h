@@ -8,7 +8,7 @@
 #include "generalinfo.h"
 #include "studentam.h"
 
-enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN, ARAB};
+
 
 class TextChat : public UniversityAM, public GeneralInfo, public StudentAM
 {
@@ -17,10 +17,9 @@ class TextChat : public UniversityAM, public GeneralInfo, public StudentAM
   QList<bool> isUsersMessage;
   int iteratorTime;
   int iteratorMessage;
-  QString language;
-  int langCode;
+
 public:
-  TextChat();
+  TextChat(const QString language);
   void addNewMessage(const bool isUsers, const QString message);
   void resetIterators();
   QString getNextMessage();
@@ -28,9 +27,7 @@ public:
   bool getIsUsersMessage();
   bool isEnd();
 
-  void setLang(const int langCode);
-  QString getLang();
-  int getLangCode();
+
 
   bool searchForTheSame(const Student &info);
 
