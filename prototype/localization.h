@@ -2,7 +2,7 @@
 #define LOCALIZATION_H
 
 #include <QString>
-//#include <QFile>
+#include <QFile>
 
 enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN};
 
@@ -30,7 +30,20 @@ public:
     QString getLclDlyakogo();
     QString getLclKoshtovnist();
     QString getLclDepochaty();
+<<<<<<< Updated upstream
     QString getLclSend();
+=======
+    QString getLclSampleSOP(); //Приклад мотивацыйного листа
+    QString getLclbtnSend(); //Кнопка отправить
+    QString getLclbtnSave(); //кнопка Зберегти
+    QString getLclInputFIO(); //Введите фамилию, имя, отчество
+    QString getLclInputCourse(); // введите курс
+    QString getLclInputGroup(); //введите группу
+    QString getLclPhnNumber(); //введите номер телефона
+    QString getLclErrorOcure(); //возникла ошибка при рег, вы уже зарег
+    QString getLclSuccesReg(); //спасибо, регистр завершена
+
+>>>>>>> Stashed changes
 
     void fillTheLclValue();
     void setLang(const int langCode);
@@ -39,6 +52,7 @@ public:
 private:
     QString language;
     int langCode;
+<<<<<<< Updated upstream
     QString chatBotlcl,
     settingslcl, helplcl, aboutProgramlcl,
     whatIsAMlcl, univPartnerslcl, nazadlcl,
@@ -46,6 +60,18 @@ private:
     themeLlcl, langlcl, howToUselcl, rateApplcl,
     findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
     dePochatylcl, sendlcl;
+=======
+
+    QStringList wordList;
+
+//    QString chatBotlcl,
+//    settingslcl, helplcl, aboutProgramlcl,
+//    whatIsAMlcl, univPartnerslcl, nazadlcl,
+//    contactslcl, wantToJoinlcl, themelcl, themeDlcl,
+//    themeLlcl, langlcl, howToUselcl, rateApplcl,
+//    findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
+//    dePochatylcl, sampleOfSoplcl, btnSendlcl, btnSavelcl, inputFiolcl, inputCourselcl, inputGrouplcl, inputPhnNumlcl, errorOcurelcl, succesReglcl;
+>>>>>>> Stashed changes
 
 };
 
