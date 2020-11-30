@@ -36,7 +36,91 @@ MainWindow::MainWindow(QWidget *parent)
     settingsForm = nullptr;
 
     this->setWindowTitle(Locale->getLclChatbot());
+    ui->menu->setTitle(Locale->getLclSettings());
+    ui->menu_2->setTitle(Locale->getLclHelp());
+    ui->menu_3->setTitle(Locale->getLclAboutprog());
+    ui->action->setText(Locale->getLclHowtouse());
+    ui->action_2->setText(Locale->getLclRateapp());
+    ui->action_3->setText(Locale->getLclMoredetails());
+    ui->action_4->setText(Locale->getLclSettings());
+    ui->action_5->setText(Locale->getLclFindbug());
+    ui->action_7->setText("Зберегти"); //меша
+    ui->btn1->setText(Locale->getLclWhatisAM());
+    ui->btn2->setText(Locale->getLclUnivpartn());
+    ui->btn3->setText(Locale->getLclWantjoin());
+    ui->btn4->setText(Locale->getLclContacts());
+    ui->btn1_1->setText(Locale->getLclDlyakogo());
+    ui->btn1_2->setText(Locale->getLclLanguage());
+    ui->btn1_3->setText(Locale->getLclKoshtovnist());
+    ui->btn1_4->setText(Locale->getLclDepochaty());
+    ui->btn1_4_1->setText("Приклад мотиваційного листа");
+    ui->btn1_back->setText(Locale->getLclNazad());
+    ui->btn2_back->setText(Locale->getLclNazad());
+    ui->btn1_4_back->setText(Locale->getLclNazad());
+    ui->btn2_1->setText(Chat->getUnName(0));
+    ui->btn2_2->setText(Chat->getUnName(1));
+    ui->btn2_3->setText(Chat->getUnName(2));
+    ui->btn2_4->setText(Chat->getUnName(3));
+    ui->btn2_5->setText(Chat->getUnName(4));
+    ui->btn2_6->setText(Chat->getUnName(5));
 }
+
+void  MainWindow::on_LanguageChanged() //больше изменение языка интерфейса
+{
+  Chat->readFromXml(Locale->getLang());
+  Chat->readFromCsv(Locale->getLang());
+  Locale->fillTheLclValue();
+  this->setWindowTitle(Locale->getLclChatbot());
+  ui->menu->setTitle(Locale->getLclSettings());
+  ui->menu_2->setTitle(Locale->getLclHelp());
+  ui->menu_3->setTitle(Locale->getLclAboutprog());
+  ui->action->setText(Locale->getLclHowtouse());
+  ui->action_2->setText(Locale->getLclRateapp());
+  ui->action_3->setText(Locale->getLclMoredetails());
+  ui->action_4->setText(Locale->getLclSettings());
+  ui->action_5->setText(Locale->getLclFindbug());
+  ui->action_7->setText("Зберегти"); //меша
+  ui->btn1->setText(Locale->getLclWhatisAM());
+  ui->btn2->setText(Locale->getLclUnivpartn());
+  ui->btn3->setText(Locale->getLclWantjoin());
+  ui->btn4->setText(Locale->getLclContacts());
+  ui->btn1_1->setText(Locale->getLclDlyakogo());
+  ui->btn1_2->setText(Locale->getLclLanguage());
+  ui->btn1_3->setText(Locale->getLclKoshtovnist());
+  ui->btn1_4->setText(Locale->getLclDepochaty());
+  ui->btn1_4_1->setText("Приклад мотиваційного листа");
+  ui->btn1_back->setText(Locale->getLclNazad());
+  ui->btn2_back->setText(Locale->getLclNazad());
+  ui->btn1_4_back->setText(Locale->getLclNazad());
+  ui->btn2_1->setText(Chat->getUnName(0));
+  ui->btn2_2->setText(Chat->getUnName(1));
+  ui->btn2_3->setText(Chat->getUnName(2));
+  ui->btn2_4->setText(Chat->getUnName(3));
+  ui->btn2_5->setText(Chat->getUnName(4));
+  ui->btn2_6->setText(Chat->getUnName(5));
+}
+/*
+    QString getLclChatbot();
+    QString getLclSettings();
+    QString getLclHelp();
+    QString getLclAboutprog();
+    QString getLclWhatisAM();
+    QString getLclUnivpartn();
+    QString getLclNazad();
+    QString getLclContacts();
+    QString getLclWantjoin();
+    QString getLclTheme();
+    QString getLclThemedark();
+    QString getLclThemelight();
+    QString getLclLanguage();
+    QString getLclHowtouse();
+    QString getLclRateapp();
+    QString getLclFindbug();
+    QString getLclMoredetails();
+    QString getLclDlyakogo();
+    QString getLclKoshtovnist();
+    QString getLclDepochaty();
+*/
 void MainWindow::on_action_3_triggered()
 {
   if (developerForm == nullptr)
@@ -193,7 +277,6 @@ void MainWindow::on_btn4_clicked()//контакти
   displayChat();
 }
 
-
 void MainWindow::on_btn1_1_clicked()//для кого це
 {
   Chat->addNewMessage(true, ui->btn1_1->text());
@@ -320,12 +403,7 @@ void MainWindow::on_btn1_4_back_clicked()//назад
   ui->layout_letter->hide();
 }
 
-void  MainWindow::on_LanguageChanged() //больше изменение языка интерфейса
-{
-  Chat->readFromXml(Locale->getLang());
-  Chat->readFromCsv(Locale->getLang());
-  Locale->fillTheLclValue();
-}
+
 
 void MainWindow::displayChat()
 {

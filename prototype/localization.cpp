@@ -26,10 +26,6 @@ void Localization::setLang(int langCode)
     {
       language = "russian";
     }
-  else if (langCode == ARAB)
-    {
-      language = "arab";
-    }
   else
     {
       this->langCode = UKRAINIAN;
@@ -49,20 +45,14 @@ void Localization::fillTheLclValue()
 {
     QFile file("localization.csv");
     file.open(QIODevice::ReadOnly); //для Влада
-QTextStream in(&file);
-    while(!file.atEnd())
+    QTextStream in(&file);
+    while(!in.atEnd())
     {
-
-
         QString langLine = in.readLine();
-        if(language == langLine.split(',').at(0)) //проверка первого елем, отделенного ';' на соот языку
+        if(language == langLine.split(',').at(0)) //проверка первого елем, отделенного ',' на соот языку
         {
-                langLine.resize(langLine.size() - 2);
-//                QStringList strList;
-//                for(int i = 1; i< 27; i++)
-//                {
-//                    strList.append(langLine.split(';').at(i));
-//                }
+                //langLine.resize(langLine.size() - 2);
+
 
                 this->aboutProgramlcl = langLine.split(',').at(1);
                 this->chatBotlcl = langLine.split(',').at(2);
@@ -138,30 +128,6 @@ QString Localization::getLclMoredetails() // чатбот -> для кого э�
 QString Localization::getLclNazad() // чатбот -> назад
 {
     return this->nazadlcl;
-}
-QString Localization::getLclPartn1()  // чатбот -> универ1
-{
-    return this->partn1lcl;
-}
-QString Localization::getLclPartn2()  // чатбот -> универ2
-{
-    return this->partn2lcl;
-}
-QString Localization::getLclPartn3()  // чатбот -> универ3
-{
-    return this->partn3lcl;
-}
-QString Localization::getLclPartn4()  // чатбот -> универ4
-{
-    return this->partn4lcl;
-}
-QString Localization::getLclPartn5()  // чатбот -> универ5
-{
-    return this->partn5lcl;
-}
-QString Localization::getLclPartn6()  // чатбот -> универ6
-{
-    return this->partn6lcl;
 }
 QString Localization::getLclRateapp() //Оцените приложение
 {

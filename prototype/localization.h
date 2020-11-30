@@ -4,7 +4,7 @@
 #include <QString>
 //#include <QFile>
 
-enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN, ARAB};
+enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN};
 
 class Localization
 {
@@ -16,12 +16,6 @@ public:
     QString getLclAboutprog();
     QString getLclWhatisAM();
     QString getLclUnivpartn();
-    QString getLclPartn1();
-    QString getLclPartn2();
-    QString getLclPartn3();
-    QString getLclPartn4();
-    QString getLclPartn5();
-    QString getLclPartn6();
     QString getLclNazad();
     QString getLclContacts();
     QString getLclWantjoin();
@@ -44,11 +38,9 @@ public:
 private:
     QString language;
     int langCode;
-//    QStringList strList;
     QString chatBotlcl,
     settingslcl, helplcl, aboutProgramlcl,
-    whatIsAMlcl, univPartnerslcl, partn1lcl, partn2lcl,
-    partn3lcl, partn4lcl, partn5lcl, partn6lcl, nazadlcl,
+    whatIsAMlcl, univPartnerslcl, nazadlcl,
     contactslcl, wantToJoinlcl, themelcl, themeDlcl,
     themeLlcl, langlcl, howToUselcl, rateApplcl,
     findBuglcl, moreInfolcl, dlyaKogolcl, koshtovnistlcl,
