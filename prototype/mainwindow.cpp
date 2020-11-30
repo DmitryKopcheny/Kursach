@@ -131,6 +131,7 @@ void MainWindow::on_action_3_triggered()
       emit localizateWindows();
     }
     developerForm->show();
+    developerForm->activateWindow();
 }
 
 void MainWindow::on_action_2_triggered()
@@ -142,6 +143,7 @@ void MainWindow::on_action_2_triggered()
       emit localizateWindows();
     }
     rateAppForm->show();
+    rateAppForm->activateWindow();
 }
 
 void MainWindow::on_action_4_triggered()
@@ -154,6 +156,7 @@ void MainWindow::on_action_4_triggered()
       emit localizateWindows();
     }
     settingsForm->show();
+    settingsForm->activateWindow();
 }
 
 void MainWindow::on_action_triggered()
@@ -165,6 +168,7 @@ void MainWindow::on_action_triggered()
       emit localizateWindows();
     }
     manualForm->show();
+    manualForm->activateWindow();
 }
 
 void MainWindow::on_action_5_triggered()
@@ -176,6 +180,7 @@ void MainWindow::on_action_5_triggered()
       emit localizateWindows();
     }
     bugForm->show();
+    bugForm->activateWindow();
 }
 
 void MainWindow::on_action_7_triggered()
