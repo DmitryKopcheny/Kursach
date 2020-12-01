@@ -13,12 +13,12 @@ void TextChat::resetIterators()
 }
 QString TextChat::getNextMessage()
 {
-  ++iteratorMessage;
+  iteratorMessage++;
   return messages[iteratorMessage-1];
 }
 QString TextChat::getNextTime()
 {
-  ++iteratorTime;
+  iteratorTime++;
   return time[iteratorTime-1].time().toString();
 }
 bool TextChat::getIsUsersMessage()
@@ -43,8 +43,6 @@ bool TextChat::isEnd()
     }
 }
 
-
-
 bool TextChat::searchForTheSame(const Student &info)
 {
   for (int i = 0; i<getSizeOfStud(); i++)
@@ -61,6 +59,34 @@ bool TextChat::searchForTheSame(const Student &info)
         }
     }
   return false;
+}
+
+void TextChat::sortStudents()
+{
+  QVector<Student> studVector;
+  QVector<Student>  *minCourse;
+  QVector<Student> *sameGroup;
+  for (int i = 0; i < getSizeOfStud(); i++)
+    {
+      studVector.push_back(getStudent(i));
+    }
+  clearStudentAM();
+  quickSort(&studVector, 0, studVector.size()-1);
+  while (studVector.size() != 0)
+    {
+      minCourse = sellectMinCourse(&studVector);
+      while (minCourse->size() != 0)
+        {
+
+          sameGroup = sellectSameGroup(minCourse);
+          for (int i = 0; i<sameGroup->size(); i++)
+            {
+              addStudent((*sameGroup)[i]);
+            }
+          delete sameGroup;
+        }
+      delete minCourse;
+    }
 }
 
 void TextChat::quickSort(QVector <Student>* studVector, int left, int right)
@@ -111,24 +137,6 @@ void TextChat::quickSort(QVector <Student>* studVector, int left, int right)
     quickSort(studVector, left, pivot-1);
     quickSort(studVector, pivot+1, right);
 }
-QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
-{
-  QVector <Student>* sameGroupVector = new QVector<Student>;
-  if (studVector->size() == 0)
-    {
-      return sameGroupVector;
-    }
-  sameGroupVector->push_back(studVector->takeAt(0));
-  for (int i = 0; i<studVector->size(); i++)
-    {
-      if ((*sameGroupVector)[0].group == (*studVector)[i].group)
-        {
-          sameGroupVector->push_back(studVector->takeAt(i));
-          i--;
-        }
-    }
-  return sameGroupVector;
-}
 
 int TextChat::findMinCourse(QVector <Student>* studVector)
 {
@@ -166,30 +174,21 @@ QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
   return minCourseVector;
 }
 
-void TextChat::sortStudents()
+QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
 {
-  QVector<Student> studVector;
-  QVector<Student>  *minCourse;
-  QVector<Student> *sameGroup;
-  for (int i = 0; i < getSizeOfStud(); i++)
+  QVector <Student>* sameGroupVector = new QVector<Student>;
+  if (studVector->size() == 0)
     {
-      studVector.push_back(getStudent(i));
+      return sameGroupVector;
     }
-  clearStudentAM();
-  quickSort(&studVector, 0, studVector.size()-1);
-  while (studVector.size() != 0)
+  sameGroupVector->push_back(studVector->takeAt(0));
+  for (int i = 0; i<studVector->size(); i++)
     {
-      minCourse = sellectMinCourse(&studVector);
-      while (minCourse->size() != 0)
+      if ((*sameGroupVector)[0].group == (*studVector)[i].group)
         {
-
-          sameGroup = sellectSameGroup(minCourse);
-          for (int i = 0; i<sameGroup->size(); i++)
-            {
-              addStudent((*sameGroup)[i]);
-            }
-          delete sameGroup;
+          sameGroupVector->push_back(studVector->takeAt(i));
+          i--;
         }
-      delete minCourse;
     }
+  return sameGroupVector;
 }

@@ -1,14 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "developer.h"  //графоний
+#include "developer.h"  //інтерфейс
 #include "rateapp.h"
 #include "bug.h"
 #include "manual.h"
 #include "settings.h"
 
-#include "textchat.h"   //алгоритмы + данные
-#include "localization.h" //локализация
+#include "textchat.h"   //алгоритми + данні
+#include "localization.h" //локалізація
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->action_3->setText(Locale->getLclMoredetails());
     ui->action_4->setText(Locale->getLclSettings());
     ui->action_5->setText(Locale->getLclFindbug());
-    ui->action_7->setText("Зберегти"); //меша
+    ui->action_7->setText(Locale->getLclbtnSave());
     ui->btn1->setText(Locale->getLclWhatisAM());
     ui->btn2->setText(Locale->getLclUnivpartn());
     ui->btn3->setText(Locale->getLclWantjoin());
@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn1_2->setText(Locale->getLclLanguage());
     ui->btn1_3->setText(Locale->getLclKoshtovnist());
     ui->btn1_4->setText(Locale->getLclDepochaty());
-    ui->btn1_4_1->setText("Приклад мотиваційного листа");
+    ui->btn1_4_1->setText(Locale->getLclSampleSOP());
     ui->btn1_back->setText(Locale->getLclNazad());
     ui->btn2_back->setText(Locale->getLclNazad());
     ui->btn1_4_back->setText(Locale->getLclNazad());
@@ -72,7 +72,7 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-void  MainWindow::on_LanguageChanged() //больше изменение языка интерфейса
+void  MainWindow::on_LanguageChanged() //зміни тексту всіх лейблів, кнопок, і меню, а також повідомлень бота
 {
   Chat->readFromXml(Locale->getLang());
   Chat->readFromCsv(Locale->getLang());
@@ -86,7 +86,7 @@ void  MainWindow::on_LanguageChanged() //больше изменение язы�
   ui->action_3->setText(Locale->getLclMoredetails());
   ui->action_4->setText(Locale->getLclSettings());
   ui->action_5->setText(Locale->getLclFindbug());
-  ui->action_7->setText("Зберегти"); //меша
+  ui->action_7->setText(Locale->getLclbtnSave());
   ui->btn1->setText(Locale->getLclWhatisAM());
   ui->btn2->setText(Locale->getLclUnivpartn());
   ui->btn3->setText(Locale->getLclWantjoin());
@@ -95,7 +95,7 @@ void  MainWindow::on_LanguageChanged() //больше изменение язы�
   ui->btn1_2->setText(Locale->getLclLanguage());
   ui->btn1_3->setText(Locale->getLclKoshtovnist());
   ui->btn1_4->setText(Locale->getLclDepochaty());
-  ui->btn1_4_1->setText("Приклад мотиваційного листа");
+  ui->btn1_4_1->setText(Locale->getLclSampleSOP());
   ui->btn1_back->setText(Locale->getLclNazad());
   ui->btn2_back->setText(Locale->getLclNazad());
   ui->btn1_4_back->setText(Locale->getLclNazad());
@@ -107,7 +107,7 @@ void  MainWindow::on_LanguageChanged() //больше изменение язы�
   ui->btn2_6->setText(Chat->getUnName(5));
   emit localizateWindows();
 }
-void MainWindow::on_action_3_triggered()
+void MainWindow::on_action_3_triggered()  //про програму
 {
   if (developerForm == nullptr)
     {
@@ -119,7 +119,7 @@ void MainWindow::on_action_3_triggered()
     developerForm->activateWindow();
 }
 
-void MainWindow::on_action_2_triggered()
+void MainWindow::on_action_2_triggered()  //оцінити додаток
 {
   if (rateAppForm == nullptr)
     {
@@ -131,7 +131,7 @@ void MainWindow::on_action_2_triggered()
     rateAppForm->activateWindow();
 }
 
-void MainWindow::on_action_4_triggered()
+void MainWindow::on_action_4_triggered()  //налаштування
 {
   if (settingsForm == nullptr)
     {
@@ -144,7 +144,7 @@ void MainWindow::on_action_4_triggered()
     settingsForm->activateWindow();
 }
 
-void MainWindow::on_action_triggered()
+void MainWindow::on_action_triggered()  //як користуватися
 {
   if (manualForm == nullptr)
     {
@@ -156,7 +156,7 @@ void MainWindow::on_action_triggered()
     manualForm->activateWindow();
 }
 
-void MainWindow::on_action_5_triggered()
+void MainWindow::on_action_5_triggered()  //повідомлення про баг
 {
   if (bugForm == nullptr)
     {
@@ -168,7 +168,7 @@ void MainWindow::on_action_5_triggered()
     bugForm->activateWindow();
 }
 
-void MainWindow::on_action_7_triggered()
+void MainWindow::on_action_7_triggered()  //зберегти
 {
   Chat->sortStudents();
   Chat->writeToXml();
@@ -215,7 +215,7 @@ void MainWindow::on_btn3_clicked()//реєстація
   ui->layout_enter->show();
   ui->layout_main->hide();
   Chat->addNewMessage(true, ui->btn3->text());
-  Chat->addNewMessage(false, "Введіть прізвище, ім'я, побатькові"); //миииша, локализация
+  Chat->addNewMessage(false, Locale->getLclInputFIO());
   studInfo = new Student;
   displayChat();
 }
@@ -228,17 +228,17 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
   if (studInfo->fullName.isEmpty())
     {
       studInfo->fullName = usersInput.toUpper();  //toUpper для того чтобы легче было сортировать
-      message = "Введіть групу";                  //миииша, локализация
+      message = Locale->getLclInputGroup();
     }
   else if (studInfo->group.isEmpty())
     {
       studInfo->group = usersInput.toUpper();     //toUpper для того чтобы легче было сортировать
-      message = "Введіть курс";                   //миииша, локализация
+      message = Locale->getLclInputCourse();
     }
   else if (studInfo->course == 0)
     {
       studInfo->course = usersInput.toInt();
-      message = "Введіть номер телефону";         //миииша, локализация
+      message = Locale->getLclPhnNumber();
     }
   else if (studInfo->phoneNumber.isEmpty())
     {
@@ -246,11 +246,11 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
     }
   if (studInfo->isComplete())
     {
-      message = "Сталася помилка, ви вже зареєстровані";
+      message = Locale->getLclErrorOcure();
       if (!Chat->searchForTheSame(*studInfo))
         {
           Chat->addStudent(*studInfo);
-          message = "Дякую, реєстрація завершена";    //миииша, локализация
+          message = Locale->getLclSuccesReg();
         }
       delete studInfo;
       studInfo = nullptr;
@@ -305,7 +305,7 @@ void MainWindow::on_btn1_4_clicked()//з чого почати
 void MainWindow::on_btn1_4_1_clicked()//приклад мотиваційного листа
 {
   Chat->addNewMessage(true, ui->btn1_4_1->text());
-  Chat->addNewMessage(false, "Файл Відсутній");             //метод відсутній
+  Chat->addNewMessage(false, Locale->getLclSampleSOP());
   displayChat();
 }
 
@@ -396,8 +396,6 @@ void MainWindow::on_btn1_4_back_clicked()//назад
   ui->layout_details->show();
   ui->layout_letter->hide();
 }
-
-
 
 void MainWindow::displayChat()
 {

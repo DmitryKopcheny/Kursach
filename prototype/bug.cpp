@@ -1,6 +1,6 @@
 #include "bug.h"
 #include "ui_bug.h"
-#include "localization.h" //локализация
+#include "localization.h"
 bug::bug(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::bug)
