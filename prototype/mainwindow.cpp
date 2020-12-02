@@ -9,7 +9,7 @@
 
 #include "textchat.h"   //алгоритми + данні
 #include "localization.h" //локалізація
-#include "exception.h" //ошибки
+#include "exception.h" //помилки
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -225,13 +225,19 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 {
   QString usersInput;
   QString message;
+  QString rxeng, rxukr, rxrus;
+  Validate str;
   usersInput = ui->lineEdit->text();
   try {
     if (studInfo->fullName.isEmpty())
       {
-            if (usersInput.toUpper() == "")
+            rxeng = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}"; //сюда локализацию надо впихнуть вместо этого
+            rxukr = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
+            rxrus = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
+
+            if (!str.validates(usersInput,rxrus))
             {
-              throw RegisterException();
+              throw RegisterException(1);
             }
              studInfo->fullName = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
              message = Locale->getLclInputGroup();
@@ -239,9 +245,13 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->group.isEmpty())
       {
-            if (usersInput.toUpper() == "")
+             rxeng = "[A-Z]{3}\\-\\d{3}"; //сюда локализацию надо впихнуть
+             rxukr = "[А-Я,І,Ї]{3}\\-\\d{3}";
+             rxrus = "[А-Я]{3}\\-\\d{3}";
+
+            if (!str.validates(usersInput,rxrus))
             {
-              throw RegisterException();
+              throw RegisterException(2);
             }
 
            studInfo->group = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
@@ -250,10 +260,10 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->course == 0)
       {
-            if (usersInput.toUpper() == "")
-            {
-              throw RegisterException();
-            }
+        if (!str.validates(usersInput,"[2-6]"))
+        {
+          throw RegisterException(3);
+        }
 
          studInfo->course = usersInput.toInt();
          message = Locale->getLclPhnNumber();
@@ -262,10 +272,10 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->phoneNumber.isEmpty())
       {
-            if (usersInput.toUpper() == "")
-            {
-              throw RegisterException();
-            }
+        if (!str.validates(usersInput,"^\\+\\d{1,2}\\(\\d{3,5}\\)\\d{6,7}$"))
+        {
+          throw RegisterException(4);
+        }
         studInfo->phoneNumber = usersInput;
         }
 
