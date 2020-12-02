@@ -1,6 +1,7 @@
 #include "localization.h"
 #include <QFile>
 #include <QTextStream>
+#include "exception.h"
 Localization::Localization()
 {
   langCode = UKRAINIAN;
