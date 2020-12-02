@@ -2,6 +2,11 @@
 #include "QMessageBox"
 #include "QString"
 
+void Exception::what()
+{
+
+}
+
 FileException::FileException(QString error)
 {
     this->error = "Error opening file:  ";
@@ -13,21 +18,38 @@ FileException::~FileException()
     error = "";
 }
 
+
+
 void FileException::what() {
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
+    exit(0);
 }
 
 RegisterException::RegisterException()
 {
-    this->error = "Ви не ввели дані";
+    error = "";
 }
 
-RegisterException::RegisterException(QString error)
+RegisterException::RegisterException(int error)
 {
-    this->error = error;
+    this->error = "Ви не ввели дані, або ввели їх невірно. Правильно введені дані виклядають так: "; //локализация
+    switch (error)
+        {
+            case 1:
+            this->error += "Прізвище Ім'я По-батькові";
+            break;
+            case 2:
+            this->error += "КНТ-229";
+            break;
+            case 3:
+            this->error += "число від 2 до 6 ";
+            break;
+            case 4:
+            this->error += "+38(056)1234567";
+        }
 }
 
 RegisterException::~RegisterException()
@@ -35,11 +57,28 @@ RegisterException::~RegisterException()
     error = "";
 }
 
-void RegisterException::what() {
+void RegisterException::what()
+{
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
-    exit(0);//завершение приложения при отсутсувии файла
+}
+
+bool Validate::validates(QString str, QString regexp)
+{
+    QRegExp rx;
+    QRegExpValidator valid;
+    rx.setPattern(regexp);
+    valid.setRegExp(rx);
+    int pos = 0;
+    if (valid.validate(str, pos) == QValidator::Acceptable)
+    {
+       return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
