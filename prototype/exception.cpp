@@ -40,5 +40,6 @@ void RegisterException::what() {
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
+    exit(0);//завершение приложения при отсутсувии файла
 }
 
