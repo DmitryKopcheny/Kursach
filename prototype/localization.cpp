@@ -44,7 +44,7 @@ int Localization::getLangCode()
 }
 void Localization::fillTheLclValue()
 {
-    QFile file("C:/Users/Win10Pro/Desktop/prototype/localization.csv");
+    QFile file("localization.csv");
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
