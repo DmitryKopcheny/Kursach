@@ -26,5 +26,17 @@ private:
     QString error;
 };
 
+class RegisterException : public Exception
+{
+public:
+    RegisterException();
+    RegisterException(QString error);
+    ~RegisterException();
+    void what() override;
+private:
+    QString error;
+};
+
+
 
 #endif // EXCEPTION_H
