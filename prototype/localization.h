@@ -40,7 +40,12 @@ public:
     QString getLclPhnNumber(); //введите номер телефона
     QString getLclErrorOcure(); //возникла ошибка при рег, вы уже зарег
     QString getLclSuccesReg(); //спасибо, регистр завершена
-
+    QString getLclDevelLabel(); //разработчики
+    QString getLclDevelText();//студенты КНТ-229, нузп
+    QString getLclVersin();//Version: Alpha 0.3
+    QString getLclFreeChatBot(); //бесплатный чат-бот для...
+    QString getLclGuideLable();//лейбл руководство
+    QString getLclGuideText();//руководство текст
 
 
     void fillTheLclValue();

@@ -1,6 +1,4 @@
 #include "localization.h"
-#include <QFile>
-#include <QTextStream>
 #include "exception.h"
 Localization::Localization()
 {
@@ -68,8 +66,10 @@ void Localization::fillTheLclValue()
                 //langLine.resize(langLine.size() - 2);// !ЕСЛИ В КОНЦЕ КАКОГО-ЛИБО СЛОВА БУДУТ ЗНАКИ ПЕРЕНОСА СТРОКИ - раскоментить
 
                     wordList.clear();
-                    for(int i = 1; i < 30; i ++)
+                    //QString s;
+                    for(int i = 1; i < 36; i ++)
                     {
+                        //s = QString::fromLocal8Bit(langLine.split(';').at(i));
                         wordList.append(langLine.split(';').at(i));
                     }
                     break;
@@ -168,7 +168,37 @@ QString Localization::getLclErrorOcure() //строка рег, возникла
 
 QString Localization::getLclSuccesReg() //строка рег, успех регистрации
 {
-        return wordList.at(28);
+    return wordList.at(28);
+}
+
+QString Localization::getLclDevelLabel() // лейбл разрабы
+{
+    return wordList.at(34);
+}
+
+QString Localization::getLclDevelText() //текст разрабы
+{
+    return wordList.at(35);
+}
+
+QString Localization::getLclVersin() // Версия
+{
+    return wordList.at(33);
+}
+
+QString Localization::getLclFreeChatBot() // бесплатный чат-бот, предназ
+{
+    return wordList.at(32);
+}
+
+QString Localization::getLclGuideLable() // лейбл руков пользователя
+{
+    return wordList.at(30);
+}
+
+QString Localization::getLclGuideText() // текст руков пользователя
+{
+    return wordList.at(31);
 }
 QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
@@ -235,3 +265,4 @@ QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
 {
     return wordList.at(19);
 }
+
