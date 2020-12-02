@@ -43,9 +43,19 @@ int Localization::getLangCode()
 }
 void Localization::fillTheLclValue()
 {
-    QFile file("localization.csv");
-    file.open(QIODevice::ReadOnly); //для Влада
+    QFile file("C:/Users/Win10Pro/Desktop/prototype/localization.csv");
+    try {
+            file.open(QIODevice::ReadOnly);
+            if(!file.isOpen())
+                {
+                    throw FileException("localization.csv");
+                }
+        }
 
+    catch(FileException& ex)
+        {
+            ex.what();
+        }
     while(!file.atEnd()) //in.atEnd
     {
 
