@@ -225,43 +225,72 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
   QString usersInput;
   QString message;
   usersInput = ui->lineEdit->text();
-  if (studInfo->fullName.isEmpty())
-    {
-      studInfo->fullName = usersInput.toUpper();  //toUpper для того чтобы легче было сортировать
-      message = Locale->getLclInputGroup();
-    }
-  else if (studInfo->group.isEmpty())
-    {
-      studInfo->group = usersInput.toUpper();     //toUpper для того чтобы легче было сортировать
-      message = Locale->getLclInputCourse();
-    }
-  else if (studInfo->course == 0)
-    {
-      studInfo->course = usersInput.toInt();
-      message = Locale->getLclPhnNumber();
-    }
-  else if (studInfo->phoneNumber.isEmpty())
-    {
-      studInfo->phoneNumber = usersInput;
-    }
-  if (studInfo->isComplete())
-    {
-      message = Locale->getLclErrorOcure();
-      if (!Chat->searchForTheSame(*studInfo))
-        {
-          Chat->addStudent(*studInfo);
-          message = Locale->getLclSuccesReg();
-        }
-      delete studInfo;
-      studInfo = nullptr;
-      ui->layout_main->show();
-      ui->layout_enter->hide();
-    }
-  Chat->addNewMessage(true, usersInput);
-  Chat->addNewMessage(false, message);
-  displayChat();
-  ui->lineEdit->clear();
+  try {
+    if (studInfo->fullName.isEmpty())
+      {
+            if (usersInput.toUpper() == "")
+            {
+              throw RegisterException();
+            }
+             studInfo->fullName = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
+             message = Locale->getLclInputGroup();
+            }
 
+    else if (studInfo->group.isEmpty())
+      {
+            if (usersInput.toUpper() == "")
+            {
+              throw RegisterException();
+            }
+
+           studInfo->group = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
+           message = Locale->getLclInputCourse();
+      }
+
+    else if (studInfo->course == 0)
+      {
+            if (usersInput.toUpper() == "")
+            {
+              throw RegisterException();
+            }
+
+         studInfo->course = usersInput.toInt();
+         message = Locale->getLclPhnNumber();
+
+      }
+
+    else if (studInfo->phoneNumber.isEmpty())
+      {
+            if (usersInput.toUpper() == "")
+            {
+              throw RegisterException();
+            }
+        studInfo->phoneNumber = usersInput;
+        }
+
+    if (studInfo->isComplete())
+      {
+        message = Locale->getLclErrorOcure();
+        if (!Chat->searchForTheSame(*studInfo))
+          {
+            Chat->addStudent(*studInfo);
+            message = Locale->getLclSuccesReg();
+          }
+        delete studInfo;
+        studInfo = nullptr;
+        ui->layout_main->show();
+        ui->layout_enter->hide();
+      }
+    Chat->addNewMessage(true, usersInput);
+    Chat->addNewMessage(false, message);
+    displayChat();
+    ui->lineEdit->clear();
+    }
+
+    catch(RegisterException& ex)
+         {
+          ex.what();
+         }
 }
 
 void MainWindow::on_btn4_clicked()//контакти
