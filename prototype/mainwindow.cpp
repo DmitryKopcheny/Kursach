@@ -8,7 +8,8 @@
 #include "settings.h"
 
 #include "textchat.h"   //алгоритми + данні
-#include "localization.h" //локалізація
+#include "localization.h" //локалізація\
+#include "exception.h" //ошибки
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
