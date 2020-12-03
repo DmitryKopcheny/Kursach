@@ -27,16 +27,36 @@ private:
     QString error;
 };
 
+class EmptyFileException : public Exception
+{
+public:
+     EmptyFileException(QString error);
+    ~EmptyFileException() override;
+    void what() override;
+private:
+    QString error;
+};
+
+class  ReadingDataException : public Exception
+{
+public:
+     ReadingDataException(QString error);
+    ~ReadingDataException() override;
+    void what() override;
+private:
+    QString error;
+};
+
 class RegisterException : public Exception
 {
 public:
-    RegisterException();
     RegisterException(int error);
     ~RegisterException() override;
     void what() override;
 private:
     QString error;
 };
+
 
 class Validate
 {
@@ -45,8 +65,6 @@ public:
     ~Validate() {}
     bool validates(QString str, QString regexp);
 };
-
-
 
 
 #endif // EXCEPTION_H
