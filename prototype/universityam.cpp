@@ -7,18 +7,39 @@ UniversityAM::UniversityAM()
 }
 
 const University& UniversityAM::getUniversity(int index)
-{
+{  
     return universityList.at(index);
 }
 
 QString UniversityAM::getUnName(int index) const
 {
+    try {
+      if (getSizeOfUniv()<6)
+        {
+           throw EmptyFileException("universitiesAM.xml");
+        }
     return universityList.at(index).univName;
+    }
+    catch(EmptyFileException& ex)
+        {
+            ex.what();
+        }
 }
 
 QString UniversityAM::getMainInfo(int index) const
 {
+    try {
+      if (getSizeOfUniv()<6)
+        {
+           throw EmptyFileException("universitiesAM.xml");
+        }
+
     return universityList.at(index).mainInfo;
+    }
+    catch(EmptyFileException& ex)
+        {
+            ex.what();
+        }
 }
 
 int UniversityAM::getSizeOfUniv() const
@@ -30,7 +51,7 @@ void UniversityAM::readFromXml(const QString language)
 {
     universityList.clear();
     QDomDocument domDoc;
-    QFile file("universitiesAM.xml");
+    QFile file("C:/Users/Win10Pro/Desktop/prototype/universitiesAM.xml");
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
@@ -76,31 +97,46 @@ University &UniversityAM::formUnivFromXml(const QDomNode& univXml)
     University *temp = new University;
     QDomElement univElement = univXml.toElement();
     QDomNode traverseNode = univXml.firstChild();
-        if(univElement.tagName() == "university")
+    try {
+        if(univElement.tagName() != "university")
         {
-
+            throw ReadingDataException("universitiesAM.xml");
+        }
+        else {
+            {
                 QDomElement univName = traverseNode.toElement();
-
+                if (univName.text() == "")
+                {
+                  throw ReadingDataException("universitiesAM.xml");
+                }
                 temp->univName = univName.text();
 
                 traverseNode = traverseNode.nextSibling();
-
                 QDomElement univMainInfo = traverseNode.toElement();
 
+                if (univMainInfo.text() == "")
+                {
+                  throw ReadingDataException("universitiesAM.xml");
+                }
                 temp->mainInfo = univMainInfo.text();
-
+           }
+        }
+         return *temp;
         }
 
-            return *temp;
+    catch(ReadingDataException& ex)
+        {
+            ex.what();
+        }
 }
 
 
 QString University::getName()
-{  
-        return univName;
+{
+    return univName;
 }
 
 QString University::getMainInfo()
 {
-        return mainInfo;
+    return mainInfo;
 }
