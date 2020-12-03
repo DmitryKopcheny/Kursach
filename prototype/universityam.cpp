@@ -51,7 +51,7 @@ void UniversityAM::readFromXml(const QString language)
 {
     universityList.clear();
     QDomDocument domDoc;
-    QFile file("C:/Users/Win10Pro/Desktop/prototype/universitiesAM.xml");
+    QFile file("universitiesAM.xml");
     try {
             file.open(QIODevice::ReadOnly);
             if(!file.isOpen())
