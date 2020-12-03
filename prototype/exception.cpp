@@ -13,24 +13,52 @@ FileException::FileException(QString error)
     this->error += error;
 }
 
-FileException::~FileException()
-{
-    error = "";
-}
-
-
-
 void FileException::what() {
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
+}
+
+FileException::~FileException()
+{
     exit(0);
 }
 
-RegisterException::RegisterException()
+EmptyFileException::EmptyFileException(QString error)
 {
-    error = "";
+    this->error = "File is empty or it doesn't have enough data to run:  ";
+    this->error += error;
+}
+
+void EmptyFileException::what() {
+    QMessageBox msg;
+    msg.setWindowTitle("Error information");
+    msg.setText(error);
+    msg.exec();
+}
+
+EmptyFileException::~EmptyFileException()
+{
+    exit(0);
+}
+
+ReadingDataException::ReadingDataException(QString error)
+{
+    this->error = "Error the required data is empty, from file:  ";
+    this->error += error;
+}
+
+void ReadingDataException::what() {
+    QMessageBox msg;
+    msg.setWindowTitle("Error information");
+    msg.setText(error);
+    msg.exec();
+}
+
+ReadingDataException::~ReadingDataException()
+{
+    exit(0);
 }
 
 RegisterException::RegisterException(int error)
@@ -52,11 +80,6 @@ RegisterException::RegisterException(int error)
         }
 }
 
-RegisterException::~RegisterException()
-{
-    error = "";
-}
-
 void RegisterException::what()
 {
     QMessageBox msg;
@@ -64,6 +87,12 @@ void RegisterException::what()
     msg.setText(error);
     msg.exec();
 }
+
+RegisterException::~RegisterException()
+{
+    error = "";
+}
+
 
 bool Validate::validates(QString str, QString regexp)
 {
@@ -78,7 +107,7 @@ bool Validate::validates(QString str, QString regexp)
     }
     else
     {
-        return false;
+       return false;
     }
 }
 
