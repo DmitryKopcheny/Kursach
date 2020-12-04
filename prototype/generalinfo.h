@@ -2,7 +2,6 @@
 #define GENERALINFO_H
 
 #include <QString>
-#include <QStringList>
 #include <QFile>
 
 class GeneralInfo

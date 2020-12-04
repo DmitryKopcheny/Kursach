@@ -345,7 +345,7 @@ void MainWindow::on_btn1_4_clicked()//з чого почати
 void MainWindow::on_btn1_4_1_clicked()//приклад мотиваційного листа
 {
   Chat->addNewMessage(true, ui->btn1_4_1->text());
-  Chat->addNewMessage(false, Locale->getLclSampleSOP());
+  Chat->addNewMessage(false, Chat->getStatementOfPurpose());
   displayChat();
 }
 
@@ -437,14 +437,14 @@ void MainWindow::on_btn1_4_back_clicked()//назад
   ui->layout_letter->hide();
 }
 
-void MainWindow::displayChat()
+void MainWindow::displayChat()  //отображение текста в чате
 {
   ui->textBrowser->clear();
   Chat->resetIterators();
   while (!Chat->isEnd())
     {
 
-      if (Chat->getIsUsersMessage())
+      if (Chat->getIsUsersMessage())  //если сообщение отправлено пользователем
         {
           QString nameAndDate;
           ui->textBrowser->setAlignment(Qt::AlignRight);
@@ -452,7 +452,7 @@ void MainWindow::displayChat()
           ui->textBrowser->append(nameAndDate);
           ui->textBrowser->append(Chat->getNextMessage()+="\n");
         }
-      else
+      else                            //если сообщение отправлено ботом
         {
           QString nameAndDate;
           ui->textBrowser->setAlignment(Qt::AlignLeft);

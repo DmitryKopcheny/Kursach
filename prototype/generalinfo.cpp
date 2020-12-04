@@ -57,10 +57,9 @@ void GeneralInfo::readFromCsv(const QString language)
             ex.what();
         }
 
-    QStringList wordList;
     while(!file.atEnd())
     {
-        QByteArray langLine = file.readLine();
+        QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
                 langLine.resize(langLine.size() - 2);
