@@ -3,7 +3,6 @@
 #include <QDateTime>
 #include <QList>
 #include <QString>
-#include <QVector>
 #include "universityam.h"
 #include "generalinfo.h"
 #include "studentam.h"
@@ -31,10 +30,10 @@ public:
 
   bool searchForTheSame(const Student &info);
 
-  void quickSort(QVector <Student>* studVector, int left, int right);
-  int findMinCourse(QVector <Student>* studVector);
-  QVector<Student>*  sellectSameGroup(QVector <Student>* studVector);
-  QVector<Student>* sellectMinCourse(QVector <Student>* studVector);
+  void quickSort(QList <Student>* studList, int left, int right);
+  int findMinCourse(QList <Student>* studList);
+  QList<Student>*  sellectSameGroup(QList <Student>* studList);
+  QList<Student>* sellectMinCourse(QList <Student>* studList);
   void sortStudents();
 };
 

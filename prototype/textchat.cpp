@@ -63,18 +63,18 @@ bool TextChat::searchForTheSame(const Student &info)
 
 void TextChat::sortStudents()
 {
-  QVector<Student> studVector;
-  QVector<Student>  *minCourse;
-  QVector<Student> *sameGroup;
+  QList<Student> studList;
+  QList<Student>  *minCourse;
+  QList<Student> *sameGroup;
   for (int i = 0; i < getSizeOfStud(); i++)
     {
-      studVector.push_back(getStudent(i));
+      studList.push_back(getStudent(i));
     }
   clearStudentAM();
-  quickSort(&studVector, 0, studVector.size()-1);
-  while (studVector.size() != 0)
+  quickSort(&studList, 0, studList.size()-1);
+  while (studList.size() != 0)
     {
-      minCourse = sellectMinCourse(&studVector);
+      minCourse = sellectMinCourse(&studList);
       while (minCourse->size() != 0)
         {
 
@@ -89,7 +89,7 @@ void TextChat::sortStudents()
     }
 }
 
-void TextChat::quickSort(QVector <Student>* studVector, int left, int right)
+void TextChat::quickSort(QList <Student>* studList, int left, int right)
 {
   if (right - left <= 0)
     {
@@ -109,86 +109,86 @@ void TextChat::quickSort(QVector <Student>* studVector, int left, int right)
         {
           skip = true;
         }
-      if ((*studVector)[leftBorder].fullName.size()<(*studVector)[pivot].fullName.size())
+      if ((*studList)[leftBorder].fullName.size()<(*studList)[pivot].fullName.size())
         {
-          maxUnicodeLevel = (*studVector)[leftBorder].fullName.size();
+          maxUnicodeLevel = (*studList)[leftBorder].fullName.size();
         }
       else
         {
-          maxUnicodeLevel = (*studVector)[pivot].fullName.size();
+          maxUnicodeLevel = (*studList)[pivot].fullName.size();
         }
-      pivotUnicode = (int)(*studVector)[pivot].fullName[unicodeLevel].unicode();
-      leftUnicode = (int)(*studVector)[leftBorder].fullName[unicodeLevel].unicode();
+      pivotUnicode = (int)(*studList)[pivot].fullName[unicodeLevel].unicode();
+      leftUnicode = (int)(*studList)[leftBorder].fullName[unicodeLevel].unicode();
       if (leftUnicode == pivotUnicode && unicodeLevel < maxUnicodeLevel && !skip)
         {
           unicodeLevel++;
           continue;
         }
-      if (leftUnicode < pivotUnicode || (leftUnicode == pivotUnicode && (*studVector)[leftBorder].fullName.size() == maxUnicodeLevel))
+      if (leftUnicode < pivotUnicode || (leftUnicode == pivotUnicode && (*studList)[leftBorder].fullName.size() == maxUnicodeLevel))
         {
           leftBorder++;
           unicodeLevel = 0;
           continue;
         }
-      studVector->insert(pivot, studVector->takeAt(leftBorder));
+      studList->insert(pivot, studList->takeAt(leftBorder));
       pivot--;
       unicodeLevel = 0;
     }
-    quickSort(studVector, left, pivot-1);
-    quickSort(studVector, pivot+1, right);
+    quickSort(studList, left, pivot-1);
+    quickSort(studList, pivot+1, right);
 }
 
-int TextChat::findMinCourse(QVector <Student>* studVector)
+int TextChat::findMinCourse(QList <Student>* studList)
 {
-  if (studVector->size() == 0)
+  if (studList->size() == 0)
     {
       return -1;
     }
-  int minCourse = (*studVector)[0].course;
-  for (int i = 0; i < studVector->size(); i++)
+  int minCourse = (*studList)[0].course;
+  for (int i = 0; i < studList->size(); i++)
     {
-      if (minCourse > (*studVector)[i].course)
+      if (minCourse > (*studList)[i].course)
         {
-          minCourse =(*studVector)[i].course;
+          minCourse =(*studList)[i].course;
         }
     }
   return minCourse;
 }
 
-QVector<Student>* TextChat::sellectMinCourse(QVector <Student>* studVector)
+QList<Student>* TextChat::sellectMinCourse(QList <Student>* studList)
 {
-  QVector <Student>* minCourseVector = new QVector<Student>;
-  int minCourse = findMinCourse(studVector);
+  QList <Student>* minCourseList = new QList<Student>;
+  int minCourse = findMinCourse(studList);
   if (minCourse == -1)
     {
-      return minCourseVector;
+      return minCourseList;
     }
-  for (int i = 0; i<studVector->size(); i++)
+  for (int i = 0; i<studList->size(); i++)
     {
-      if ((*studVector)[i].course == minCourse)
+      if ((*studList)[i].course == minCourse)
         {
-          minCourseVector->push_back(studVector->takeAt(i));
+          minCourseList->push_back(studList->takeAt(i));
           i--;
         }
     }
-  return minCourseVector;
+  return minCourseList;
 }
 
-QVector<Student>*  TextChat::sellectSameGroup(QVector <Student>* studVector)
+QList<Student>*  TextChat::sellectSameGroup(QList <Student>* studList)
 {
-  QVector <Student>* sameGroupVector = new QVector<Student>;
-  if (studVector->size() == 0)
+  QList <Student>* sameGroupList = new QList<Student>;
+  if (studList->size() == 0)
     {
-      return sameGroupVector;
+      return sameGroupList;
     }
-  sameGroupVector->push_back(studVector->takeAt(0));
-  for (int i = 0; i<studVector->size(); i++)
+  sameGroupList->push_back(studList->takeAt(0));
+  for (int i = 0; i<studList->size(); i++)
     {
-      if ((*sameGroupVector)[0].group == (*studVector)[i].group)
+      if ((*sameGroupList)[0].group == (*studList)[i].group)
         {
-          sameGroupVector->push_back(studVector->takeAt(i));
+          sameGroupList->push_back(studList->takeAt(i));
           i--;
         }
     }
-  return sameGroupVector;
+  return sameGroupList;
 }
