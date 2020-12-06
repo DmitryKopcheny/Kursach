@@ -46,7 +46,11 @@ public:
     QString getLclFreeChatBot(); //бесплатный чат-бот для...
     QString getLclGuideLable();//лейбл руководство
     QString getLclGuideText();//руководство текст
-
+    QString getLclBugReportLable();//Нашли баг или что-то хотите сообщить? пишите сюды
+    QString getLclDevMikeName();
+    QString getLclDevOlegName();
+    QString getLclDevDimaName();
+    QString getLclDevVladName();
 
     void fillTheLclValue();
     void setLang(const int langCode);

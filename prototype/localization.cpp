@@ -67,7 +67,7 @@ void Localization::fillTheLclValue()
 
                     wordList.clear();
                     //QString s;
-                    for(int i = 1; i < 36; i ++)
+                    for(int i = 1; i < 41; i ++)
                     {
                         //s = QString::fromLocal8Bit(langLine.split(';').at(i));
                         wordList.append(langLine.split(';').at(i));
@@ -199,6 +199,31 @@ QString Localization::getLclGuideLable() // лейбл руков пользов
 QString Localization::getLclGuideText() // текст руков пользователя
 {
     return wordList.at(31);
+}
+
+QString Localization::getLclBugReportLable()
+{
+    return wordList.at(40);
+}
+
+QString Localization::getLclDevMikeName()
+{
+    return wordList.at(38);
+}
+
+QString Localization::getLclDevOlegName()
+{
+    return wordList.at(36);
+}
+
+QString Localization::getLclDevDimaName()
+{
+    return wordList.at(37);
+}
+
+QString Localization::getLclDevVladName()
+{
+    return wordList.at(39);
 }
 QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
