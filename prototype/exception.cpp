@@ -65,19 +65,19 @@ RegisterException::RegisterException(int error)
 {
     this->error = "You did not enter the data, or you entered it incorrectly. Correctly entered data are as follows: ";
     switch (error)
-        {
-            case 1:
-            this->error += "Last name First name Middle name";
-            break;
-            case 2:
-            this->error += "KNT-229";
-            break;
-            case 3:
-            this->error += "number from 2 to 6";
-            break;
-            case 4:
-            this->error += "+38(056)1234567";
-        }
+    {
+    case 1:
+        this->error += "Last name First name Middle name";
+        break;
+    case 2:
+        this->error += "KNT-229";
+        break;
+    case 3:
+        this->error += "number from 2 to 6";
+        break;
+    case 4:
+        this->error += "+38(056)1234567";
+    }
 }
 
 void RegisterException::what()
@@ -103,11 +103,11 @@ bool Validate::validates(QString str, QString regexp)
     int pos = 0;
     if (valid.validate(str, pos) == QValidator::Acceptable)
     {
-       return true;
+        return true;
     }
     else
     {
-       return false;
+        return false;
     }
 }
 

@@ -15,7 +15,7 @@ public:
     explicit manual(Localization *Locale, QWidget *parent = nullptr);
     ~manual();
 private slots:
-  void on_localizateWindows();
+    void on_localizateWindows();
 private:
     Ui::manual *ui;
     Localization *Locale;

@@ -1,29 +1,29 @@
 #include "studentam.h"
 Student::Student()
 {
-  course = 0;
+    course = 0;
 }
 
 bool Student::isComplete()
 {
-  bool Complete = true;
-  if (fullName.isEmpty())
+    bool Complete = true;
+    if (fullName.isEmpty())
     {
-      Complete = false;
+        Complete = false;
     }
-  if (group.isEmpty())
+    if (group.isEmpty())
     {
-      Complete = false;
+        Complete = false;
     }
-  if (course == 0)
+    if (course == 0)
     {
-      Complete = false;
+        Complete = false;
     }
-  if (phoneNumber.isEmpty())
+    if (phoneNumber.isEmpty())
     {
-      Complete = false;
+        Complete = false;
     }
-  return Complete;
+    return Complete;
 }
 
 StudentAM::StudentAM()
@@ -121,5 +121,5 @@ QDomElement StudentAM::formDomElementNode(QDomDocument &domDoc, const Student& s
 }
 void StudentAM::clearStudentAM()
 {
-  studentList.clear();
+    studentList.clear();
 }

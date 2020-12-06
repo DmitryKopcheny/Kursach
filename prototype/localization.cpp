@@ -2,100 +2,100 @@
 #include "exception.h"
 Localization::Localization()
 {
-  setLang(UKRAINIAN);
-  fillTheLclValue();
+    setLang(UKRAINIAN);
+    fillTheLclValue();
 }
 void Localization::setLang(int langCode)
 {
-  this->langCode = langCode;
-  if (langCode == UKRAINIAN)
+    this->langCode = langCode;
+    if (langCode == UKRAINIAN)
     {
-      language = "ukrainian";
-      regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
-      regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{3}\\-\\d{3}";
+        language = "ukrainian";
+        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
+        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{3}\\-\\d{3}";
     }
-  else if (langCode == ENGLISH)
+    else if (langCode == ENGLISH)
     {
-      language = "english";
-      regularExpressionName = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
-      regularExpressionGroup = "[A-z]{3}\\-\\d{3}";
+        language = "english";
+        regularExpressionName = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
+        regularExpressionGroup = "[A-z]{3}\\-\\d{3}";
     }
-  else if (langCode == GERMAN)
+    else if (langCode == GERMAN)
     {
-      language = "german";
-      regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
-      regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3}\\-\\d{3}";
+        language = "german";
+        regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
+        regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3}\\-\\d{3}";
     }
-  else if (langCode == RUSSIAN)
+    else if (langCode == RUSSIAN)
     {
-      language = "russian";
-      regularExpressionName = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
-      regularExpressionGroup = "[А-Я]{3}\\-\\d{3}";
+        language = "russian";
+        regularExpressionName = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
+        regularExpressionGroup = "[А-Я]{3}\\-\\d{3}";
     }
-  else
+    else
     {
-      this->langCode = UKRAINIAN;
-      language = "ukrainian";
-      regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
-      regularExpressionGroup = "[А-Я,І,Ї,-]\\d";
+        this->langCode = UKRAINIAN;
+        language = "ukrainian";
+        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
+        regularExpressionGroup = "[А-Я,І,Ї,-]\\d";
     }
 }
 QString Localization::getLang()
 {
-  return language;
+    return language;
 }
 
 int Localization::getLangCode()
 {
-  return langCode;
+    return langCode;
 }
 
 QString Localization::getRegExprName()
 {
-  return regularExpressionName;
+    return regularExpressionName;
 }
 
 QString Localization::getRegExprGroup()
 {
-  return regularExpressionGroup;
+    return regularExpressionGroup;
 }
 QString Localization::getRegExprCourse()
 {
-  return regularExpressionCourse;
+    return regularExpressionCourse;
 }
 
 QString Localization::getRegExprPhone()
 {
-  return regularExpressionPhone;
+    return regularExpressionPhone;
 }
 
 void Localization::fillTheLclValue()
 {
     QFile file("localization.csv");
     try {
-            file.open(QIODevice::ReadOnly);
-            if(!file.isOpen())
-                {
-                    throw FileException("localization.csv");
-                }
+        file.open(QIODevice::ReadOnly);
+        if(!file.isOpen())
+        {
+            throw FileException("localization.csv");
         }
+    }
 
     catch(FileException& ex)
-        {
-            ex.what();
-        }
+    {
+        ex.what();
+    }
     while(!file.atEnd())
     {
 
         QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
-                    wordList.clear();
-                    for(int i = 1; i < 41; i ++)
-                    {
-                        wordList.append(langLine.split(';').at(i));
-                    }
-                    break;
+            wordList.clear();
+            for(int i = 1; i < 41; i ++)
+            {
+                wordList.append(langLine.split(';').at(i));
+            }
+            break;
         }
     }
     file.close();
@@ -121,42 +121,42 @@ QString Localization::getLclDepochaty() // чатбот -> з чого поча�
 
 QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
-        return wordList.at(4);
+    return wordList.at(4);
 }
 
 QString Localization::getLclFindbug() //Нашли баг?
 {
-        return wordList.at(5);
+    return wordList.at(5);
 }
 
 QString Localization::getLclHelp() // Помощь
 {
-        return wordList.at(6);
+    return wordList.at(6);
 }
 
 QString Localization::getLclHowtouse() // Как пользоваться
 {
-        return wordList.at(7);
+    return wordList.at(7);
 }
 
 QString Localization::getLclKoshtovnist() // чатбот -> коштовныстть
 {
-        return wordList.at(8);
+    return wordList.at(8);
 }
 
 QString Localization::getLclLanguage()  // чатбот -> мова
 {
-        return wordList.at(9);
+    return wordList.at(9);
 }
 
 QString Localization::getLclMoredetails() // чатбот -> для кого это
 {
-        return wordList.at(10);
+    return wordList.at(10);
 }
 
 QString Localization::getLclNazad() // чатбот -> назад
 {
-        return wordList.at(11);
+    return wordList.at(11);
 }
 
 QString Localization::getLclRateapp() //Оцените приложение
@@ -202,43 +202,43 @@ QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
 
 QString Localization::getLclbtnSend() //кнопка Отправить
 {
-        return wordList.at(20);
+    return wordList.at(20);
 }
 
 QString Localization::getLclbtnSave() //Кнопка Сохранить
 {
-        return wordList.at(21);
+    return wordList.at(21);
 }
 
 QString Localization::getLclSampleSOP() //приклад мотив листа
 {
-        return wordList.at(22);
+    return wordList.at(22);
 }
 
 QString Localization::getLclInputFIO() // строка Введите имя, фам, отчество
 {
-        return wordList.at(23);
+    return wordList.at(23);
 }
 
 QString Localization::getLclInputGroup() // строка регистрации Введите группу
 {
-        return wordList.at(24);
+    return wordList.at(24);
 }
 
 QString Localization::getLclInputCourse() // строка Введите курс
 {
-        return wordList.at(25);
+    return wordList.at(25);
 }
 
 
 QString Localization::getLclPhnNumber()// строка регистр введите номер тел
 {
-        return wordList.at(26);
+    return wordList.at(26);
 }
 
 QString Localization::getLclErrorOcure() //строка рег, возникла ошибка, вы уже зареганы
 {
-        return wordList.at(27);
+    return wordList.at(27);
 }
 
 QString Localization::getLclSuccesReg() //строка рег, успех регистрации

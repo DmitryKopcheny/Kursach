@@ -2,137 +2,137 @@
 
 TextChat::TextChat(const QString language)
 {
-  resetIterators();
-  readFromXml(language);
-  readFromCsv(language);
+    resetIterators();
+    readFromXml(language);
+    readFromCsv(language);
 }
 void TextChat::resetIterators()
 {
-  iteratorTime = 0;
-  iteratorMessage = 0;
+    iteratorTime = 0;
+    iteratorMessage = 0;
 }
 QString TextChat::getNextMessage()
 {
-  iteratorMessage++;
-  return messages[iteratorMessage-1];
+    iteratorMessage++;
+    return messages[iteratorMessage-1];
 }
 QString TextChat::getNextTime()
 {
-  iteratorTime++;
-  return time[iteratorTime-1].time().toString();
+    iteratorTime++;
+    return time[iteratorTime-1].time().toString();
 }
 bool TextChat::getIsUsersMessage()
 {
-  return isUsersMessage[iteratorMessage];
+    return isUsersMessage[iteratorMessage];
 }
 void TextChat::addNewMessage(const bool isUsers, const QString message)
 {
-  isUsersMessage.push_back(isUsers);
-  messages.push_back(message);
-  time.push_back(QDateTime::currentDateTime());
+    isUsersMessage.push_back(isUsers);
+    messages.push_back(message);
+    time.push_back(QDateTime::currentDateTime());
 }
 bool TextChat::isEnd()
 {
-  if (iteratorMessage < messages.size())
+    if (iteratorMessage < messages.size())
     {
-      return false;
+        return false;
     }
-  else
+    else
     {
-      return true;
+        return true;
     }
 }
 
 bool TextChat::searchForTheSame(const Student &info)
 {
-  for (int i = 0; i<getSizeOfStud(); i++)
+    for (int i = 0; i<getSizeOfStud(); i++)
     {
-      if (info.fullName == getFullName(i))
+        if (info.fullName == getFullName(i))
         {
-          if (info.group == getGroup(i))
+            if (info.group == getGroup(i))
             {
-              if (info.course == getCourse(i))
+                if (info.course == getCourse(i))
                 {
-                  return true;
+                    return true;
                 }
             }
         }
     }
-  return false;
+    return false;
 }
 
 void TextChat::sortStudents()
 {
-  QList<Student> studList;
-  QList<Student>  *minCourse;
-  QList<Student> *sameGroup;
-  for (int i = 0; i < getSizeOfStud(); i++)
+    QList<Student> studList;
+    QList<Student>  *minCourse;
+    QList<Student> *sameGroup;
+    for (int i = 0; i < getSizeOfStud(); i++)
     {
-      studList.push_back(getStudent(i));
+        studList.push_back(getStudent(i));
     }
-  clearStudentAM();
-  quickSort(&studList, 0, studList.size()-1);
-  while (studList.size() != 0)
+    clearStudentAM();
+    quickSort(&studList, 0, studList.size()-1);
+    while (studList.size() != 0)
     {
-      minCourse = sellectMinCourse(&studList);
-      while (minCourse->size() != 0)
+        minCourse = sellectMinCourse(&studList);
+        while (minCourse->size() != 0)
         {
 
-          sameGroup = sellectSameGroup(minCourse);
-          for (int i = 0; i<sameGroup->size(); i++)
+            sameGroup = sellectSameGroup(minCourse);
+            for (int i = 0; i<sameGroup->size(); i++)
             {
-              addStudent((*sameGroup)[i]);
+                addStudent((*sameGroup)[i]);
             }
-          delete sameGroup;
+            delete sameGroup;
         }
-      delete minCourse;
+        delete minCourse;
     }
 }
 
 void TextChat::quickSort(QList <Student>* studList, int left, int right)
 {
-  if (right - left <= 0)
+    if (right - left <= 0)
     {
-      return;
+        return;
     }
-  int pivot = right;
-  int leftBorder = left;
-  int pivotUnicode;
-  int leftUnicode;
-  int unicodeLevel = 0;
-  int maxUnicodeLevel;
-  bool skip = false;
-  while (leftBorder < pivot)
+    int pivot = right;
+    int leftBorder = left;
+    int pivotUnicode;
+    int leftUnicode;
+    int unicodeLevel = 0;
+    int maxUnicodeLevel;
+    bool skip = false;
+    while (leftBorder < pivot)
     {
-      skip = false;
-      if (leftBorder == pivot)
+        skip = false;
+        if (leftBorder == pivot)
         {
-          skip = true;
+            skip = true;
         }
-      if ((*studList)[leftBorder].fullName.size()<(*studList)[pivot].fullName.size())
+        if ((*studList)[leftBorder].fullName.size()<(*studList)[pivot].fullName.size())
         {
-          maxUnicodeLevel = (*studList)[leftBorder].fullName.size();
+            maxUnicodeLevel = (*studList)[leftBorder].fullName.size();
         }
-      else
+        else
         {
-          maxUnicodeLevel = (*studList)[pivot].fullName.size();
+            maxUnicodeLevel = (*studList)[pivot].fullName.size();
         }
-      pivotUnicode = (int)(*studList)[pivot].fullName[unicodeLevel].unicode();
-      leftUnicode = (int)(*studList)[leftBorder].fullName[unicodeLevel].unicode();
-      if (leftUnicode == pivotUnicode && unicodeLevel < maxUnicodeLevel && !skip)
+        pivotUnicode = (int)(*studList)[pivot].fullName[unicodeLevel].unicode();
+        leftUnicode = (int)(*studList)[leftBorder].fullName[unicodeLevel].unicode();
+        if (leftUnicode == pivotUnicode && unicodeLevel < maxUnicodeLevel && !skip)
         {
-          unicodeLevel++;
-          continue;
+            unicodeLevel++;
+            continue;
         }
-      if (leftUnicode < pivotUnicode || (leftUnicode == pivotUnicode && (*studList)[leftBorder].fullName.size() == maxUnicodeLevel))
+        if (leftUnicode < pivotUnicode || (leftUnicode == pivotUnicode && (*studList)[leftBorder].fullName.size() == maxUnicodeLevel))
         {
-          leftBorder++;
-          unicodeLevel = 0;
-          continue;
+            leftBorder++;
+            unicodeLevel = 0;
+            continue;
         }
-      studList->insert(pivot, studList->takeAt(leftBorder));
-      pivot--;
-      unicodeLevel = 0;
+        studList->insert(pivot, studList->takeAt(leftBorder));
+        pivot--;
+        unicodeLevel = 0;
     }
     quickSort(studList, left, pivot-1);
     quickSort(studList, pivot+1, right);
@@ -140,55 +140,55 @@ void TextChat::quickSort(QList <Student>* studList, int left, int right)
 
 int TextChat::findMinCourse(QList <Student>* studList)
 {
-  if (studList->size() == 0)
+    if (studList->size() == 0)
     {
-      return -1;
+        return -1;
     }
-  int minCourse = (*studList)[0].course;
-  for (int i = 0; i < studList->size(); i++)
+    int minCourse = (*studList)[0].course;
+    for (int i = 0; i < studList->size(); i++)
     {
-      if (minCourse > (*studList)[i].course)
+        if (minCourse > (*studList)[i].course)
         {
-          minCourse =(*studList)[i].course;
+            minCourse =(*studList)[i].course;
         }
     }
-  return minCourse;
+    return minCourse;
 }
 
 QList<Student>* TextChat::sellectMinCourse(QList <Student>* studList)
 {
-  QList <Student>* minCourseList = new QList<Student>;
-  int minCourse = findMinCourse(studList);
-  if (minCourse == -1)
+    QList <Student>* minCourseList = new QList<Student>;
+    int minCourse = findMinCourse(studList);
+    if (minCourse == -1)
     {
-      return minCourseList;
+        return minCourseList;
     }
-  for (int i = 0; i<studList->size(); i++)
+    for (int i = 0; i<studList->size(); i++)
     {
-      if ((*studList)[i].course == minCourse)
+        if ((*studList)[i].course == minCourse)
         {
-          minCourseList->push_back(studList->takeAt(i));
-          i--;
+            minCourseList->push_back(studList->takeAt(i));
+            i--;
         }
     }
-  return minCourseList;
+    return minCourseList;
 }
 
 QList<Student>*  TextChat::sellectSameGroup(QList <Student>* studList)
 {
-  QList <Student>* sameGroupList = new QList<Student>;
-  if (studList->size() == 0)
+    QList <Student>* sameGroupList = new QList<Student>;
+    if (studList->size() == 0)
     {
-      return sameGroupList;
+        return sameGroupList;
     }
-  sameGroupList->push_back(studList->takeAt(0));
-  for (int i = 0; i<studList->size(); i++)
+    sameGroupList->push_back(studList->takeAt(0));
+    for (int i = 0; i<studList->size(); i++)
     {
-      if ((*sameGroupList)[0].group == (*studList)[i].group)
+        if ((*sameGroupList)[0].group == (*studList)[i].group)
         {
-          sameGroupList->push_back(studList->takeAt(i));
-          i--;
+            sameGroupList->push_back(studList->takeAt(i));
+            i--;
         }
     }
-  return sameGroupList;
+    return sameGroupList;
 }

@@ -30,7 +30,7 @@ private:
 class EmptyFileException : public Exception
 {
 public:
-     EmptyFileException(QString error);
+    EmptyFileException(QString error);
     ~EmptyFileException() override;
     void what() override;
 private:
@@ -40,7 +40,7 @@ private:
 class  ReadingDataException : public Exception
 {
 public:
-     ReadingDataException(QString error);
+    ReadingDataException(QString error);
     ~ReadingDataException() override;
     void what() override;
 private:
