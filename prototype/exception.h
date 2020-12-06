@@ -42,7 +42,7 @@ class  ReadingDataException : public Exception
 public:
     ReadingDataException(QString error);
     ~ReadingDataException() override;
-    void what() override;
+    QString whats();
 private:
     QString error;
 };

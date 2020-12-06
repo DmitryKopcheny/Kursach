@@ -49,16 +49,18 @@ ReadingDataException::ReadingDataException(QString error)
     this->error += error;
 }
 
-void ReadingDataException::what() {
+QString ReadingDataException::whats() {
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
+    error = "No data available";
+    return error;
 }
 
 ReadingDataException::~ReadingDataException()
 {
-    exit(0);
+    error = "";
 }
 
 RegisterException::RegisterException(int error)

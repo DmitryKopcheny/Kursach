@@ -62,17 +62,29 @@ void GeneralInfo::readFromCsv(const QString language)
         QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
+            try {
+                for(int i = 1; i < 8; i ++)
+                {
+                if(langLine.split(';').at(i)=="")
+                {
+                    throw EmptyFileException("generalInfo.csv");
+                }
+                }
             langLine.resize(langLine.size() - 2);
             this->aboutAM = langLine.split(';').at(1);
             this->forWhom = langLine.split(';').at(2);
             this->Payments = langLine.split(';').at(3);
-            this->requiredLanguage= langLine.split(';').at(4);
+            this->requiredLanguage = langLine.split(';').at(4);
             this->whereToStart = langLine.split(';').at(5);
             this->Contacts = langLine.split(';').at(6);
             this->SOP = langLine.split(';').at(7);
-
             break;
+            }
+            catch(EmptyFileException& ex)
+            {
+                ex.what();
+            }
         }
     }
     file.close();
-}
+    }

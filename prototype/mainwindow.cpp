@@ -188,9 +188,6 @@ void MainWindow::on_btn1_clicked()//що таке АМ
 
 void MainWindow::on_btn2_clicked()//університети
 {
-
-    if (Chat->getSizeOfUniv()!=0)
-    {
         ui->layout_patners->show();
         ui->layout_main->hide();
         ui->layout_enter->hide();
@@ -202,12 +199,7 @@ void MainWindow::on_btn2_clicked()//університети
             partners += "\n";
         }
         Chat->addNewMessage(true, ui->btn2->text());
-        Chat->addNewMessage(false, partners);
-    }
-    else
-    {
-        Chat->addNewMessage(false, "Файл відсутній");
-    }
+        Chat->addNewMessage(false, partners);   
     displayChat();
 }
 

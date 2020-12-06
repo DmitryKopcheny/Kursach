@@ -23,7 +23,7 @@ void Localization::setLang(int langCode)
     else if (langCode == GERMAN)
     {
         language = "german";
-        regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
+        regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}";
         regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3}\\-\\d{3}";
     }
     else if (langCode == RUSSIAN)
@@ -86,14 +86,27 @@ void Localization::fillTheLclValue()
     }
     while(!file.atEnd())
     {
-
         QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
             wordList.clear();
             for(int i = 1; i < 41; i ++)
             {
-                wordList.append(langLine.split(';').at(i));
+                QString temp;
+                try
+                    {
+                        if(langLine.split(';').at(i) == "")
+                            {
+                                throw ReadingDataException("localization.csv");
+                            }
+                        temp = langLine.split(';').at(i);
+                    }
+
+               catch(ReadingDataException& ex)
+                    {
+                        temp = ex.whats();
+                    }
+                wordList.append(temp);
             }
             break;
         }
