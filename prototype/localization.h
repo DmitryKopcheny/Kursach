@@ -55,11 +55,18 @@ public:
     void fillTheLclValue();
     void setLang(const int langCode);
     QString getLang();
+    QString getRegExprName();
+    QString getRegExprGroup();
+    QString getRegExprCourse();
+    QString getRegExprPhone();
     int getLangCode();
 private:
     QString language;
     int langCode;
-
+    QString regularExpressionName;
+    QString regularExpressionGroup;
+    const QString regularExpressionCourse = "[2-6]";
+    const QString regularExpressionPhone = "^\\+\\d{1,2}\\(\\d{3,5}\\)\\d{6,7}$";
     QStringList wordList;
 
 };

@@ -2,8 +2,7 @@
 #include "exception.h"
 Localization::Localization()
 {
-  langCode = UKRAINIAN;
-  language = "ukrainian";
+  setLang(UKRAINIAN);
   fillTheLclValue();
 }
 void Localization::setLang(int langCode)
@@ -12,23 +11,33 @@ void Localization::setLang(int langCode)
   if (langCode == UKRAINIAN)
     {
       language = "ukrainian";
+      regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
+      regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{3}\\-\\d{3}";
     }
   else if (langCode == ENGLISH)
     {
       language = "english";
+      regularExpressionName = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
+      regularExpressionGroup = "[A-z]{3}\\-\\d{3}";
     }
   else if (langCode == GERMAN)
     {
       language = "german";
+      regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
+      regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3}\\-\\d{3}";
     }
   else if (langCode == RUSSIAN)
     {
       language = "russian";
+      regularExpressionName = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
+      regularExpressionGroup = "[А-Я]{3}\\-\\d{3}";
     }
   else
     {
       this->langCode = UKRAINIAN;
       language = "ukrainian";
+      regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
+      regularExpressionGroup = "[А-Я,І,Ї,-]\\d";
     }
 }
 QString Localization::getLang()
@@ -40,6 +49,26 @@ int Localization::getLangCode()
 {
   return langCode;
 }
+
+QString Localization::getRegExprName()
+{
+  return regularExpressionName;
+}
+
+QString Localization::getRegExprGroup()
+{
+  return regularExpressionGroup;
+}
+QString Localization::getRegExprCourse()
+{
+  return regularExpressionCourse;
+}
+
+QString Localization::getRegExprPhone()
+{
+  return regularExpressionPhone;
+}
+
 void Localization::fillTheLclValue()
 {
     QFile file("localization.csv");
@@ -55,80 +84,120 @@ void Localization::fillTheLclValue()
         {
             ex.what();
         }
-    while(!file.atEnd()) //in.atEnd
+    while(!file.atEnd())
     {
 
         QString langLine = file.readLine();
         if(language == langLine.split(';').at(0)) //проверка первого елем, отделенного ';' на соот языку
         {
-
-
-                //langLine.resize(langLine.size() - 2);// !ЕСЛИ В КОНЦЕ КАКОГО-ЛИБО СЛОВА БУДУТ ЗНАКИ ПЕРЕНОСА СТРОКИ - раскоментить
-
                     wordList.clear();
-                    //QString s;
                     for(int i = 1; i < 41; i ++)
                     {
-                        //s = QString::fromLocal8Bit(langLine.split(';').at(i));
                         wordList.append(langLine.split(';').at(i));
                     }
                     break;
-
-//                this->aboutProgramlcl = langLine.split(';').at(1);
-//                this->chatBotlcl = langLine.split(';').at(2);
-//                this->contactslcl = langLine.split(';').at(3);
-//                this->dePochatylcl = langLine.split(';').at(4);
-//                this->dlyaKogolcl = langLine.split(';').at(5);
-//                this->findBuglcl = langLine.split(';').at(6);
-//                this->helplcl = langLine.split(';').at(7);
-//                this->howToUselcl= langLine.split(';').at(8);
-//                this->koshtovnistlcl = langLine.split(';').at(9);
-//                this->langlcl = langLine.split(';').at(10);
-//                this->moreInfolcl = langLine.split(';').at(11);
-//                this->nazadlcl = langLine.split(';').at(12);
-//                this->rateApplcl = langLine.split(';').at(13);
-//                this->settingslcl = langLine.split(';').at(14);
-//                this->themeDlcl = langLine.split(';').at(15);
-//                this->themeLlcl = langLine.split(';').at(16);
-//                this->themelcl= langLine.split(';').at(17);
-//                this->univPartnerslcl = langLine.split(';').at(18);
-//                this->wantToJoinlcl = langLine.split(';').at(19);
-//                this->whatIsAMlcl = langLine.split(';').at(20);
-//                this->btnSendlcl = langLine.split(';').at(21);
-//                this->btnSavelcl = langLine.split(';').at(22);
-//                this->sampleOfSoplcl = langLine.split(';').at(23);
-//                this->inputFiolcl = langLine.split(';').at(24);
-//                this->inputGrouplcl = langLine.split(';').at(25);
-//                this->inputCourselcl = langLine.split(';').at(26);
-//                this->inputPhnNumlcl = langLine.split(';').at(27);
-//                this->errorOcurelcl = langLine.split(';').at(28);
-//                this->succesReglcl = langLine.split(';').at(29);
-
         }
     }
     file.close();
 }
+QString Localization::getLclAboutprog() //Про программу
+{
+    return wordList.at(0);
+}
+
 QString Localization::getLclChatbot() // верхняя строка, надпись Чат-бот
 {
     return wordList.at(1);
 }
 
-QString Localization::getLclAboutprog() //Про программу
-{
-    return wordList.at(0);
-}
 QString Localization::getLclContacts() // чатбот -> контакты
 {
     return wordList.at(2);
 }
 QString Localization::getLclDepochaty() // чатбот -> з чого почати
 {
-        return wordList.at(3);
+    return wordList.at(3);
 }
 
-QString Localization::getLclSampleSOP() //приклад мотив листа
+QString Localization::getLclDlyakogo()  // чатбот -> для кого
 {
-        return wordList.at(22);
+        return wordList.at(4);
+}
+
+QString Localization::getLclFindbug() //Нашли баг?
+{
+        return wordList.at(5);
+}
+
+QString Localization::getLclHelp() // Помощь
+{
+        return wordList.at(6);
+}
+
+QString Localization::getLclHowtouse() // Как пользоваться
+{
+        return wordList.at(7);
+}
+
+QString Localization::getLclKoshtovnist() // чатбот -> коштовныстть
+{
+        return wordList.at(8);
+}
+
+QString Localization::getLclLanguage()  // чатбот -> мова
+{
+        return wordList.at(9);
+}
+
+QString Localization::getLclMoredetails() // чатбот -> для кого это
+{
+        return wordList.at(10);
+}
+
+QString Localization::getLclNazad() // чатбот -> назад
+{
+        return wordList.at(11);
+}
+
+QString Localization::getLclRateapp() //Оцените приложение
+{
+    return wordList.at(12);
+}
+
+QString Localization::getLclSettings() //Настройки
+{
+    return wordList.at(13);
+}
+
+QString Localization::getLclTheme() //настройки -> Тема
+{
+    return wordList.at(16);
+}
+
+QString Localization::getLclThemedark() //настройки -> Темная
+{
+    return wordList.at(14);
+}
+
+QString Localization::getLclThemelight()//настройки -> Светлая
+{
+    return wordList.at(15);
+}
+
+QString Localization::getLclUnivpartn() // чатбот -> университети
+{
+    return wordList.at(17);
+}
+
+QString Localization::getLclWantjoin()  // чатбот -> бажаете приэднатися
+{
+    return wordList.at(18);
+}
+
+QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
+
+{
+    return wordList.at(19);
 }
 
 QString Localization::getLclbtnSend() //кнопка Отправить
@@ -141,9 +210,19 @@ QString Localization::getLclbtnSave() //Кнопка Сохранить
         return wordList.at(21);
 }
 
+QString Localization::getLclSampleSOP() //приклад мотив листа
+{
+        return wordList.at(22);
+}
+
 QString Localization::getLclInputFIO() // строка Введите имя, фам, отчество
 {
         return wordList.at(23);
+}
+
+QString Localization::getLclInputGroup() // строка регистрации Введите группу
+{
+        return wordList.at(24);
 }
 
 QString Localization::getLclInputCourse() // строка Введите курс
@@ -151,10 +230,6 @@ QString Localization::getLclInputCourse() // строка Введите кур�
         return wordList.at(25);
 }
 
-QString Localization::getLclInputGroup() // строка регистрации Введите группу
-{
-        return wordList.at(24);
-}
 
 QString Localization::getLclPhnNumber()// строка регистр введите номер тел
 {
@@ -171,123 +246,57 @@ QString Localization::getLclSuccesReg() //строка рег, успех рег
     return wordList.at(28);
 }
 
-QString Localization::getLclDevelLabel() // лейбл разрабы
-{
-    return wordList.at(34);
-}
-
-QString Localization::getLclDevelText() //текст разрабы
-{
-    return wordList.at(35);
-}
-
-QString Localization::getLclVersin() // Версия
-{
-    return wordList.at(33);
-}
-
-QString Localization::getLclFreeChatBot() // бесплатный чат-бот, предназ
-{
-    return wordList.at(32);
-}
-
 QString Localization::getLclGuideLable() // лейбл руков пользователя
 {
-    return wordList.at(30);
+    return wordList.at(29);
 }
 
 QString Localization::getLclGuideText() // текст руков пользователя
 {
+    return wordList.at(30);
+}
+
+QString Localization::getLclFreeChatBot() // бесплатный чат-бот, предназ
+{
     return wordList.at(31);
 }
 
-QString Localization::getLclBugReportLable()
+QString Localization::getLclVersin() // Версия
 {
-    return wordList.at(40);
+    return wordList.at(32);
 }
 
-QString Localization::getLclDevMikeName()
+QString Localization::getLclDevelLabel() // лейбл разрабы
 {
-    return wordList.at(38);
+    return wordList.at(33);
+}
+
+QString Localization::getLclDevelText() //текст разрабы
+{
+    return wordList.at(34);
 }
 
 QString Localization::getLclDevOlegName()
 {
-    return wordList.at(36);
+    return wordList.at(35);
 }
 
 QString Localization::getLclDevDimaName()
+{
+    return wordList.at(36);
+}
+
+QString Localization::getLclDevMikeName()
 {
     return wordList.at(37);
 }
 
 QString Localization::getLclDevVladName()
 {
+    return wordList.at(38);
+}
+
+QString Localization::getLclBugReportLable()
+{
     return wordList.at(39);
 }
-QString Localization::getLclDlyakogo()  // чатбот -> для кого
-{
-        return wordList.at(4);
-}
-QString Localization::getLclFindbug() //Нашли баг?
-{
-        return wordList.at(5);
-}
-QString Localization::getLclHelp() // Помощь
-{
-        return wordList.at(6);
-}
-QString Localization::getLclHowtouse() // Как пользоваться
-{
-        return wordList.at(7);
-}
-QString Localization::getLclKoshtovnist() // чатбот -> коштовныстть
-{
-        return wordList.at(8);
-}
-QString Localization::getLclLanguage()  // чатбот -> мова
-{
-        return wordList.at(9);
-}
-QString Localization::getLclMoredetails() // чатбот -> для кого это
-{
-        return wordList.at(10);
-}
-QString Localization::getLclNazad() // чатбот -> назад
-{
-        return wordList.at(11);
-}
-QString Localization::getLclRateapp() //Оцените приложение
-{
-    return wordList.at(12);
-}
-QString Localization::getLclSettings() //Настройки
-{
-    return wordList.at(13);
-}
-QString Localization::getLclTheme() //настройки -> Тема
-{
-    return wordList.at(16);
-}
-QString Localization::getLclThemedark() //настройки -> Темная
-{
-    return wordList.at(14);
-}
-QString Localization::getLclThemelight()//настройки -> Светлая
-{
-    return wordList.at(15);
-}
-QString Localization::getLclUnivpartn() // чатбот -> университети
-{
-    return wordList.at(17);
-}
-QString Localization::getLclWantjoin()  // чатбот -> бажаете приэднатися
-{
-    return wordList.at(18);
-}
-
-QString Localization::getLclWhatisAM()  // чатбот -> що таке АМ
-{
-    return wordList.at(19);
-}
-

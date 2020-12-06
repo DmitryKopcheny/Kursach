@@ -30,7 +30,7 @@
     <normaloff>:/new/images/32.png</normaloff>:/new/images/32.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_Send">
     <property name="geometry">
      <rect>
       <x>280</x>

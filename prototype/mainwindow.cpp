@@ -231,11 +231,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
   try {
     if (studInfo->fullName.isEmpty())
       {
-            rxeng = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}"; //сюда локализацию надо впихнуть вместо этого
-            rxukr = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
-            rxrus = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
-
-            if (!str.validates(usersInput,rxrus))
+            if (!str.validates(usersInput,Locale->getRegExprName()))
             {
               throw RegisterException(1);
             }
@@ -245,11 +241,9 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->group.isEmpty())
       {
-             rxeng = "[A-Z]{3}\\-\\d{3}"; //сюда локализацию надо впихнуть
-             rxukr = "[А-Я,І,Ї]{3}\\-\\d{3}";
-             rxrus = "[А-Я]{3}\\-\\d{3}";
 
-            if (!str.validates(usersInput,rxrus))
+
+            if (!str.validates(usersInput,Locale->getRegExprGroup()))
             {
               throw RegisterException(2);
             }
@@ -260,7 +254,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->course == 0)
       {
-        if (!str.validates(usersInput,"[2-6]"))
+        if (!str.validates(usersInput,Locale->getRegExprCourse()))
         {
           throw RegisterException(3);
         }
@@ -272,7 +266,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
     else if (studInfo->phoneNumber.isEmpty())
       {
-        if (!str.validates(usersInput,"^\\+\\d{1,2}\\(\\d{3,5}\\)\\d{6,7}$"))
+        if (!str.validates(usersInput,Locale->getRegExprPhone()))
         {
           throw RegisterException(4);
         }
@@ -337,7 +331,7 @@ void MainWindow::on_btn1_4_clicked()//з чого почати
   ui->layout_letter->show();
   ui->layout_details->hide();
 
-  Chat->addNewMessage(true, ui->btn4->text());
+  Chat->addNewMessage(true, ui->btn1_4->text());
   Chat->addNewMessage(false, Chat->getWhereToStart());
   displayChat();
 }
