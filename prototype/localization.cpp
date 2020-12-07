@@ -11,33 +11,33 @@ void Localization::setLang(int langCode)
     if (langCode == UKRAINIAN)
     {
         language = "ukrainian";
-        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
-        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{3}\\-\\d{3}";
+        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}";
+        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == ENGLISH)
     {
         language = "english";
-        regularExpressionName = "[A-z]{3,20}\\s[A-z]{3,20}\\s[A-z]{3,20}";
-        regularExpressionGroup = "[A-z]{3}\\-\\d{3}";
+        regularExpressionName = "[A-z]{2,20}\\s[A-z]{2,20}\\s[A-z]{2,20}";
+        regularExpressionGroup = "[A-z]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == GERMAN)
     {
         language = "german";
-        regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{3,20}";
-        regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{3}\\-\\d{3}";
+        regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}";
+        regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == RUSSIAN)
     {
         language = "russian";
-        regularExpressionName = "[А-я]{3,20}\\s[А-я]{3,20}\\s[А-я]{3,20}";
-        regularExpressionGroup = "[А-Я]{3}\\-\\d{3}";
+        regularExpressionName = "[А-я]{2,20}\\s[А-я]{2,20}\\s[А-я]{2,20}";
+        regularExpressionGroup = "[А-Я]{1,3}\\-\\d{1,3}";
     }
     else
     {
         this->langCode = UKRAINIAN;
         language = "ukrainian";
-        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}\\s[А-я,і,І,Ї,ї,є,Є]{3,20}";
-        regularExpressionGroup = "[А-Я,І,Ї,-]\\d";
+        regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}";
+        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{1,3}\\-\\d{1,3}";
     }
 }
 QString Localization::getLang()
