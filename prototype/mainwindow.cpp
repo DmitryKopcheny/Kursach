@@ -126,10 +126,16 @@ void MainWindow::on_action_2_triggered()  //оцінити додаток
     {
         rateAppForm = new rateApp(Locale);
         connect(this, SIGNAL(localizateWindows()),rateAppForm, SLOT(on_localizateWindows()));
+        connect(rateAppForm, SIGNAL(FeedbackSent(int)),this, SLOT(on_FeedbackSent(int)));
         emit localizateWindows();
     }
     rateAppForm->show();
     rateAppForm->activateWindow();
+}
+
+void MainWindow::on_FeedbackSent(int feedback)
+{
+    Chat->writeToTxtFile("Someone has rate our app: " + QString::number(feedback));
 }
 
 void MainWindow::on_action_4_triggered()  //налаштування
@@ -163,10 +169,16 @@ void MainWindow::on_action_5_triggered()  //повідомлення про ба
     {
         bugForm = new bug(Locale);
         connect(this, SIGNAL(localizateWindows()),bugForm, SLOT(on_localizateWindows()));
+        connect(bugForm, SIGNAL(BugReported(QString)),this, SLOT(on_BugReported(QString)));
         emit localizateWindows();
     }
     bugForm->show();
     bugForm->activateWindow();
+}
+
+void MainWindow::on_BugReported(QString Report)
+{
+    Chat->writeToTxtFile("Bug Report " + Report);
 }
 
 void MainWindow::on_action_7_triggered()  //зберегти

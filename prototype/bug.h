@@ -14,7 +14,8 @@ class bug : public QMainWindow
 public:
     explicit bug(Localization *Locale, QWidget *parent = nullptr);
     ~bug();
-
+signals:
+    void BugReported(QString Report);
 private slots:
     void on_btn_Send_clicked();
     void on_localizateWindows();

@@ -17,6 +17,7 @@ bug::~bug()
 
 void bug::on_btn_Send_clicked()
 {
+    emit BugReported(ui->textEdit->toPlainText());
     ui->textEdit->clear();
 }
 void bug::on_localizateWindows()
