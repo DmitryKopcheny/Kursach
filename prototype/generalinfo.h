@@ -16,6 +16,7 @@ public:
     QString getContacts();
     QString getStatementOfPurpose();
 
+    void writeToTxtFile();
     void readFromCsv(const QString language);
 private:
     QString aboutAM;
@@ -25,6 +26,8 @@ private:
     QString whereToStart;
     QString Contacts;
     QString SOP; //мотивац лист
+
+    QString feedBackOrBug;
 
 };
 

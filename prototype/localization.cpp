@@ -100,8 +100,16 @@ void Localization::fillTheLclValue()
                                 throw ReadingDataException("localization.csv");
                             }
                         temp = langLine.split(';').at(i);
-                    }
 
+                //langLine.resize(langLine.size() - 2);// !ЕСЛИ В КОНЦЕ КАКОГО-ЛИБО СЛОВА БУДУТ ЗНАКИ ПЕРЕНОСА СТРОКИ - раскоментить
+
+                    wordList.clear();
+                    for(int i = 1; i < 41; i ++)
+                    {
+                        wordList.append(langLine.split(';').at(i));
+
+                    }
+                    }
                catch(ReadingDataException& ex)
                     {
                         temp = ex.whats();

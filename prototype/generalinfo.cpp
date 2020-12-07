@@ -41,6 +41,15 @@ QString GeneralInfo::getStatementOfPurpose()
     return this->SOP;
 }
 
+void GeneralInfo::writeToTxtFile()
+{
+    QFile file("FILENAME.txt");
+    file.open(QFile::Append);
+    file.write(this->feedBackOrBug.toUtf8());
+    file.write("\n");
+    file.close();
+}
+
 void GeneralInfo::readFromCsv(const QString language)
 {
     QFile file("generalInfo.csv");
