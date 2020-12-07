@@ -41,11 +41,11 @@ QString GeneralInfo::getStatementOfPurpose()
     return this->SOP;
 }
 
-void GeneralInfo::writeToTxtFile()
+void GeneralInfo::writeToTxtFile(QString feedBackOrBug)
 {
     QFile file("FILENAME.txt");
     file.open(QFile::Append);
-    file.write(this->feedBackOrBug.toUtf8());
+    file.write(feedBackOrBug.toUtf8());
     file.write("\n");
     file.close();
 }

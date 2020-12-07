@@ -52,6 +52,8 @@ private slots:
     void on_btn4_clicked();
     void on_LanguageChanged();
     void on_btn_enter_clicked();
+    void on_FeedbackSent(int feedback);
+    void on_BugReported(QString Report);
 
 private:
     Ui::MainWindow *ui;

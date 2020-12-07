@@ -8,6 +8,7 @@ rateApp::rateApp(Localization *Locale, QWidget *parent) :
     ui->setupUi(this);
     ui->label_2->hide();
     this->Locale = Locale;
+    feedback = 0;
 }
 
 rateApp::~rateApp()
@@ -19,6 +20,7 @@ void rateApp::on_rate1_clicked()
 {
     ui->label_2->move(95,150);
     ui->label_2->show();
+    feedback = 1;
 
 }
 
@@ -26,24 +28,28 @@ void rateApp::on_rate2_clicked()
 {
     ui->label_2->move(155,150);
     ui->label_2->show();
+    feedback = 2;
 }
 
 void rateApp::on_rate3_clicked()
 {
     ui->label_2->move(215,150);
     ui->label_2->show();
+    feedback = 3;
 }
 
 void rateApp::on_rate4_clicked()
 {
     ui->label_2->move(275,150);
     ui->label_2->show();
+    feedback = 4;
 }
 
 void rateApp::on_rate5_clicked()
 {
     ui->label_2->move(335,150);
     ui->label_2->show();
+    feedback = 5;
 }
 
 void rateApp::on_localizateWindows()
@@ -51,4 +57,10 @@ void rateApp::on_localizateWindows()
     this->setWindowTitle(Locale->getLclRateapp());
     ui->label->setText(Locale->getLclRateapp());
     ui->btn_Send->setText(Locale->getLclbtnSend());
+}
+
+void rateApp::on_btn_Send_clicked()
+{
+    ui->label_2->hide();
+    emit FeedbackSent(feedback);
 }
