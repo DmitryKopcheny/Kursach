@@ -12,19 +12,19 @@ void Localization::setLang(int langCode)
     {
         language = "ukrainian";
         regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}";
-        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{1,3}\\-\\d{1,3}";
+        regularExpressionGroup = "[А-Я,І,Ї,Є]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == ENGLISH)
     {
         language = "english";
         regularExpressionName = "[A-z]{2,20}\\s[A-z]{2,20}\\s[A-z]{2,20}";
-        regularExpressionGroup = "[A-z]{1,3}\\-\\d{1,3}";
+        regularExpressionGroup = "[A-Z]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == GERMAN)
     {
         language = "german";
         regularExpressionName = "[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}\\s[A-z,Ä,ä,Ö,ö,Ü,ü]{2,20}";
-        regularExpressionGroup = "[A-z,Ä,ä,Ö,ö,Ü,ü]{1,3}\\-\\d{1,3}";
+        regularExpressionGroup = "[A-Z,Ä,Ö,Ü]{1,3}\\-\\d{1,3}";
     }
     else if (langCode == RUSSIAN)
     {
@@ -37,7 +37,7 @@ void Localization::setLang(int langCode)
         this->langCode = UKRAINIAN;
         language = "ukrainian";
         regularExpressionName = "[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}\\s[А-я,і,І,Ї,ї,є,Є]{2,20}";
-        regularExpressionGroup = "[А-я,і,І,Ї,ї,є,Є]{1,3}\\-\\d{1,3}";
+        regularExpressionGroup = "[А-Я,І,Ї,Є]{1,3}\\-\\d{1,3}";
     }
 }
 QString Localization::getLang()
