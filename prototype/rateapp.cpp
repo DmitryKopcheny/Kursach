@@ -63,4 +63,5 @@ void rateApp::on_btn_Send_clicked()
 {
     ui->label_2->hide();
     emit FeedbackSent(feedback);
+    this->close();
 }
