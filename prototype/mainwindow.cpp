@@ -68,6 +68,30 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if (bugForm)
+    {
+        delete bugForm;
+    }
+    if (developerForm)
+    {
+        delete developerForm;
+    }
+    if (manualForm)
+    {
+        delete bugForm;
+    }
+    if (manualForm)
+    {
+        delete manualForm;
+    }
+    if (rateAppForm)
+    {
+        delete rateAppForm;
+    }
+    if (settingsForm)
+    {
+        delete settingsForm;
+    }
     delete Locale;
     delete Chat;
     delete ui;

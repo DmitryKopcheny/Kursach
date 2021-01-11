@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -14,14 +15,13 @@ class manual;
 class rateApp;
 class settings;
 class Localization;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void displayChat();
-
     ~MainWindow();
 signals:
     void localizateWindows();
@@ -56,6 +56,7 @@ private slots:
     void on_BugReported(QString Report);
 
 private:
+    void displayChat();
     Ui::MainWindow *ui;
     Student *studInfo;
     TextChat *Chat;

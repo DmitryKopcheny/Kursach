@@ -13,13 +13,11 @@ void TextChat::resetIterators()
 }
 QString TextChat::getNextMessage()
 {
-    iteratorMessage++;
-    return messages[iteratorMessage-1];
+    return messages[iteratorMessage++];
 }
 QString TextChat::getNextTime()
 {
-    iteratorTime++;
-    return time[iteratorTime-1].time().toString();
+    return time[iteratorTime++].time().toString();
 }
 bool TextChat::getIsUsersMessage()
 {
@@ -72,10 +70,10 @@ void TextChat::sortStudents()
     }
     clearStudentAM();
     quickSort(&studList, 0, studList.size()-1);
-    while (studList.size() != 0)
+    while (!studList.isEmpty())
     {
         minCourse = sellectMinCourse(&studList);
-        while (minCourse->size() != 0)
+        while (!minCourse->isEmpty())
         {
 
             sameGroup = sellectSameGroup(minCourse);

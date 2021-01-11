@@ -26,10 +26,7 @@ public:
     bool getIsUsersMessage();
     bool isEnd();
 
-
-
     bool searchForTheSame(const Student &info);
-
     void quickSort(QList <Student>* studList, int left, int right);
     int findMinCourse(QList <Student>* studList);
     QList<Student>*  sellectSameGroup(QList <Student>* studList);

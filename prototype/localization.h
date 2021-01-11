@@ -4,7 +4,7 @@
 #include <QString>
 #include <QFile>
 
-enum langeages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN};
+enum languages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN};
 
 class Localization
 {
@@ -30,7 +30,6 @@ public:
     QString getLclDlyakogo();
     QString getLclKoshtovnist();
     QString getLclDepochaty();
-    QString getLclSend();
     QString getLclSampleSOP(); //Приклад мотивацыйного листа
     QString getLclbtnSend(); //Кнопка отправить
     QString getLclbtnSave(); //кнопка Зберегти

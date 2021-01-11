@@ -128,14 +128,3 @@ University &UniversityAM::formUnivFromXml(const QDomNode& univXml)
     }
     return *temp;
 }
-
-
-QString University::getName()
-{
-    return univName;
-}
-
-QString University::getMainInfo()
-{
-    return mainInfo;
-}

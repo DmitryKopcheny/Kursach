@@ -8,9 +8,6 @@ struct University
 {
     QString univName;
     QString mainInfo;
-    QString getName();
-    QString getMainInfo();
-
 };
 
 class UniversityAM

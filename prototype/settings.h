@@ -14,7 +14,6 @@ class settings : public QMainWindow
 public:
     explicit settings(Localization *Locale, QWidget *parent = nullptr);
     ~settings();
-    QFile styleF;
 signals:
     void LanguageChanged();
 private slots:
@@ -27,6 +26,7 @@ private slots:
 private:
     Ui::settings *ui;
     Localization *Locale;
+    QFile styleF;
 };
 
 #endif // SETTINGS_H
