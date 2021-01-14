@@ -43,9 +43,10 @@ void settings::on_comboBox_currentIndexChanged(int index)
 
 void settings::on_localizateWindows()
 {
-    this->setWindowTitle(Locale->getLclSettings());
-    ui->label_2->setText(Locale->getLclTheme());
-    ui->label->setText(Locale->getLclLanguage());
-    ui->btndark->setText(Locale->getLclThemedark());
-    ui->btnlight->setText(Locale->getLclThemelight());
+    this->setWindowTitle(Locale->getLclText(SETTINGS));
+    ui->label_2->setText(Locale->getLclText(THEME));
+    ui->label->setText(Locale->getLclText(LANGUAGE));
+    ui->btndark->setText(Locale->getLclText(THEME_DARK));
+    ui->btnlight->setText(Locale->getLclText(THEME_LIGHT));
 }
+

@@ -16,7 +16,7 @@ manual::~manual()
 
 void manual::on_localizateWindows()
 {
-    this->setWindowTitle(Locale->getLclHowtouse());
-    ui->label->setText(Locale->getLclGuideLable());
-    ui->label_2->setText(Locale->getLclGuideText());
+    this->setWindowTitle(Locale->getLclText(HOW_TO_USE));
+    ui->label->setText(Locale->getLclText(GUIDE_LABLE));
+    ui->label_2->setText(Locale->getLclText(GUIDE_TEXT));
 }
