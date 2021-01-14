@@ -5,60 +5,32 @@
 #include <QFile>
 
 enum languages{UKRAINIAN, ENGLISH, GERMAN, RUSSIAN};
+enum textCodes
+{
+    ABOUT_PROG, CHATBOT, CONTACTS, HOW_TO_START, FOR_WHO,
+    FOUND_BUG, HELP, HOW_TO_USE, PRICE, LANGUAGE,
+    MORE_DETAILS, BACK, RATE_APP, SETTINGS, THEME,
+    THEME_DARK, THEME_LIGHT, UNIV_PARTN, WANT_JOIN, WHAT_IS_AM,
+    SEND, SAVE, SAMPLE_SOP, INPUT_FULLNAME, INPUT_GROUP,
+    INPUT_COURSE, INPUT_PHONE_NUM, ERROR_OCURE, SUCCES_REG, GUIDE_LABLE,
+    GUIDE_TEXT, FREE_CHATBOT, VERSION, DEVEL_LABLE, DEVEL_TEXT,
+    OLEG_NAME, DIMA_NAME, MIKE_NAME, VLAD_NAME, BUG_REPORT_LABLE
+
+};
 
 class Localization
 {
 public:
     Localization();
-    QString getLclChatbot();
-    QString getLclSettings();
-    QString getLclHelp();
-    QString getLclAboutprog();
-    QString getLclWhatisAM();
-    QString getLclUnivpartn();
-    QString getLclNazad();
-    QString getLclContacts();
-    QString getLclWantjoin();
-    QString getLclTheme();
-    QString getLclThemedark();
-    QString getLclThemelight();
-    QString getLclLanguage();
-    QString getLclHowtouse();
-    QString getLclRateapp();
-    QString getLclFindbug();
-    QString getLclMoredetails();
-    QString getLclDlyakogo();
-    QString getLclKoshtovnist();
-    QString getLclDepochaty();
-    QString getLclSampleSOP(); //Приклад мотивацыйного листа
-    QString getLclbtnSend(); //Кнопка отправить
-    QString getLclbtnSave(); //кнопка Зберегти
-    QString getLclInputFIO(); //Введите фамилию, имя, отчество
-    QString getLclInputCourse(); // введите курс
-    QString getLclInputGroup(); //введите группу
-    QString getLclPhnNumber(); //введите номер телефона
-    QString getLclErrorOcure(); //возникла ошибка при рег, вы уже зарег
-    QString getLclSuccesReg(); //спасибо, регистр завершена
-    QString getLclDevelLabel(); //разработчики
-    QString getLclDevelText();//студенты КНТ-229, нузп
-    QString getLclVersin();//Version: Alpha 0.3
-    QString getLclFreeChatBot(); //бесплатный чат-бот для...
-    QString getLclGuideLable();//лейбл руководство
-    QString getLclGuideText();//руководство текст
-    QString getLclBugReportLable();//Нашли баг или что-то хотите сообщить? пишите сюды
-    QString getLclDevMikeName();
-    QString getLclDevOlegName();
-    QString getLclDevDimaName();
-    QString getLclDevVladName();
-
+    QString getLclText(const int textCode) const;
     void fillTheLclValue();
     void setLang(const int langCode);
-    QString getLang();
-    QString getRegExprName();
-    QString getRegExprGroup();
-    QString getRegExprCourse();
-    QString getRegExprPhone();
-    int getLangCode();
+    QString getLang() const;
+    QString getRegExprName() const;
+    QString getRegExprGroup() const;
+    QString getRegExprCourse() const;
+    QString getRegExprPhone() const;
+    int getLangCode() const;
 private:
     QString language;
     int langCode;

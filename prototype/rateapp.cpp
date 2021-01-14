@@ -54,9 +54,9 @@ void rateApp::on_rate5_clicked()
 
 void rateApp::on_localizateWindows()
 {
-    this->setWindowTitle(Locale->getLclRateapp());
-    ui->label->setText(Locale->getLclRateapp());
-    ui->btn_Send->setText(Locale->getLclbtnSend());
+    this->setWindowTitle(Locale->getLclText(RATE_APP));
+    ui->label->setText(Locale->getLclText(RATE_APP));
+    ui->btn_Send->setText(Locale->getLclText(SEND));
 }
 
 void rateApp::on_btn_Send_clicked()

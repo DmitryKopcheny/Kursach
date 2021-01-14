@@ -36,28 +36,28 @@ MainWindow::MainWindow(QWidget *parent)
     rateAppForm = nullptr;
     settingsForm = nullptr;
 
-    this->setWindowTitle(Locale->getLclChatbot());
-    ui->menu->setTitle(Locale->getLclSettings());
-    ui->menu_2->setTitle(Locale->getLclHelp());
-    ui->menu_3->setTitle(Locale->getLclAboutprog());
-    ui->action->setText(Locale->getLclHowtouse());
-    ui->action_2->setText(Locale->getLclRateapp());
-    ui->action_3->setText(Locale->getLclMoredetails());
-    ui->action_4->setText(Locale->getLclSettings());
-    ui->action_5->setText(Locale->getLclFindbug());
-    ui->action_7->setText(Locale->getLclbtnSave());
-    ui->btn1->setText(Locale->getLclWhatisAM());
-    ui->btn2->setText(Locale->getLclUnivpartn());
-    ui->btn3->setText(Locale->getLclWantjoin());
-    ui->btn4->setText(Locale->getLclContacts());
-    ui->btn1_1->setText(Locale->getLclDlyakogo());
-    ui->btn1_2->setText(Locale->getLclLanguage());
-    ui->btn1_3->setText(Locale->getLclKoshtovnist());
-    ui->btn1_4->setText(Locale->getLclDepochaty());
-    ui->btn1_4_1->setText(Locale->getLclSampleSOP());
-    ui->btn1_back->setText(Locale->getLclNazad());
-    ui->btn2_back->setText(Locale->getLclNazad());
-    ui->btn1_4_back->setText(Locale->getLclNazad());
+    this->setWindowTitle(Locale->getLclText(CHATBOT));
+    ui->menu->setTitle(Locale->getLclText(SETTINGS));
+    ui->menu_2->setTitle(Locale->getLclText(HELP));
+    ui->menu_3->setTitle(Locale->getLclText(ABOUT_PROG));
+    ui->action->setText(Locale->getLclText(HOW_TO_USE));
+    ui->action_2->setText(Locale->getLclText(RATE_APP));
+    ui->action_3->setText(Locale->getLclText(MORE_DETAILS));
+    ui->action_4->setText(Locale->getLclText(SETTINGS));
+    ui->action_5->setText(Locale->getLclText(FOUND_BUG));
+    ui->action_7->setText(Locale->getLclText(SAVE));
+    ui->btn1->setText(Locale->getLclText(WHAT_IS_AM));
+    ui->btn2->setText(Locale->getLclText(UNIV_PARTN));
+    ui->btn3->setText(Locale->getLclText(WANT_JOIN));
+    ui->btn4->setText(Locale->getLclText(CONTACTS));
+    ui->btn1_1->setText(Locale->getLclText(FOR_WHO));
+    ui->btn1_2->setText(Locale->getLclText(LANGUAGE));
+    ui->btn1_3->setText(Locale->getLclText(PRICE));
+    ui->btn1_4->setText(Locale->getLclText(HOW_TO_START));
+    ui->btn1_4_1->setText(Locale->getLclText(SAMPLE_SOP));
+    ui->btn1_back->setText(Locale->getLclText(BACK));
+    ui->btn2_back->setText(Locale->getLclText(BACK));
+    ui->btn1_4_back->setText(Locale->getLclText(BACK));
     ui->btn2_1->setText(Chat->getUnName(0));
     ui->btn2_2->setText(Chat->getUnName(1));
     ui->btn2_3->setText(Chat->getUnName(2));
@@ -97,33 +97,34 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void  MainWindow::on_LanguageChanged() //зміни тексту всіх лейблів, кнопок, і меню, а також повідомлень бота
 {
     Chat->readFromXml(Locale->getLang());
     Chat->readFromCsv(Locale->getLang());
     Locale->fillTheLclValue();
-    this->setWindowTitle(Locale->getLclChatbot());
-    ui->menu->setTitle(Locale->getLclSettings());
-    ui->menu_2->setTitle(Locale->getLclHelp());
-    ui->menu_3->setTitle(Locale->getLclAboutprog());
-    ui->action->setText(Locale->getLclHowtouse());
-    ui->action_2->setText(Locale->getLclRateapp());
-    ui->action_3->setText(Locale->getLclMoredetails());
-    ui->action_4->setText(Locale->getLclSettings());
-    ui->action_5->setText(Locale->getLclFindbug());
-    ui->action_7->setText(Locale->getLclbtnSave());
-    ui->btn1->setText(Locale->getLclWhatisAM());
-    ui->btn2->setText(Locale->getLclUnivpartn());
-    ui->btn3->setText(Locale->getLclWantjoin());
-    ui->btn4->setText(Locale->getLclContacts());
-    ui->btn1_1->setText(Locale->getLclDlyakogo());
-    ui->btn1_2->setText(Locale->getLclLanguage());
-    ui->btn1_3->setText(Locale->getLclKoshtovnist());
-    ui->btn1_4->setText(Locale->getLclDepochaty());
-    ui->btn1_4_1->setText(Locale->getLclSampleSOP());
-    ui->btn1_back->setText(Locale->getLclNazad());
-    ui->btn2_back->setText(Locale->getLclNazad());
-    ui->btn1_4_back->setText(Locale->getLclNazad());
+    this->setWindowTitle(Locale->getLclText(CHATBOT));
+    ui->menu->setTitle(Locale->getLclText(SETTINGS));
+    ui->menu_2->setTitle(Locale->getLclText(HELP));
+    ui->menu_3->setTitle(Locale->getLclText(ABOUT_PROG));
+    ui->action->setText(Locale->getLclText(HOW_TO_USE));
+    ui->action_2->setText(Locale->getLclText(RATE_APP));
+    ui->action_3->setText(Locale->getLclText(MORE_DETAILS));
+    ui->action_4->setText(Locale->getLclText(SETTINGS));
+    ui->action_5->setText(Locale->getLclText(FOUND_BUG));
+    ui->action_7->setText(Locale->getLclText(SAVE));
+    ui->btn1->setText(Locale->getLclText(WHAT_IS_AM));
+    ui->btn2->setText(Locale->getLclText(UNIV_PARTN));
+    ui->btn3->setText(Locale->getLclText(WANT_JOIN));
+    ui->btn4->setText(Locale->getLclText(CONTACTS));
+    ui->btn1_1->setText(Locale->getLclText(FOR_WHO));
+    ui->btn1_2->setText(Locale->getLclText(LANGUAGE));
+    ui->btn1_3->setText(Locale->getLclText(PRICE));
+    ui->btn1_4->setText(Locale->getLclText(HOW_TO_START));
+    ui->btn1_4_1->setText(Locale->getLclText(SAMPLE_SOP));
+    ui->btn1_back->setText(Locale->getLclText(BACK));
+    ui->btn2_back->setText(Locale->getLclText(BACK));
+    ui->btn1_4_back->setText(Locale->getLclText(BACK));
     ui->btn2_1->setText(Chat->getUnName(0));
     ui->btn2_2->setText(Chat->getUnName(1));
     ui->btn2_3->setText(Chat->getUnName(2));
@@ -244,7 +245,7 @@ void MainWindow::on_btn3_clicked()//реєстація
     ui->layout_enter->show();
     ui->layout_main->hide();
     Chat->addNewMessage(true, ui->btn3->text());
-    Chat->addNewMessage(false, Locale->getLclInputFIO());
+    Chat->addNewMessage(false, Locale->getLclText(INPUT_FULLNAME));
     studInfo = new Student;
     displayChat();
 }
@@ -264,7 +265,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
                 throw RegisterException(1);
             }
             studInfo->fullName = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
-            message = Locale->getLclInputGroup();
+            message = Locale->getLclText(INPUT_GROUP);
         }
 
         else if (studInfo->group.isEmpty())
@@ -275,7 +276,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
             }
 
             studInfo->group = usersInput.toUpper(); //toUpper для того чтобы легче было сортировать
-            message = Locale->getLclInputCourse();
+            message = Locale->getLclText(INPUT_COURSE);
         }
 
         else if (studInfo->course == 0)
@@ -286,7 +287,7 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
             }
 
             studInfo->course = usersInput.toInt();
-            message = Locale->getLclPhnNumber();
+            message = Locale->getLclText(INPUT_PHONE_NUM);
 
         }
 
@@ -301,11 +302,11 @@ void MainWindow::on_btn_enter_clicked() //кнопка enter
 
         if (studInfo->isComplete())
         {
-            message = Locale->getLclErrorOcure();
+            message = Locale->getLclText(ERROR_OCURE);
             if (!Chat->searchForTheSame(*studInfo))
             {
                 Chat->addStudent(*studInfo);
-                message = Locale->getLclSuccesReg();
+                message = Locale->getLclText(SUCCES_REG);
             }
             delete studInfo;
             studInfo = nullptr;

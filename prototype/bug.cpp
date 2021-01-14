@@ -23,7 +23,7 @@ void bug::on_btn_Send_clicked()
 }
 void bug::on_localizateWindows()
 {
-    this->setWindowTitle(Locale->getLclFindbug());
-    ui->label_2->setText(Locale->getLclBugReportLable());
-    ui->btn_Send->setText(Locale->getLclbtnSend());
+    this->setWindowTitle(Locale->getLclText(FOUND_BUG));
+    ui->label_2->setText(Locale->getLclText(BUG_REPORT_LABLE));
+    ui->btn_Send->setText(Locale->getLclText(SEND));
 }
