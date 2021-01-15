@@ -4,20 +4,26 @@
 
 void Exception::what()
 {
-
-}
-
-FileException::FileException(QString error)
-{
-    this->error = "Error opening file:  ";
-    this->error += error;
-}
-
-void FileException::what() {
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
     msg.exec();
+}
+
+Exception::Exception()
+{
+
+}
+
+Exception::~Exception()
+{
+ error = "";
+}
+
+FileException::FileException(QString Error)
+{
+    error = "Error opening file:  ";
+    error += Error;
 }
 
 FileException::~FileException()
@@ -25,17 +31,10 @@ FileException::~FileException()
     exit(0);
 }
 
-EmptyFileException::EmptyFileException(QString error)
+EmptyFileException::EmptyFileException(QString Error)
 {
-    this->error = "File is empty or it doesn't have enough data to run:  ";
-    this->error += error;
-}
-
-void EmptyFileException::what() {
-    QMessageBox msg;
-    msg.setWindowTitle("Error information");
-    msg.setText(error);
-    msg.exec();
+   error = "File is empty or it doesn't have enough data to run:  ";
+   error += Error;
 }
 
 EmptyFileException::~EmptyFileException()
@@ -43,13 +42,13 @@ EmptyFileException::~EmptyFileException()
     exit(0);
 }
 
-ReadingDataException::ReadingDataException(QString error)
+ReadingDataException::ReadingDataException(QString Error)
 {
-    this->error = "Error the required data is empty, from file:  ";
-    this->error += error;
+    error = "Error the required data is empty, from file:  ";
+    error += Error;
 }
 
-QString ReadingDataException::whats() {
+QString ReadingDataException::what() {
     QMessageBox msg;
     msg.setWindowTitle("Error information");
     msg.setText(error);
@@ -58,43 +57,24 @@ QString ReadingDataException::whats() {
     return error;
 }
 
-ReadingDataException::~ReadingDataException()
+RegisterException::RegisterException(int Error)
 {
-    error = "";
-}
-
-RegisterException::RegisterException(int error)
-{
-    this->error = "You did not enter the data, or you entered it incorrectly. Correctly entered data are as follows: ";
-    switch (error)
+    error = "You did not enter the data, or you entered it incorrectly. Correctly entered data are as follows: ";
+    switch (Error)
     {
     case 1:
-        this->error += "Last name First name Middle name";
+        error += "Last name First name Middle name";
         break;
     case 2:
-        this->error += "KNT-229";
+        error += "KNT-229";
         break;
     case 3:
-        this->error += "number from 2 to 6";
+        error += "number from 2 to 6";
         break;
     case 4:
-        this->error += "+38(056)1234567";
+        error += "+38(056)1234567";
     }
 }
-
-void RegisterException::what()
-{
-    QMessageBox msg;
-    msg.setWindowTitle("Error information");
-    msg.setText(error);
-    msg.exec();
-}
-
-RegisterException::~RegisterException()
-{
-    error = "";
-}
-
 
 bool Validate::validates(QString str, QString regexp)
 {
