@@ -27,7 +27,7 @@ public:
     bool isEnd();
 
     bool searchForTheSame(const Student &info);
-    void quickSort(QList <Student>* studList, int left, int right);
+    void quickSort(QList <Student>* studList, const int left, const int right);
     int findMinCourse(QList <Student>* studList);
     QList<Student>*  sellectSameGroup(QList <Student>* studList);
     QList<Student>* sellectMinCourse(QList <Student>* studList);

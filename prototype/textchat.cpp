@@ -87,7 +87,7 @@ void TextChat::sortStudents()
     }
 }
 
-void TextChat::quickSort(QList <Student>* studList, int left, int right)
+void TextChat::quickSort(QList <Student>* studList, const int left, const int right)
 {
     if (right - left <= 0)
     {
