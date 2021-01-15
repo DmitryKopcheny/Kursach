@@ -1,7 +1,6 @@
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
 
-#include "exception"
 #include "QString"
 #include <QRegExp>
 #include <QRegExpValidator>
@@ -9,12 +8,14 @@
 using namespace std;
 
 
-class Exception: public exception
+class Exception
 {
 public:
-    Exception() {}
-    virtual ~Exception() {}
-    virtual void what();
+    Exception();
+    virtual ~Exception();
+    void what();
+protected:
+    QString error;
 };
 
 class FileException : public Exception
@@ -22,47 +23,32 @@ class FileException : public Exception
 public:
     FileException(QString error);
     ~FileException() override;
-    void what() override;
-private:
-    QString error;
 };
 
 class EmptyFileException : public Exception
 {
 public:
     EmptyFileException(QString error);
-    ~EmptyFileException() override;
-    void what() override;
-private:
-    QString error;
+    ~EmptyFileException() override;    
 };
 
 class  ReadingDataException : public Exception
 {
 public:
     ReadingDataException(QString error);
-    ~ReadingDataException() override;
-    QString whats();
-private:
-    QString error;
+    QString what();
 };
 
 class RegisterException : public Exception
 {
 public:
     RegisterException(int error);
-    ~RegisterException() override;
-    void what() override;
-private:
-    QString error;
 };
 
 
 class Validate
 {
 public:
-    Validate() {}
-    ~Validate() {}
     bool validates(QString str, QString regexp);
 };
 
