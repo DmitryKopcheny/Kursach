@@ -1,6 +1,7 @@
 #include "bug.h"
 #include "ui_bug.h"
 #include "localization.h"
+#include "exception.h"
 bug::bug(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::bug)
@@ -17,9 +18,20 @@ bug::~bug()
 
 void bug::on_btn_Send_clicked()
 {
-    emit BugReported(ui->textEdit->toPlainText());
-    ui->textEdit->clear();
-    this->close();
+    try {
+        if(ui->textEdit->toPlainText() == nullptr)
+        {
+            throw FormException(2);
+        }
+        emit BugReported(ui->textEdit->toPlainText());
+        ui->textEdit->clear();
+        this->close();
+    }
+
+    catch(FormException& ex)
+    {
+        ex.what();
+    }
 }
 void bug::on_localizateWindows()
 {

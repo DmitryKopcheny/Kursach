@@ -52,5 +52,9 @@ public:
     bool validates(QString str, QString regexp);
 };
 
-
+class FormException : public Exception
+{
+public:
+    FormException(int error);
+};
 #endif // EXCEPTION_H

@@ -1,6 +1,7 @@
 #include "rateapp.h"
 #include "ui_rateapp.h"
 #include "localization.h" //локализация
+#include "exception.h"
 rateApp::rateApp(Localization *Locale, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::rateApp)
@@ -61,7 +62,18 @@ void rateApp::on_localizateWindows()
 
 void rateApp::on_btn_Send_clicked()
 {
-    ui->label_2->hide();
-    emit FeedbackSent(feedback);
-    this->close();
+    try {
+        if(feedback==0)
+        {
+            throw FormException(1);
+        }
+        this->close();
+        ui->label_2->hide();
+        emit FeedbackSent(feedback);
+    }
+
+    catch(FormException& ex)
+    {
+        ex.what();
+    }
 }

@@ -93,3 +93,14 @@ bool Validate::validates(QString str, QString regexp)
     }
 }
 
+FormException::FormException(int Error)
+{
+  switch (Error)
+  {
+  case 1:
+      error = "Please rate before leaving, this is important for us. Thank you!";
+      break;
+  case 2:
+      error = "Before sending your message, please fill in the field";
+  }
+}
