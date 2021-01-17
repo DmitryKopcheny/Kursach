@@ -124,7 +124,7 @@ University &UniversityAM::formUnivFromXml(const QDomNode& univXml)
     }
     catch(ReadingDataException& ex)
     {
-        temp->univName = ex.whats();
+        temp->univName = ex.what();
     }
     return *temp;
 }
