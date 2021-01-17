@@ -109,7 +109,7 @@ void Localization::fillTheLclValue()
                     }
                catch(ReadingDataException& ex)
                     {
-                        temp = ex.whats();
+                        temp = ex.what();
                     }
                 wordList.append(temp);
             }
