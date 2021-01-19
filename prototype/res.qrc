@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>images/32.png</file>
+        <file>images/33.png</file>
+        <file>images/dema.jpg</file>
+        <file>images/misha.PNG</file>
+        <file>images/oleg.jpg</file>
+        <file>images/bug.png</file>
+        <file>images/f3e4b13c53590840e4fed95abb59075b.png</file>
+        <file>images/info.png</file>
+        <file>images/manual.png</file>
+        <file>darkstyle.css</file>
+        <file>images/darkbckgnd.jpg</file>
+        <file>images/contacts.png</file>
+        <file>images/univ.png</file>
+        <file>images/join.png</file>
+        <file>images/what.png</file>
+        <file>images/back.png</file>
+        <file>images/Bitcoin.png</file>
+        <file>images/lang.png</file>
+        <file>images/letter.png</file>
+        <file>images/start.png</file>
+        <file>images/univ1.png</file>
+        <file>images/whom.png</file>
+        <file>lightstyle.css</file>
+        <file>images/lightbckgnd.jpg</file>
+        <file>images/bot.png</file>
+        <file>images/user.png</file>
+        <file>images/rate2.png</file>
+        <file>images/rate3.png</file>
+        <file>images/rate4.png</file>
+        <file>images/rate5.png</file>
+        <file>images/rate1.png</file>
+        <file>images/vlad.jpg</file>
+        <file>images/choose.png</file>
+        <file>images/rate11.png</file>
+        <file>images/rate22.png</file>
+        <file>images/rate33.png</file>
+        <file>images/rate44.png</file>
+        <file>images/rate55.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
