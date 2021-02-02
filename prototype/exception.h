@@ -2,8 +2,8 @@
 #define EXCEPTION_H
 
 #include "QString"
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 using namespace std;
 

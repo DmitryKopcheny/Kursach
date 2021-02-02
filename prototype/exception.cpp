@@ -78,10 +78,10 @@ RegisterException::RegisterException(int Error)
 
 bool Validate::validates(QString str, QString regexp)
 {
-    QRegExp rx;
-    QRegExpValidator valid;
+    QRegularExpression rx;
+    QRegularExpressionValidator valid;
     rx.setPattern(regexp);
-    valid.setRegExp(rx);
+    valid.setRegularExpression(rx);
     int pos = 0;
     if (valid.validate(str, pos) == QValidator::Acceptable)
     {
